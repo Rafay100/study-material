@@ -160,3 +160,16 @@ body {
   stroke-dasharray: 8;
   animation: dash 2s linear infinite;
 }
+
+/* 3D Flashcard Flip Utilities */
+.transform-style-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}

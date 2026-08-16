@@ -257,22 +257,22 @@ export default function App() {
   };
 
   const currentLessonsList = 
-    activeCourse === 1 ? course1Lessons : 
+    (activeCourse === 1 ? course1Lessons : 
     activeCourse === 2 ? course2Lessons : 
     activeCourse === 3 ? course3Lessons : 
-    course4Lessons;
+    course4Lessons) || [];
 
   const currentFlashcards = 
-    activeCourse === 1 ? course1Flashcards : 
+    (activeCourse === 1 ? course1Flashcards : 
     activeCourse === 2 ? course2Flashcards : 
     activeCourse === 3 ? course3Flashcards : 
-    course4Flashcards;
+    course4Flashcards) || [];
 
   const currentQuizQuestions = 
-    activeCourse === 1 ? course1QuizQuestions : 
+    (activeCourse === 1 ? course1QuizQuestions : 
     activeCourse === 2 ? course2QuizQuestions : 
     activeCourse === 3 ? course3QuizQuestions : 
-    course4QuizQuestions;
+    course4QuizQuestions) || [];
   
   const completedLessons = 
     activeCourse === 1 ? completedLessonsC1 : 
