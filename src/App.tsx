@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { 
   BookOpen, 
   ChevronLeft, 
@@ -1920,12 +1920,12 @@ export default function App() {
 // Function to render custom diagrams for Ecosystem Concept (Course 1)
 function renderLessonDiagram(
   id: number,
-  activeRung: number,
-  setActiveRung: (n: number) => void,
-  customizationRatio: number,
-  setCustomizationRatio: (n: number) => void,
-  sliderPosition: "before" | "after",
-  setSliderPosition: (pos: "before" | "after") => void,
+  _activeRung: number,
+  _setActiveRung: (n: number) => void,
+  _customizationRatio: number,
+  _setCustomizationRatio: (n: number) => void,
+  _sliderPosition: "before" | "after",
+  _setSliderPosition: (pos: "before" | "after") => void,
   vertQuestions: Record<number, boolean>,
   setVertQuestions: (q: Record<number, boolean>) => void,
   verticalCalculated: boolean,
