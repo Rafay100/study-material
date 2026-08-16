@@ -20,224 +20,141 @@ export interface Lesson {
 export const lessons: Lesson[] = [
   {
     id: 1,
-    title: "What is an Ecosystem?",
-    shortTitle: "What is an Ecosystem?",
-    explanation: "An Ecosystem refers to a group of multiple connected parts that work together in harmony as one larger, unified system. In the AI world, we don't just use a single chatbot. We connect textbooks, databases, teachers, developers, and worker bots together. This collection of tools forms an AI Agent Factory Ecosystem.",
-    explanationUrdu: "Ecosystem ka matlab hai aisi system jahan boht se chote chote parts aapas mein mil kar ek bara aur connected unit banate hain. AI Agent Factory mein hum sirf aik robot ya chatbot use nahi karte, balkay Books, Databases, AI Teachers, aur AI Workers sab ko aapas mein connect karte hain jo aik ecosystem banata hai.",
-    analogy: "Think of a school. A school is not just a building or a teacher. A school is teacher + students + books + exams + records + departments. All these connected parts form an educational ecosystem.",
-    example: "Instead of just asking ChatGPT to code a feature, your system reads the official textbook (Canonical Book), queries the database (System of Record), checks your study progress (AI Tutor), and lets another AI write the code (AI Developer). They all work as one team.",
-    remember: "Ecosystem = connected parts working together as one team.",
-    whyMatters: "Without an ecosystem, AI tools are isolated. They don't share knowledge, causing confusion and duplicate work.",
+    title: "The Ecosystem Concept",
+    shortTitle: "Ecosystem Concept",
+    explanation: `What is it?
+An AI Ecosystem is a unified network of connected parts—including textbooks, Systems of Record (SoR), AI Tutors, AI Developers, and Vertical Workers—working together around one shared source of truth.
+
+Why does it matter?
+Without an ecosystem, AI tools are isolated. They don't share knowledge, leading to contradictions, learning gaps, and duplicate work. An ecosystem aligns both humans and AI on the same definitions.
+
+How does it work?
+We stop treating textbooks as static files. We turn them into active, governed Systems of Record. One single source serves human learners (as a web page) and AI agents (via standard connectors), enabling tutors to teach and developer agents to build.
+
+Simple Example
+Instead of asking Claude to write code from its generic memory (which might include outdated standards), it queries the official System of Record (textbook) first to read the exact, approved architecture guidelines.
+
+Key Takeaway
+Ecosystem = multiple connected subsystems interacting as a single machine around a single source of truth.`,
+    explanationUrdu: `Yeh Kya Hai?
+AI Ecosystem aik aisi connected parts ki body hai jo aik standard Source of Truth ke gird mil kar kaam karti hai—jaise textbook, Systems of Record (SoR), AI Tutor, aur AI Developer.
+
+Yeh Kyun Zaroori Hai?
+Ecosystem ke bina AI tools akele kaam karte hain, jis se woh ghalat information (hallucinations) dete hain aur human progress track nahi kar paate.
+
+Yeh Kaise Kaam Karta Hai?
+Hum books ko static text ke bajaye dynamic System of Record banate hain. Is se humans aur AI agents dono same data read karte hain, jis se training-data guesses khatam ho jate hain.
+
+Sada Misaal
+Kisi chatbot ko manually copy-paste karne ke bajaye, AI Tutor direct system se connected hota hai. Woh aap ki progress check kar ke wahan se start karta hai jahan aap ne chorra tha.
+
+Aham Nuqta
+Ecosystem ka matlab hai sab parts ka aik hi source of truth ke gird aapas mein connect ho kar kaam karna.`,
+    analogy: "Think of a school. A school is not just a building. It is a connected ecosystem of books, student gradebooks, private teachers, and final exam certificates.",
+    example: "Instead of copy-pasting code into Claude, the system automatically checks your Zia Tutor progress, retrieves the textbook chapters, and writes the code using those exact specs.",
+    remember: "Ecosystem = connected parts working together on a single source of truth.",
+    whyMatters: "Without an ecosystem, AI tools are isolated and cannot share context.",
     diagramType: "ecosystem_intro",
     miniQuestion: {
-      question: "Which of the following best describes an Ecosystem in AI Agent Factory?",
+      question: "What is the core decision that defines the Agent Factory ecosystem?",
       options: [
-        "A single standalone chatbot like ChatGPT",
-        "A group of multiple connected parts (books, records, tutors, workers) working together",
-        "A physical green garden near the servers",
-        "A backup database copy"
+        "Treating the textbook as a governed System of Record for both humans and AI",
+        "Using only physical textbooks and offline classrooms",
+        "Replacing all databases with simple text files",
+        "Running AI models entirely on local mobile screens"
       ],
-      correct: 1,
-      explanation: "Correct! Ecosystem stands for multiple connected parts working in sync."
+      correct: 0,
+      explanation: "Correct! Treating the textbook as an active System of Record is the foundation of the ecosystem."
     }
   },
   {
     id: 2,
     title: "System of Record",
     shortTitle: "System of Record",
-    explanation: "A System of Record (SoR) is the single, official, and authoritative source of truth where correct information is stored. When different components or AI agents need to look up facts, they must query this specific system to ensure everyone uses the exact same data.",
-    explanationUrdu: "System of Record (SoR) ek aisi official jagah hoti hai jise hum 'Source of Truth' (sach ka markaz) kehte hain. Agar system mein koi bhi data verify karna ho, to sab isi database ya document ko dekhte hain taake information mein koi farq na ho.",
-    analogy: "Imagine a family where different members have different phone numbers saved for Uncle Bob. If they write the official, correct number on a yellow notepad stuck to the fridge, that notepad becomes the 'System of Record' for Uncle Bob's number.",
-    example: "If an AI Agent Factory needs to know how many lessons a student completed, it doesn't estimate or guess; it queries the official SQL Database which is the System of Record for learner records.",
-    remember: "System of Record = the official, single source of truth.",
-    whyMatters: "If AI agents use different sources, they will contradict each other. A System of Record ensures consistency.",
+    explanation: `What is it?
+A System of Record (SoR) is the single, official, and authoritative database where the correct and verified version of information is stored.
+
+Why does it matter?
+If AI agents and humans query different sources, they will contradict each other. An SoR ensures consistency, accuracy, and stops AI models from making training-data guesses.
+
+How does it work?
+The textbook content is broken down into structured chunks, indexed, and served over Model Context Protocol (MCP). Any AI agent or web client can query this MCP server to fetch grounded facts.
+
+Simple Example
+If a client and an AI spreadsheet disagree on tax rates, they query the tax department's System of Record. The SoR data always wins.
+
+Key Takeaway
+System of Record = the official, single source of truth served to humans and AI.`,
+    explanationUrdu: `Yeh Kya Hai?
+System of Record (SoR) ek aisi official aur authoritative jagah hoti hai jahan correct version of data store hota hai.
+
+Yeh Kyun Zaroori Hai?
+Agar AI agents generic training data se answers den ge to woh ghalat information generate karein ge. SoR hone se unhein exact aur authentic facts milte hain.
+
+Yeh Kaise Kaam Karta Hai?
+Book ke content ko index kar ke Model Context Protocol (MCP) server ke zariye expose kiya jata hai, taake standard interfaces se query kiya ja sake.
+
+Sada Misaal
+Agar aik customer lists ke multiple versions hain, to hum database (System of Record) check karte hain. Jo database mein likha hai, wohi sach mana jata hai.
+
+Aham Nuqta
+SoR = Official single source of truth jise humans aur AI dono query karte hain.`,
+    analogy: "Think of the official constitution of a country. There are many blogs explaining the law, but the original signed constitution document is the System of Record.",
+    example: "Connecting the Agent Factory SoR to Claude via its custom connector settings using the URL https://sor.panaversity.org/mcp, allowing Claude to cite exact book sections.",
+    remember: "System of Record = the official, single source of truth served to humans and AI.",
+    whyMatters: "Without an SoR, AI tools hallucinate and contradict each other.",
     diagramType: "system_of_record",
     miniQuestion: {
-      question: "What is a System of Record?",
+      question: "How do AI agents access the Agent Factory System of Record?",
       options: [
-        "A device that records AI voices",
-        "The official, authoritative source of truth for information",
-        "A notebook where developers sketch ideas",
-        "An AI chatbot that replies automatically"
+        "By scraping public search engine pages",
+        "Through a standardized Model Context Protocol (MCP) server connection",
+        "Via physical USB drives sent to the labs",
+        "By reading static PDF files copy-pasted manually every time"
       ],
       correct: 1,
-      explanation: "Spot on! The System of Record is the single source of truth for authoritative information."
+      explanation: "Correct! MCP provides a standardized bridge for agents to query the System of Record."
     }
   },
   {
     id: 3,
-    title: "Canonical Knowledge",
-    shortTitle: "Canonical Knowledge",
-    explanation: "The word 'canonical' means official, original, authoritative, and trusted version. Canonical Knowledge is the core textbook or resource that contains approved information. If there are five different notes on a topic, the officially approved reference textbook is the canonical version.",
-    explanationUrdu: "Canonical ka matlab hota hai official, authentic aur standard version. Canonical Knowledge wo basic book ya knowledge base hai jise final aur sahi maana jaye. Agar 5 alag-alag sources hain, to jo system ne official declare kiya hai, wo canonical knowledge hai.",
-    analogy: "Think of the official constitution of a country. There are many blogs, books, and articles explaining the law, but the original signed constitution document is the 'canonical' source.",
-    example: "In the AI Agent Factory, the core training manual or course book is stored as a 'Canonical Book' to ensure the AI Tutor does not teach outdated or incorrect procedures.",
-    remember: "Canonical = the official, authorized standard version.",
-    whyMatters: "AI hallucination (inventing fake facts) is reduced when the AI is restricted to teach or build software using ONLY the canonical source.",
-    diagramType: "canonical_knowledge",
-    miniQuestion: {
-      question: "What does 'Canonical' mean in our learning journey?",
-      options: [
-        "A backup database code",
-        "A fast computer processing method",
-        "The officially approved, original, and trusted version",
-        "An AI learning technique"
-      ],
-      correct: 2,
-      explanation: "Yes! Canonical refers to the officially approved, trusted source."
-    }
-  },
-  {
-    id: 4,
-    title: "Traditional Learning Model",
-    shortTitle: "Traditional Learning",
-    explanation: "In the traditional education and software development model, humans do all the knowledge digestion. A textbook is read by a student. The student practices, graduates, becomes a developer, and manually writes the software. The textbook has no direct link to the software itself.",
-    explanationUrdu: "Traditional learning model mein sara kaam humans ko khud karna parta tha. Ek student textbook parhta hai, seekhta hai, developer banta hai, aur phir computer par jaa kar software code karta hai. Textbook ka aur program ka aapas mein koi direct computational link nahi hota.",
-    analogy: "A recipe book sits on a shelf. A human reads the recipe, cooks the dish, and serves it. The book itself cannot mix the ingredients or turn on the stove.",
-    example: "A student studies SQL database creation from a textbook, writes SQL code in an editor, debugs errors manually, and runs it on a server.",
-    remember: "Traditional Model = Textbook → Student → Developer → Software.",
-    whyMatters: "This flow is slow and depends heavily on human memory. If the developer forgets a rule, the software gets bugs.",
-    diagramType: "traditional_learning",
-    miniQuestion: {
-      question: "In the traditional model, who digests the textbook and writes the code?",
-      options: [
-        "The AI Agent",
-        "The automated build server",
-        "The human student who becomes a developer",
-        "The MCP network"
-      ],
-      correct: 2,
-      explanation: "Correct! The human has to read, learn, and manually code everything."
-    }
-  },
-  {
-    id: 5,
-    title: "AI Changes the Learning Model",
-    shortTitle: "AI Changes Learning",
-    explanation: "With Large Language Models (LLMs), AI can now digest textbooks, answer programming queries, write code fragments, and explain databases. This means the AI can act as the intermediary between knowledge and software creation. However, standard LLMs lack structured tracking, leading to learning gaps.",
-    explanationUrdu: "Ab AI ke aane se ye model badal gaya hai. AI direct textbook ko read kar sakta hai, answers de sakta hai, code generate kar sakta hai. Lekin generic AI ke paas user ki sequential progress track karne ka koi system nahi hota, jis se study mein gaps reh jate hain.",
-    analogy: "Imagine an expert who knows everything but has amnesia. Every time you ask a question, they reply, but they forget who you are, what you already know, and what they taught you 5 minutes ago.",
-    example: "If you ask ChatGPT about databases, it will explain it. But if you return tomorrow, it won't remember that you already know SQL and will explain SQL basics all over again.",
-    remember: "AI speeds up learning but lacks structure, sequence, and memory without an ecosystem.",
-    whyMatters: "Without structure, learners get confused by advanced topics before learning the basics.",
-    diagramType: "ai_changes_learning",
-    miniQuestion: {
-      question: "What is the primary drawback of using generic AI (like raw ChatGPT) for structured learning?",
-      options: [
-        "It is too slow to generate responses",
-        "It lacks structured sequence, learner records, and teaching methodology",
-        "It cannot write code syntax",
-        "It does not support dark mode interfaces"
-      ],
-      correct: 1,
-      explanation: "Yes! Raw AI does not track your course levels, progress, or structured learning path."
-    }
-  },
-  {
-    id: 6,
-    title: "Problems with Generic AI Teaching",
-    shortTitle: "Generic AI Problems",
-    explanation: "When we use generic AI for education, we face four critical problems: 1) No guaranteed teaching sequence (it might teach advanced topics first), 2) No clear starting and ending points, 3) No structured learner record (it doesn't save what you mastered), and 4) No guaranteed teaching methodology (it just prints text instead of teaching step-by-step).",
-    explanationUrdu: "Generic AI teaching mein 4 problems aate hain: 1) Parhanay ki koi fixed sequence nahi hoti, 2) Shuru aur aakhir ka nahi pata hota, 3) Student ka koi track record nahi save hota, aur 4) Koi proper teaching method ya system nahi hota (bas raw answers hote hain).",
-    analogy: "A library contains all the books. But if a child enters, the library won't tell them where to start, which book is right for their age, or test them on page 5.",
-    example: "A generic AI might show you complex SQL Joins before explaining what a Database Table is. This leads to information overload.",
-    remember: "Generic AI = Question → Answer. Structured Tutor = Level Check → Lesson → Assessment → Progress.",
-    whyMatters: "To convert a beginner to an expert, structured sequencing is essential.",
-    diagramType: "generic_vs_structured",
-    miniQuestion: {
-      question: "Which of the following is NOT one of the 4 problems of generic AI teaching?",
-      options: [
-        "No guaranteed teaching sequence",
-        "No structured learner record",
-        "AI answers are always written in French",
-        "No guaranteed teaching methodology"
-      ],
-      correct: 2,
-      explanation: "Correct! AI language isn't limited to French. The actual problems are sequence, records, starting/ending, and methodology."
-    }
-  },
-  {
-    id: 7,
-    title: "Textbook as System of Record",
-    shortTitle: "Textbook as SoR",
-    explanation: "To solve these problems, the AI Agent Factory makes the Canonical Book act as the System of Record. This means the textbook becomes a digital database that both the AI Tutor and human student consult. The book is not just static text, it is an active database.",
-    explanationUrdu: "In problems ko solve karne ke liye hum textbook ko normal book nahi balkay 'System of Record' (SoR) bana dete hain. AI Tutor aur human student dono isi dynamic book ko check karte hain. Ye textbook data backend ban jati hai.",
-    analogy: "A cook and a smart oven both refer to the exact same digital recipe file. If the cook updates the bake time, the oven reads the update automatically.",
-    example: "The textbook chapters are indexed in a database. When a student progresses to Lesson 8, the database registers that state, and the AI Tutor knows exactly which canonical content from the textbook to fetch.",
-    remember: "Canonical Book + System of Record = AI-accessible authoritative curriculum.",
-    whyMatters: "It anchors the AI to a trusted text, stopping the AI from teaching wrong concepts.",
-    diagramType: "textbook_as_sor",
-    miniQuestion: {
-      question: "Why do we treat the Canonical Book as a System of Record?",
-      options: [
-        "So it can be printed easily",
-        "To serve as a single database source of truth that humans and AI both look at",
-        "To make the AI write book reviews",
-        "To replace databases with physical paper"
-      ],
-      correct: 1,
-      explanation: "Correct! It provides a shared, authoritative knowledge source for both human learners and AI tools."
-    }
-  },
-  {
-    id: 8,
-    title: "MCP Explained",
-    shortTitle: "MCP Explained",
-    explanation: "MCP stands for Model Context Protocol. It is an open standard that allows AI agents to securely connect to external data sources, files, and tools. Instead of writing custom connectors for every new database or app, MCP provides a standard plug-and-play socket for AI.",
-    explanationUrdu: "Model Context Protocol (MCP) ek standard tareeqa hai jis se AI agents external sources ya tools ke saath plug-and-play connect ho sakte hain. Is se AI easily dynamic data, databases, ya systems of records ko safely read and write kar sakta hai.",
-    analogy: "Think of a USB port. Before USB, every device (mouse, keyboard, printer) had its own unique plug. USB standardized the connection. MCP is the USB port for AI models.",
-    example: "Your AI Tutor uses MCP to read the Canonical Book database, fetch your progress record, and save your quiz score into the Local System of Record.",
-    remember: "MCP = The standard USB-like connection port between AI and external tools/records.",
-    whyMatters: "Without MCP, connecting AI to your business database requires complex, proprietary custom coding.",
-    diagramType: "mcp_visual",
-    miniQuestion: {
-      question: "What is the main purpose of the Model Context Protocol (MCP)?",
-      options: [
-        "To train large language models from scratch",
-        "To act as a standardized bridge connecting AI models to external data and tools",
-        "To translate code to Urdu",
-        "To check the speed of the user's internet connection"
-      ],
-      correct: 1,
-      explanation: "Spot on! MCP is a standardized connector linking AI models to tools and databases."
-    }
-  },
-  {
-    id: 9,
-    title: "Four Rungs of AI Usage",
-    shortTitle: "Four Rungs of AI",
-    explanation: "AI adoption happens in four sequential rungs: 1) Paste the URL into AI (Simple chat, copy-paste), 2) Connect AI to the System of Record (AI accesses actual files automatically), 3) Use Zia Tutor AI (AI behaves as a structured teacher guiding the user), and 4) Use Zia Developer AI (AI acts as a software developer, building and updating actual code directly).",
-    explanationUrdu: "AI use karne ke 4 levels (rungs) hain: Rung 1: Custom copy-paste (URL ya text dalna). Rung 2: AI ko SoR se connect karna (autofetch). Rung 3: Zia Tutor use karna (structured parhai). Rung 4: Zia Developer use karna (actual project generation aur software coding).",
-    analogy: "Rung 1 is like carrying buckets of water. Rung 2 is laying a pipe to the well. Rung 3 is hiring a water manager. Rung 4 is building a fully automated water distribution factory.",
-    example: "Instead of copy-pasting code into ChatGPT (Rung 1), connecting it to your GitHub repository is Rung 2. Having a tutor teach you coding rules is Rung 3, and letting the AI write the code on your repo is Rung 4.",
-    remember: "Moving up the rungs reduces manual human effort and increases AI automation.",
-    whyMatters: "Understanding the rungs helps businesses identify how mature their AI usage is.",
-    diagramType: "four_rungs",
-    miniQuestion: {
-      question: "Which rung represents the highest level of AI maturity, where AI directly builds and modifies code?",
-      options: [
-        "Rung 1: Paste URL into AI",
-        "Rung 2: Connect AI to SoR",
-        "Rung 3: Use Zia Tutor AI",
-        "Rung 4: Use Zia Developer AI"
-      ],
-      correct: 3,
-      explanation: "Correct! Rung 4 (Zia Developer AI) executes code building and software generation automatically."
-    }
-  },
-  {
-    id: 10,
     title: "Zia Tutor AI",
     shortTitle: "Zia Tutor AI",
-    explanation: "Zia Tutor is the specialized AI teacher. It operates using four key records: 1) Knowledge Record (what to teach), 2) Identity Record (how the AI behaves, e.g., friendly), 3) Learner Record (the student's current progress), and 4) Personal Profile (personal details of the learner). Zia Tutor uses these to create a customized lesson path.",
-    explanationUrdu: "Zia Tutor ek AI Teacher hai jo 4 records use karta hai: Knowledge Record (curriculum kya hai), Identity Record (teacher ka behave kaisa hoga), Learner Record (kitna parh chuke ho), aur Personal Profile (apke baray mein basic details). Is se parhai personalized ho jati hai.",
-    analogy: "A private home tutor who has a diary. The diary has the textbook (Knowledge), rules of behavior (Identity), your past quiz grades (Learner Record), and your hobby details (Personal Profile).",
-    example: "If you log off for three days, when you return, Zia Tutor reads the Learner Record, greets you by name from your Personal Profile, and says, 'Let's resume from Lesson 10.'",
-    remember: "Zia Tutor AI = Knowledge + Identity + Learner Record + Personal Profile → Personalized teaching.",
-    whyMatters: "It ensures learners never repeat lessons and get material suited to their speed.",
+    explanation: `What is it?
+Zia Tutor AI is a personalized learning agent built as a digital twin of Zia Khan. It guides the student's progress by combining four key records.
+
+Why does it matter?
+Generic AI chatbots have amnesia: they lack lesson sequence, memory of your past struggles, and structured teaching methods. Zia Tutor personalizes learning at scale.
+
+How does it work?
+It combines: 1) Knowledge Record (textbook SoR), 2) Identity Record (voice & methodology), 3) Learner Record (completed lessons & scores), and 4) Personal Profile (learner background).
+
+Simple Example
+When you log in, Zia Tutor greets you by name, recalls that you completed Lesson 2 yesterday, and asks a custom review question before starting Lesson 3.
+
+Key Takeaway
+Zia Tutor = Knowledge + Identity + Learner Record + Personal Profile.`,
+    explanationUrdu: `Yeh Kya Hai?
+Zia Tutor AI aik personalized learning agent hai jo Zia Khan ka digital twin hai aur students ko customized parhai karwata hai.
+
+Yeh Kyun Zaroori Hai?
+Aam AI bots ko parhane ka tareeqa nahi pata hota aur woh sequence bhool jate hain. Zia Tutor har student ka alag record maintain karta hai.
+
+Yeh Kaise Kaam Karta Hai?
+Yeh char records ko use karta hai: Knowledge (syllabus), Identity (style), Learner Record (progress), aur Personal Profile (background).
+
+Sada Misaal
+Zia Tutor aap ko SQL parhane se pehle check kare ga ke kya aap tables ke basics jante hain ya nahi, taake sahi sequence bani rahe.
+
+Aham Nuqta
+Zia Tutor AI learning ko structured, sequential, aur personalized banata hai.`,
+    analogy: "A private home tutor who keeps a diary containing the textbook chapters, their behavioral rules, your past grades, and your personal study preferences.",
+    example: "When you log back into Claude and run /zia-tutor-ai, Zia Tutor greets you by name, recalls that you completed Lesson 2, and prompts you to start Lesson 3.",
+    remember: "Zia Tutor = Knowledge + Identity + Learner Record + Personal Profile.",
+    whyMatters: "Without Zia Tutor, learners get overwhelmed by raw information without a logical path.",
     diagramType: "zia_tutor",
     miniQuestion: {
-      question: "Which record helps Zia Tutor remember which lessons a student has already completed?",
+      question: "Which record helps Zia Tutor remember what a student has already mastered?",
       options: [
         "Identity Record",
         "Learner Record",
@@ -245,311 +162,316 @@ export const lessons: Lesson[] = [
         "External Internet Record"
       ],
       correct: 1,
-      explanation: "Yes! The Learner Record saves student progress so the tutor knows what's completed."
+      explanation: "Correct! The Learner Record saves student progress so the tutor knows what is completed."
     }
   },
   {
-    id: 11,
+    id: 4,
     title: "Zia Developer AI",
     shortTitle: "Zia Developer AI",
-    explanation: "Zia Developer is the AI engineering assistant. Unlike the Tutor (which teaches humans), the Developer acts on instructions to build systems. It follows a sequential lifecycle: Requirement → Architecture → Specification → Build → Test → Install.",
-    explanationUrdu: "Zia Developer aik AI software builder hai. Tutor humein parhata hai, jabke Zia Developer software code banata hai. Ye requirements ko parhta hai, architecture sochta hai, specs banata hai, code likhta hai (build), tests run karta hai, aur deployment karta hai.",
-    analogy: "A construction manager. You give them a plan. They design the blueprint, build the walls, test the stability, and hand over the keys.",
-    example: "You tell Zia Developer: 'Create a login form.' The AI designs it, writes the TSX code, tests it for validation errors, and integrates it into the project files.",
+    explanation: `What is it?
+Zia Developer AI is an AI engineering assistant designed to automate the software development lifecycle from specifications to deployment.
+
+Why does it matter?
+Writing manual boilerplate code is slow and prone to human memory gaps. Zia Developer automates coding steps while keeping humans in control.
+
+How does it work?
+Running inside Claude Code or OpenCode, it reads the same System of Record. It executes the lifecycle: Requirement → Architecture → Specification → Build → Test → Install.
+
+Simple Example
+You write a brief prompt; Zia Developer builds a loop framework, automatically creates the validation tests, runs compile checks, and installs the files.
+
+Key Takeaway
+Zia Developer AI handles code execution, following the 10-80-10 rhythm.`,
+    explanationUrdu: `Yeh Kya Hai?
+Zia Developer AI aik AI software builder hai jo requirements se lekar actual deployment tak pure software lifecycle ko automate karta hai.
+
+Yeh Kyun Zaroori Hai?
+Manual boilerplate code likhna boht slow hota hai. Zia Developer coding tasks ko standard architecture templates ke zariye boht fast kar deta hai.
+
+Yeh Kaise Kaam Karta Hai?
+Yeh pure development flow ko follow karta hai: Requirement ➔ Architecture ➔ Specs ➔ Build ➔ Test ➔ Install.
+
+Sada Misaal
+Aap CLI command /vsor run karte hain, aur Zia Developer vector search aur database pipelines ke sath complete repository frame ready kar deta hai.
+
+Aham Nuqta
+Zia Developer AI system building ko speed up aur automate karta hai.`,
+    analogy: "A construction manager who takes your blueprint, manages the automated bricklayers, runs stability checks, and hands you the keys for final inspection.",
+    example: "Using the command /vsor in Claude Code to let Zia Developer scaffold a complete vertical System of Record using pre-tested repository templates.",
     remember: "Zia Tutor teaches humans. Zia Developer builds software.",
-    whyMatters: "Automating the software lifecycle allows human developers to focus on architecture and specifications.",
+    whyMatters: "Automating coding lifecycles frees developers to focus on high-level architecture.",
     diagramType: "zia_developer",
     miniQuestion: {
-      question: "What is the primary difference between Zia Tutor and Zia Developer?",
+      question: "What is the workflow rhythm enforced by Zia Developer AI?",
       options: [
-        "Zia Tutor helps humans learn; Zia Developer helps build software and systems",
-        "Zia Tutor is free; Zia Developer is paid",
-        "Zia Developer is an offline PDF document",
-        "Zia Tutor only teaches grammar rules"
+        "10% Human specs ➔ 80% AI creation ➔ 10% Human approval",
+        "80% Human specs ➔ 20% AI creation",
+        "100% autonomous AI execution without humans",
+        "50% Human coding ➔ 50% AI testing"
       ],
       correct: 0,
-      explanation: "Correct! Tutor is for learning, Developer is for building."
+      explanation: "Correct! The 10-80-10 rule ensures speed via AI while keeping humans in control for quality."
     }
   },
   {
-    id: 12,
-    title: "Vertical AI",
-    shortTitle: "Vertical AI",
-    explanation: "Vertical AI refers to an AI system that is highly specialized in a single industry, profession, or domain (e.g. Sales AI, Accounting AI, Legal AI). Instead of trying to know everything about the world, it focuses deeply on one specific vertical workflow.",
-    explanationUrdu: "Vertical AI ka matlab hai kisi specific industry ya domain (jaise Accounting, HR, ya Legal) ka expert AI. Generalized answers dene ke bajaye, ye sirf us specific field ke professional rules follow karta hai.",
-    analogy: "A general physician vs. a heart surgeon. General AI is the GP (knows a little of everything), while Vertical AI is the specialist surgeon.",
-    example: "An Accounting Vertical AI knows everything about GAAP accounting rules and spreadsheet tax formulas, but doesn't know how to write a movie script.",
-    remember: "General AI = Broad knowledge. Vertical AI = Deep, industry-specific expertise.",
-    whyMatters: "Generic AI often fails in specific industries because it lacks deep domain rules. Vertical AI solves this.",
-    diagramType: "vertical_ai",
+    id: 5,
+    title: "The FDE AF Model",
+    shortTitle: "The FDE AF Model",
+    explanation: `What is it?
+The Forward Deployed Engineer Agent Factory (FDE AF) Model is an architectural framework composed of five shared layers.
+
+Why does it matter?
+Rebuilding custom systems from scratch is slow and expensive. The FDE AF model provides a reusable platform architecture to deploy AI systems rapidly.
+
+How does it work?
+It scales through 5 layers: Layer 0 (foundation framework), Layer 1 (SoR kernel), Layer 2 (teaching/dev tools), Layer 3 (vertical ecosystems), and Layer 4 (custom client instances).
+
+Simple Example
+Panaversity maintains the core Layer 0-2 stack. You build a Layer 3 tax vertical, and customize the API keys (Layer 4) for a client.
+
+Key Takeaway
+FDE AF Model enables rapid scaling using the One Law: repeated customization moves down to core layers.`,
+    explanationUrdu: `Yeh Kya Hai?
+FDE AF Model aik architectural aur business framework hai jo 5 layers par mushtamil hai (Layer 0 se Layer 4).
+
+Yeh Kyun Zaroori Hai?
+Custom software har baar zero se banana expensive aur slow hota hai. Is model ke zariye base code reusable rehta hai.
+
+Yeh Kaise Kaam Karta Hai?
+Yeh 5 levels use karta hai. Iska 'One Law' kehta hai ke jab koi feature repeat ho to use core vertical stack (Layer 3) mein push kar dein.
+
+Sada Misaal
+Ayesha standard accounting bot (80% core) leti hai aur client ke SAP credentials (20%) connect kar ke product install kar deti hai.
+
+Aham Nuqta
+One Law: Bar bar repeat hone wale customization features ko shared core layer mein promote kar dena chahiye.`,
+    analogy: "A car manufacturing system: design standard parts at the factory (80% core), then send local mechanics (FDEs) to assemble and add custom colors and accessories for each car buyer (20% customization).",
+    example: "Ayesha builds a core vertical accounting builder (Layer 3), then works as an FDE to customize the integration keys (20%) for a Chicago logistics client (Layer 4).",
+    remember: "FDE AF Model = 5 layers + One Law of Promotion.",
+    whyMatters: "The FDE AF Model prevents software companies from becoming simple, non-scalable custom dev shops.",
+    diagramType: "fde_af_model",
     miniQuestion: {
-      question: "What does 'Vertical' mean in Vertical AI?",
+      question: "What does the One Law of the FDE AF Model state?",
       options: [
-        "The screen alignment",
-        "A specific industry, domain, or profession",
-        "AI code that runs vertically in columns",
-        "A fast database connection"
+        "All code must be deleted after the project ends",
+        "Any customization pattern that repeats across multiple clients must be promoted to the lower, shared layer",
+        "Every AI worker must run offline on physical desktops",
+        "Developers must charge hourly rates instead of outcome rates"
       ],
       correct: 1,
-      explanation: "Yes! Vertical stands for a specific industry or domain (like HR, Sales, Legal)."
+      explanation: "Correct! The One Law prevents a platform from collapsing into a custom dev shop by promoting repeated work."
     }
   },
   {
-    id: 13,
-    title: "Vertical System of Record",
-    shortTitle: "Vertical SoR",
-    explanation: "A Vertical System of Record contains the authoritative, specialized database, rules, and rules-books for a specific industry. For example, an Accounting SoR houses the official financial guidelines, tax rules, and local accounting structures.",
-    explanationUrdu: "Vertical SoR mein kisi specific industry (e.g., Accounting ya Healthcare) ke official rules aur databases hote hain. Is se domain-specific AI workers ko correct industry logic feed kiya jata hai.",
-    analogy: "A law book library dedicated purely to maritime law. A maritime lawyer refers only to this library for cases.",
-    example: "The 'Agent Factory SoR' plus the 'Accounting SoR' combine to feed correct tax rules directly to Accounting AI Workers.",
-    remember: "Vertical SoR = The official database for a specific industry's rules and records.",
-    whyMatters: "Without a Vertical SoR, AI workers might use generic information that violates local industry laws.",
-    diagramType: "vertical_sor",
+    id: 6,
+    title: "Choosing Your Vertical",
+    shortTitle: "Choose Vertical",
+    explanation: `What is it?
+Choosing Your Vertical is the discipline of selecting a highly specific profession combined with a local jurisdiction to build an AI domain startup.
+
+Why does it matter?
+Broad AI apps (like "Legal AI") are too competitive. Highly focused verticals face low competition and can deliver high-value outcomes.
+
+How does it work?
+We filter opportunities using the 8 tests, including: expert partner access, public laws governance, poorly documented English rules, and client willingness to pay.
+
+Simple Example
+Selecting "Karachi customs clearance rules" is a solid vertical because the rules are complex, public, and require local clearing expert validation.
+
+Key Takeaway
+No expert practitioner partner = Do NOT build a Vertical. Start with service work.`,
+    explanationUrdu: `Yeh Kya Hai?
+Vertical chunne ka matlab hai kisi specific profession aur local jurisdiction (shehar ya mulk) ko select kar ke us par deep AI tool banana.
+
+Yeh Kyun Zaroori Hai?
+Generic apps har jagah hain aur un mein margins kam hain. Focused verticals mein competition boht kam aur profitability zyada hoti hai.
+
+Yeh Kaise Kaam Karta Hai?
+FDEs 8 readiness tests apply karte hain, jaise expert partner ka hona aur rules ka public law ke mutabiq hona.
+
+Sada Misaal
+'Pakistan Tax compliance' aik strong vertical hai kyunke is ke rules complex hain aur unhein verify karne ke liye local expert partner ka access zaroori hai.
+
+Aham Nuqta
+Senior domain expert ke bina vertical design nahi karna chahiye.`,
+    analogy: "Choosing a crop to plant: checking if you have water supply, suitable soil, local weather data, and a farmer who knows how to grow it.",
+    example: "Selecting 'Import/Export customs compliance rules in Karachi' is a strong vertical because rules are complex, public, and require local clearing agent expertise.",
+    remember: "No expert access = Do NOT build a Vertical. Start with Service work.",
+    whyMatters: "Focused verticals solve real, complex pain points that generic AI cannot handle without rules.",
+    diagramType: "vertical_selection",
     miniQuestion: {
-      question: "What does a Vertical System of Record store?",
+      question: "Which of the following is a key requirement for choosing a vertical?",
       options: [
-        "Generic search engine results",
-        "Authoritative knowledge, rules, and workflows for a specific industry",
-        "Daily developer chat logs",
-        "Photos of the office team"
+        "Access to a senior domain practitioner to govern the rules",
+        "Selecting the broadest possible industry niche",
+        "Ignoring local jurisdiction laws",
+        "Avoiding any database connections"
       ],
-      correct: 1,
-      explanation: "Spot on! It holds domain-specific authoritative guidelines and databases."
+      correct: 0,
+      explanation: "Correct! Partnering with a senior practitioner is vital to ensure rules are accurate and compliant."
     }
   },
   {
-    id: 14,
-    title: "AI Workers",
-    shortTitle: "AI Workers",
-    explanation: "An AI Worker is an AI agent designed to perform an actual operational job, rather than just answering questions. While a chatbot chats, an AI Worker operates pipelines, checks forms, updates databases, and triggers APIs.",
-    explanationUrdu: "AI Worker sirf sawaal-jawaab (chat) nahi karta, balkay actual kaam karta hai. Maslan, Lead dhundna, verify karna, CRM update karna, aur email send karna. Chatbot bas baat karta hai, Worker kaam karta hai.",
-    analogy: "A visitor asking directions at a reception desk (Chatbot) vs. an employee who actively files documents and processes orders (AI Worker).",
-    example: "A Sales AI Worker does: Lead identification → Lead qualification → CRM update → Automated follow-up email. It operates autonomously.",
-    remember: "Chatbot answers questions. AI Worker performs actions and workflows.",
-    whyMatters: "Real business value comes from getting work done, not just having conversations.",
-    diagramType: "ai_worker",
+    id: 7,
+    title: "Designing the Vertical SoR",
+    shortTitle: "Design SoR",
+    explanation: `What is it?
+Designing a Vertical SoR is structuring a profession's rules, terminologies, and workflows into an authoritative database.
+
+Why does it matter?
+Without a designed Vertical SoR, AI workers will generate generic, non-compliant outputs that violate industry regulations.
+
+How does it work?
+We structure knowledge into three components: 1) The Corpus (evidence), 2) The Map (rules and limits), and 3) The Reflexes (procedural checker skills). FDEs use the KEEP, REDESIGN, DELETE framework.
+
+Simple Example
+In auditing, we KEEP the legal double-entry standards, REDESIGN manual invoice entries with OCR bots, and DELETE obsolete paper route steps.
+
+Key Takeaway
+Design Vertical SoR as a single source of truth read by both humans (web app) and AI workers (MCP connection).`,
+    explanationUrdu: `Yeh Kya Hai?
+Vertical SoR design karne ka matlab hai kisi peshay (profession) ke rules, terminologies, aur workflows ko indexing database mein convert karna.
+
+Yeh Kyun Zaroori Hai?
+Is ke bina AI workers correct industry calculations ya rules follow nahi kar sakein ge aur ghalat recommendations dein ge.
+
+Yeh Kaise Kaam Karta Hai?
+Knowledge ko teen hisson mein split kiya jata hai: Corpus (data files), Map (rules), aur Reflexes (code checkers). Is flow mein KEEP, REDESIGN, aur DELETE apply hota hai.
+
+Sada Misaal
+Auditing rules ko JSON files mein structure karna aur automatically check-in balances match karne ke liye rules index code likhna.
+
+Aham Nuqta
+Legacy manual workflows ko index karte waqt fuzool steps ko delete aur regulatory steps ko keep kiya jata hai.`,
+    analogy: "Updating a family recipe binder: keeping core ingredients (KEEP), using an electric mixer instead of hand mixing (REDESIGN), and removing the step to fetch water from a well (DELETE).",
+    example: "Structuring Pakistan Tax Ordinance rules into JSON files (Corpus) and writing a validation checker script for tax filings (Reflex).",
+    remember: "One database source of truth, two readers: Human (Web GUI) + AI (MCP connection).",
+    whyMatters: "Regulatory compliance requires precise vertical rules that generic LLMs don't understand.",
+    diagramType: "build_sor_pipeline",
     miniQuestion: {
-      question: "What is the key difference between a Chatbot and an AI Worker?",
+      question: "Which framework is used to analyze legacy workflows when designing a Vertical SoR?",
       options: [
-        "Chatbots only run on desktop screens",
-        "Chatbots answer questions; AI Workers execute actual tasks and workflows",
-        "AI Workers cannot read text inputs",
-        "Chatbots are automated but AI Workers are human developers"
+        "KEEP, REDESIGN, DELETE",
+        "COPY, PASTE, RUN",
+        "VIBE, CODE, DEPLOY",
+        "INPUT, OUTPUT, REPEAT"
       ],
-      correct: 1,
-      explanation: "Correct! AI Workers execute end-to-end task flows instead of just replying to chats."
+      correct: 0,
+      explanation: "Correct! KEEP, REDESIGN, DELETE helps streamline and automate workflows for AI."
     }
   },
   {
-    id: 15,
-    title: "Digital FTE",
-    shortTitle: "Digital FTE",
-    explanation: "FTE stands for Full-Time Equivalent (which means one human working full-time). A Digital FTE is an AI worker or a group of AI workers configured to perform the full responsibilities of a complete job role in a company.",
-    explanationUrdu: "FTE (Full-Time Equivalent) ka matlab hai full-time employee. Digital FTE ka matlab hai aisa AI system jo pure human job role (jaise AI Accountant ya AI HR representative) ki responsibilities independently perform kar sake.",
-    analogy: "Hiring a digital virtual assistant who logs into Slack, reads emails, files invoices, and reports status just like a human worker would do on their shift.",
-    example: "Instead of just using AI to draft an email, a Digital HR FTE autonomously onboard employees: generates contracts, sets up emails, and creates records in the employee database.",
-    remember: "Digital FTE = AI worker configured to handle a complete human job role.",
-    whyMatters: "It helps companies scale their workforce digitally without facing physical office capacity limits.",
-    diagramType: "digital_fte",
+    id: 8,
+    title: "System of Context",
+    shortTitle: "System of Context",
+    explanation: `What is it?
+The System of Context is a temporary collection of live data, history, and files required to execute a single task right now.
+
+Why does it matter?
+While the System of Record contains permanent rules, the System of Context supplies current task details. AI needs both to perform work correctly.
+
+How does it work?
+The executing agent pulls live client files (e.g. invoice PDFs, email chains, logs) to form the System of Context, while referencing the System of Record for permanent compliance standards.
+
+Simple Example
+When an AI accountant audits a transaction: the tax rules database is the SoR, while the invoice file and vendor contract form the System of Context.
+
+Key Takeaway
+System of Record = official permanent rules. System of Context = temporary current case details.`,
+    explanationUrdu: `Yeh Kya Hai?
+System of Context temporary aur live files/data ka collection hota hai jo kisi single task ko complete karne ke liye chahiye hota hai.
+
+Yeh Kyun Zaroori Hai?
+Permanent rules (SoR) ke sath live execution data (Context) zaroori hai, taake AI current client details ko process kar sake.
+
+Yeh Kaise Kaam Karta Hai?
+AI Agent job run karte waqt local PDF, transaction logs, aur user message ko gather karta hai aur SoR rules ko compare karta hai.
+
+Sada Misaal
+Court room mein 'Law Book' System of Record hai (hamesha same), jabke specific case file 'System of Context' hai (sirf is case ke liye).
+
+Aham Nuqta
+SoR rules supply karta hai aur System of Context current details supply karta hai.`,
+    analogy: "A judge's court: The law book is the System of Record (permanent rules). The active case file with evidence and suspect history is the System of Context (temporary details).",
+    example: "An AI Accountant queries the SoR for tax rates, and gathers the invoice PDF and purchase contract (System of Context) to check for a pricing match.",
+    remember: "System of Record = What is officially true. System of Context = What this task needs right now.",
+    whyMatters: "Without context, AI cannot execute specific client transactions accurately.",
+    diagramType: "system_of_context",
     miniQuestion: {
-      question: "What does FTE stand for in the context of Digital FTE?",
+      question: "What is the relationship between the System of Context and the System of Record?",
       options: [
-        "File Transfer Engine",
-        "Full-Time Equivalent",
-        "Free Training Edition",
-        "Forward-Deployed Entity"
+        "They work together: SoR contains official rules, while System of Context supplies current task details",
+        "The System of Context completely replaces the System of Record",
+        "They are two different names for the same LLM model",
+        "System of Context is only used for offline storage"
       ],
-      correct: 1,
-      explanation: "Yes! FTE stands for Full-Time Equivalent, representing a full job role."
-    }
-  },
-  {
-    id: 16,
-    title: "Platform as a Plugin",
-    shortTitle: "Platform as Plugin",
-    explanation: "Instead of building a massive, closed software application, the 'Platform as a Plugin' model provides modular components and connectors. These components plug directly into existing business tools (like Slack, Teams, or SAP) to grant them immediate AI capabilities.",
-    explanationUrdu: "Ek bara aur closed software product banane ke bajaye, hum reusable plugins aur connectors banate hain. Ye plugins existing platforms (Slack, Teams, Salesforce) ke andar lag kar unhein new AI powers dete hain.",
-    analogy: "Instead of buying a new specialized cooking machine, you buy a food processor attachment that plugs into your existing home mixer.",
-    example: "Adding an MCP connector directly to Slack so employees can query the company's Canonical System of Record inside their existing Slack chat channels.",
-    remember: "Platform as a Plugin = Add AI features into existing tools rather than forcing users onto a new site.",
-    whyMatters: "Employees hate switching apps. Placing AI where they already work boosts productivity.",
-    diagramType: "platform_plugin",
-    miniQuestion: {
-      question: "What is the primary advantage of the 'Platform as a Plugin' approach?",
-      options: [
-        "It makes the AI run offline",
-        "It integrates AI features directly into tools employees already use, like Slack or Teams",
-        "It completely deletes existing databases",
-        "It removes the need for any programming code"
-      ],
-      correct: 1,
-      explanation: "Correct! It integrates AI into the tools people already use, saving time and friction."
-    }
-  },
-  {
-    id: 17,
-    title: "80/20 Rule",
-    shortTitle: "80/20 Rule",
-    explanation: "In AI customization, the 80/20 Rule states that 80% of the AI agent is a common, reusable core (e.g. general sales methodologies or standard coding standards), and only 20% is client-specific customization (e.g. company pricing sheets or custom CRM connection rules).",
-    explanationUrdu: "80/20 Rule ka matlab hai ke AI agent ka 80% structure standard aur common hota hai jo sab ke liye same hai (jaise sales qualification rules). Baaqi 20% har customer ke mutabiq change kiya jata hai (jaise pricing details).",
-    analogy: "A smartphone. 80% is the stock phone and OS built in the factory. 20% is your personal apps, wallpapers, and accounts that make it unique to you.",
-    example: "An AI Sales Worker has standard objection-handling logic (80%). When deployed for a shoe company, we add the shoe pricing and catalog database (20%).",
-    remember: "80% = Standard Reusable Core. 20% = Customer Customization.",
-    whyMatters: "Building AI from scratch is expensive. The 80/20 rule allows fast, affordable scaling.",
-    diagramType: "eighty_twenty",
-    miniQuestion: {
-      question: "In the 80/20 AI customization rule, what does the 20% represent?",
-      options: [
-        "The errors the AI makes",
-        "The client-specific database, pricing, and custom rules configuration",
-        "The speed improvement of the system",
-        "The time AI spends resting"
-      ],
-      correct: 1,
-      explanation: "Exactly! The 20% is the customized portion tailored to the specific client's requirements."
-    }
-  },
-  {
-    id: 18,
-    title: "10-80-10 Rule",
-    shortTitle: "10-80-10 Rule",
-    explanation: "The 10-80-10 Rule describes WHO does the work in a process: Humans do the first 10% (define requirements and specifications), the AI executes the middle 80% (builds the code, templates, or documents), and Humans do the final 10% (review, test, and approve).",
-    explanationUrdu: "10-80-10 Rule kaam ki division batata hai: Shuru ka 10% kam human karta hai (requirements dena). Darmiyan ka 80% kam AI karta hai (heavy writing/coding). Aakhir ka 10% kam phir human karta hai (check aur approve karna).",
-    analogy: "An architect designs the house sketch (10%). A crew of automated builders constructs the walls (80%). The architect returns to inspect and sign off on safety (10%).",
-    example: "Writing a blog: Human outlines the topics (10%). AI drafts the 2000-word article (80%). Human edits, fact-checks, and publishes it (10%).",
-    remember: "10% Human spec → 80% AI creation → 10% Human approval.",
-    whyMatters: "It ensures high speed (via 80% AI work) while keeping humans in control (via start and end points) to maintain quality.",
-    diagramType: "ten_eighty_ten",
-    miniQuestion: {
-      question: "Who performs the final 10% of the work in the 10-80-10 rule?",
-      options: [
-        "The AI Developer bot",
-        "The external customer",
-        "The human (for quality control and final approval)",
-        "The MCP network server"
-      ],
-      correct: 2,
-      explanation: "Spot on! The human handles the final 10% to verify, polish, and approve the output."
-    }
-  },
-  {
-    id: 19,
-    title: "FDE",
-    shortTitle: "FDE",
-    explanation: "FDE stands for Forward-Deployed Engineer. An FDE is a technical human expert who works directly with the customer on-site or in close communication to customize, integrate, and deploy the 20% of the AI solution in their live environment.",
-    explanationUrdu: "FDE (Forward-Deployed Engineer) ek technical human expert hota hai jo client ke sath mil kar kaam karta hai. Iska kaam AI ecosystem ke core standard templates ko customer ke database aur environment (20%) ke sath connect aur setup karna hota hai.",
-    analogy: "A high-end kitchen system designer. The factory makes the cabinets (80%), but the designer comes to your house, measures your walls, and installs them perfectly (20%).",
-    example: "An FDE from the AI Agent Factory visits a client bank, connects the AI Worker to their private database using MCP, and sets up custom security rules.",
-    remember: "FDE = The human engineer who links the AI core to the customer's real systems.",
-    whyMatters: "AI systems cannot self-install in secure enterprise environments. Humans are needed to bridge the gap safely.",
-    diagramType: "fde_role",
-    miniQuestion: {
-      question: "What is the primary role of a Forward-Deployed Engineer (FDE)?",
-      options: [
-        "To write generic textbooks about AI history",
-        "To work closely with clients, adapting and implementing AI solutions to their actual environments",
-        "To replace databases with physical files",
-        "To run marketing ads for the AI platform"
-      ],
-      correct: 1,
-      explanation: "Exactly! FDEs bridge the gap by deploying the AI solutions directly into the customer's environment."
-    }
-  },
-  {
-    id: 20,
-    title: "Complete Ecosystem",
-    shortTitle: "Complete Ecosystem",
-    explanation: "The Complete Ecosystem brings every single part together in one pipeline: Canonical Knowledge supplies the System of Record. Humans learn via the AI Tutor, and build systems via the AI Developer. The output integrates into the Vertical System of Record, driving Vertical AI Workers and Digital FTEs, which ultimately delivers automated business value to the Customer Business.",
-    explanationUrdu: "Yahan poora ecosystem aapas mein connect hota hai: Canonical Book se data ata hai System of Record (SoR) mein. Insaan parhta hai AI Tutor se, software banata hai AI Developer se. Phir ye outputs Vertical SoR aur Vertical AI Workers ko chalate hain, jo Digital FTEs ban kar customer ke business ko chalaate hain.",
-    analogy: "Think of an automated car assembly line. Design specifications flow down, robotic arms weld parts, computer testers verify, and ready-to-use cars roll out directly into the city streets.",
-    example: "A complete AI Agent Factory setup where new hires learn company laws via Zia Tutor, build tools using Zia Developer, while AI Workers process daily client invoices automatically.",
-    remember: "The ultimate goal is a fully aligned system from book to business.",
-    whyMatters: "Building isolated parts creates bottlenecks. A complete ecosystem delivers end-to-end automation.",
-    diagramType: "complete_ecosystem",
-    miniQuestion: {
-      question: "In the complete ecosystem flow, what resides at the absolute final stage receiving value?",
-      options: [
-        "The Model Context Protocol",
-        "The generic AI chatbot API",
-        "The Customer's actual Business",
-        "The raw textbook PDF"
-      ],
-      correct: 2,
-      explanation: "Perfect! The ultimate purpose of the entire ecosystem is to serve and optimize the Customer's Business."
+      correct: 0,
+      explanation: "Correct! The SoR handles the permanent rules, and the Context handles the current case data."
     }
   }
 ];
 
 export const flashcards = [
   {
-    term: "Ecosystem",
-    definition: "Multiple connected parts working together as one system.",
-    example: "School = Teacher + Student + Book + Exam."
+    term: "Ecosystem Concept",
+    definition: "A collection of connected subsystems (SoR, AI Tutor, AI Developer, Vertical Workers) interacting as a single unified machine.",
+    example: "The Agent Factory platform where your progress syncs with both Zia Tutor and the database."
   },
   {
-    term: "System of Record",
-    definition: "The official place where authoritative, correct information is stored.",
-    example: "A family's official phone numbers spreadsheet on the fridge."
+    term: "System of Record (SoR)",
+    definition: "The single, official database repository containing the absolute, authoritative truth of data.",
+    example: "A database storing student grades or IRS tax brackets which cannot be modified without official permission."
   },
   {
-    term: "Canonical",
-    definition: "The officially approved, original, and trusted version of knowledge.",
-    example: "The signed constitution document of a country vs. blogs explaining it."
+    term: "Model Context Protocol (MCP)",
+    definition: "An open, standardized protocol allowing LLMs to securely communicate with file systems, APIs, and databases.",
+    example: "A standard USB port for AI models to connect to external records and tool servers."
   },
   {
-    term: "MCP",
-    definition: "Model Context Protocol. Standard bridge for AI to connect to external databases and tools.",
-    example: "USB port standardizing connections for computer accessories."
+    term: "Zia Tutor AI",
+    definition: "A structured AI teacher that personalizes learning using learner, profile, identity, and knowledge records.",
+    example: "Our tutor tracking your progress card and asking custom quiz checks in Zia Khan's voice."
   },
   {
-    term: "AI Tutor",
-    definition: "AI teacher that tracks learner record, identity, knowledge, and profile.",
-    example: "Zia Tutor teaching SQL step-by-step and remembering what you learned."
+    term: "Zia Developer AI",
+    definition: "An AI software development assistant managing the coding lifecycle from requirements to installation.",
+    example: "A developer bot compiling and testing code modules automatically in Claude Code."
   },
   {
-    term: "AI Developer",
-    definition: "AI engineering assistant that creates, edits, and tests actual code.",
-    example: "Zia Developer generating a full React component and writing Jest tests."
+    term: "FDE AF Model",
+    definition: "The Forward-Deployed Engineer Agent Factory architectural and business model consisting of 5 layers.",
+    example: "Panaversity runs the foundation platform; graduates build client SoRs and vertical startups on top."
+  },
+  {
+    term: "Forward-Deployed Engineer (FDE)",
+    definition: "A human engineer who works directly with customers to install, customize, and configure AI software.",
+    example: "An engineer integrating standard core modules with client's customized SAP backend."
   },
   {
     term: "Vertical",
-    definition: "A specific industry, domain, or profession (e.g. Sales, Accounting).",
-    example: "An AI specialized ONLY in healthcare workflow compliance."
+    definition: "A specific profession combined with a specific country/jurisdiction.",
+    example: "Import/Export customs compliance rules and corporate filing inside Pakistan."
   },
   {
     term: "Vertical SoR",
-    definition: "A System of Record containing rules and terminology for a specific industry.",
-    example: "A database containing all IRS tax brackets for tax accounting AI."
+    definition: "A System of Record containing domain-specific rules, terminologies, and maps for a specific industry.",
+    example: "A database containing all IRS tax regulations for tax accounting AI workers."
   },
   {
-    term: "AI Worker",
-    definition: "An AI agent designed to perform a specific job workflow (not just chat).",
-    example: "An agent that qualifies leads, updates CRM, and sends emails automatically."
+    term: "System of Context",
+    definition: "A temporary collection of live data, history, and records required to execute a single task.",
+    example: "The active case file containing current invoice PDF and purchase contract loaded to verify a payment."
   },
   {
-    term: "Digital FTE",
-    definition: "AI workers designed around a complete full-time employee job role.",
-    example: "An AI employee who manages all HR onboarding tasks autonomously."
+    term: "10-80-10 Rule",
+    definition: "Human-AI work structure where human sets specs (10%), AI builds (80%), and human reviews/approves (10%).",
+    example: "You outline a code file layout, AI drafts all components, and you review/test it."
   },
   {
-    term: "FDE",
-    definition: "Forward-Deployed Engineer. Technical human who implements AI at customer sites.",
-    example: "A software engineer deploying AI bots and integrating client's private SQL server."
-  },
-  {
-    term: "80/20",
-    definition: "80% reusable generic AI core, 20% customer customization.",
-    example: "Sales bot core (80%) + custom pricing list of the client (20%)."
-  },
-  {
-    term: "10-80-10",
-    definition: "10% Human requirements, 80% AI building, 10% Human approval.",
-    example: "Human writes specification, AI writes the full code, Human tests and merges."
-  },
-  {
-    term: "Vendor Lock-in",
-    definition: "Being stuck with one vendor's proprietary system, unable to switch.",
-    example: "Using open-source MCP prevents being locked into one AI vendor's tools."
+    term: "80/20 Customization Split",
+    definition: "Product structure where 80% is the reusable generic core and 20% is client-custom rules.",
+    example: "Sales bot core (80%) + custom pricing list of the client (20%) configured by an FDE."
   }
 ];
 
@@ -577,61 +499,6 @@ export const quizQuestions = [
     explanation: "System of Record (SoR) official jagah hoti hai jahan trusted aur authoritative data store kiya jata hai, taake AI aur humans dono isko use kar saken."
   },
   {
-    question: "What does the term 'Canonical' mean?",
-    options: [
-      "High speed processing",
-      "The officially approved, original, and trusted version",
-      "Information converted to database format",
-      "A technique to secure AI connections"
-    ],
-    correct: 1,
-    explanation: "Canonical ka matlab hai authoritative ya official version. Jab content ke multiple versions hoon, to official version hi Canonical Knowledge hota hai."
-  },
-  {
-    question: "How does traditional learning model work for software developers?",
-    options: [
-      "Textbook → Student → Developer → Software",
-      "Code → Teacher → Computer → Deployment",
-      "AI → Code → Output → Database",
-      "Textbook → AI → Compiler → Product"
-    ],
-    correct: 0,
-    explanation: "Traditional model mein student pehle textbook se seekhta hai, seekh kar developer banta hai, aur aur phir manually code ya software build karta hai."
-  },
-  {
-    question: "What is the main problem AI introduces into the traditional learning model?",
-    options: [
-      "AI doesn't know any programming language",
-      "AI lacks structured sequencing, progress tracking, and teaching methodology",
-      "AI takes too long to respond to coding questions",
-      "AI cannot translate English to Urdu"
-    ],
-    correct: 1,
-    explanation: "AI answers to de sakta hai but user ko systematically seekhney ke liye proper teaching sequence, progress levels, aur teaching framework ki zaroorat hoti hai jo generic AI ke paas nahi hoti."
-  },
-  {
-    question: "If you ask a generic AI a question, it uses 'Question → Answer'. How does a Structured Tutor AI differ?",
-    options: [
-      "It doesn't answer the question at all",
-      "It guides the student through level checks, custom lessons, practice, assessment, and trackable progress",
-      "It only displays code without explanation",
-      "It charges a fee per answer"
-    ],
-    correct: 1,
-    explanation: "Structured Tutor AI learner records aur levels maintain karta hai aur step-by-step parhata hai, na ke sirf answers direct phenk dena."
-  },
-  {
-    question: "Why do we treat a Textbook as a System of Record in this ecosystem?",
-    options: [
-      "Because textbooks are heavy and hard to modify",
-      "To provide a single authoritative knowledge base that both the human and AI refer to",
-      "Because it avoids using internet databases",
-      "Because AI cannot understand documents other than textbooks"
-    ],
-    correct: 1,
-    explanation: "Textbook ko SoR banana isliye zaroori hai taake human student aur AI Tutor dono same canonical source standard data check karein aur sync mein rahein."
-  },
-  {
     question: "What is the Model Context Protocol (MCP) in simple terms?",
     options: [
       "A security policy for AI agent logins",
@@ -641,17 +508,6 @@ export const quizQuestions = [
     ],
     correct: 1,
     explanation: "MCP ek standard bridge hai jo AI agents ko system of records ya tool sets ke saath connect karne mein madad deta hai."
-  },
-  {
-    question: "If you are using Rung 2 of AI usage (System of Record integration), what is the main advantage over Rung 1 (URL pasting)?",
-    options: [
-      "The AI is cheaper to run",
-      "The AI has direct access to the live authoritative source of truth instead of static copy-pasted files",
-      "The AI can build software by itself",
-      "The AI behaves like a patient teacher"
-    ],
-    correct: 1,
-    explanation: "Rung 2 mein AI system direct authoritative record (SoR) se live connected hota hai, so copy-paste karne ki manually zaroorat nahi rehti."
   },
   {
     question: "Which record in Zia Tutor AI keeps track of what the student has already mastered?",
@@ -665,9 +521,9 @@ export const quizQuestions = [
     explanation: "Learner Record track karta hai ke student ne kitne lessons parh liye hain aur kis level ka check pass kiya hai."
   },
   {
-    question: "How does Zia Developer AI differ from Zia Tutor AI?",
+    question: "What is the primary difference between Zia Tutor AI and Zia Developer AI?",
     options: [
-      "Zia Developer helps humans build and test software, while Zia Tutor helps humans learn concepts",
+      "Zia Tutor helps humans learn, whereas Zia Developer helps build software and systems",
       "Zia Developer works offline while Zia Tutor works online",
       "Zia Developer only speaks Urdu",
       "Zia Developer is for managers while Zia Tutor is for engineers"
@@ -676,103 +532,59 @@ export const quizQuestions = [
     explanation: "Zia Tutor ka focus human learning par hai (teaching), jabke Zia Developer ka focus actual product build aur execute karne par hai."
   },
   {
-    question: "What is 'Vertical AI'?",
+    question: "How many layers comprise the Forward Deployed Engineer Agent Factory (FDE AF) Model?",
     options: [
-      "AI that stands upright on servers",
-      "AI specialized for a specific industry or domain (like Accounting, HR, Sales)",
-      "AI that has more parameters than general AI",
-      "AI that only runs on mobile screens"
+      "3 layers",
+      "5 layers (Layer 0 to Layer 4)",
+      "10 layers",
+      "8 layers"
     ],
     correct: 1,
-    explanation: "Vertical AI wo AI systems hote hain jo generalized answer dene ke bajaye kisi particular field (Accounting, Marketing, Healthcare) ke workflows par focus karte hain."
+    explanation: "FDE AF Model mein total 5 layers hoti hain: Layer 0 (foundation) se lekar Layer 4 (customer instances) tak."
   },
   {
-    question: "Why do we need a Vertical System of Record?",
+    question: "Under the One Law of the FDE AF Model, what happens to repeated customization work?",
     options: [
-      "To store employee attendance sheets",
-      "To provide domain-specific rules, terminologies, and workflows (e.g. Accounting policies) for Vertical AI workers",
-      "To keep AI agents from shutting down",
-      "To host the website's landing page"
+      "It is deleted after the project is complete",
+      "It must be promoted to the lower, shared vertical layer so it can be reused",
+      "It is patented and kept hidden from other clients",
+      "It is sent to public AI models to train their weights"
     ],
     correct: 1,
-    explanation: "Har industry (Vertical) ke specific rules aur rules book hote hain (Accounting standards, HR policies). Is unique knowledge ko hold karne ke liye Vertical SoR design kiya jata hai."
+    explanation: "One Law kehta hai ke jo customization repeat ho rahi ho, use core platform layer mein promote kiya jata hai taake development cost kam ho sake."
   },
   {
-    question: "What is the difference between a traditional Chatbot and an AI Worker?",
+    question: "Why should you choose a specific Vertical (e.g. Tax practice in Pakistan) instead of offering general AI consulting?",
     options: [
-      "Chatbots write code while AI Workers only reply",
-      "Chatbots only answer questions, whereas AI Workers perform complete workflows and execute tasks",
-      "Chatbots are more expensive than AI Workers",
-      "There is no difference"
+      "General AI consulting is illegal",
+      "Specific verticals have less competition, clear public laws, and client pain points that generic AI cannot solve without customization",
+      "All AI models are blocked in general consulting",
+      "Specific verticals do not require databases"
     ],
     correct: 1,
-    explanation: "Chatbot ka kaam sirf messages ka reply dena hai, jabke AI Worker complete operational steps (e.g. leads filter karna, CRM update karna, templates execute karna) perform karta hai."
+    explanation: "Specific vertical domain chun'ne se competition kam hota hai aur client ki exact pain point standard rules database (SoR) se solve hoti hai."
   },
   {
-    question: "What does a 'Digital FTE' represent?",
+    question: "When designing a Vertical SoR, which framework is used to evaluate legacy manual steps?",
     options: [
-      "A digital certificate for computer science graduates",
-      "A complete AI Worker designed around an entire human job role (Full-Time Equivalent)",
-      "An internet protocol for faster AI inference",
-      "A standard database indexing schema"
+      "VIBE, CODE, DEPLOY",
+      "KEEP, REDESIGN, DELETE",
+      "COPY, PASTE, RUN",
+      "INPUT, OUTPUT, REPEAT"
     ],
     correct: 1,
-    explanation: "Digital FTE (Full-Time Equivalent) ka matlab hai jab ek ya zyada AI workers pure job role (e.g., AI Accountant, AI HR assistant) ki tarah complete tasks manage karte hain."
+    explanation: "KEEP (sahi files), REDESIGN (improve steps), aur DELETE (fuzool steps) framework use kar ke legacy workflows ko evaluate kiya jata hai."
   },
   {
-    question: "What does the 'Platform as a Plugin' approach advocate?",
+    question: "What does the 'System of Context' contain?",
     options: [
-      "Building huge self-contained software that doesn't allow external additions",
-      "Providing reusable components and connectors that can be integrated into existing systems",
-      "Compelling users to buy new computers",
-      "Moving all data to public cloud hosts"
+      "The official, permanent legal tax rules and rules-books",
+      "A temporary collection of live data, history, and files required to execute a specific task right now",
+      "The history of the developer's git commits",
+      "The training weights of the large language model"
     ],
     correct: 1,
-    explanation: "Platform as a Plugin ka matlab hai ke huge product banane ki bajaye component modules banayein jo existing platforms (like Microsoft Teams or Slack) mein directly integrate ho sakein."
-  },
-  {
-    question: "In the 80/20 Rule of AI customization, what does the '80%' stand for?",
-    options: [
-      "The amount of time AI sits idle",
-      "The reusable common core functionalities (like general sales methodologies)",
-      "The client's custom database structures",
-      "The percentage of errors expected"
-    ],
-    correct: 1,
-    explanation: "80/20 Rule kehta hai ke 80% AI system common aur core features par based hota hai, jabke baqi 20% customer ki specific configuration hoti hai."
-  },
-  {
-    question: "Under the 10-80-10 Rule, who does the middle 80% of the work?",
-    options: [
-      "Forward-Deployed Engineers",
-      "The AI Agent system",
-      "The Client management",
-      "A QA Tester human team"
-    ],
-    correct: 1,
-    explanation: "10-80-10 Rule mein Human start (10% requirements) aur final review (10% testing/approval) karta hai, aur AI middle 80% bulk heavy lifting execution karta hai."
-  },
-  {
-    question: "What is the main responsibility of a Forward-Deployed Engineer (FDE)?",
-    options: [
-      "Writing generic textbooks about AI",
-      "Working directly with customers to implement and customize the core AI solution to their live environments",
-      "Deploying physical servers inside client datacenters",
-      "Designing user logos for SaaS companies"
-    ],
-    correct: 1,
-    explanation: "FDE actual client site par ya closely client ke saath milkar core AI templates aur modules ko adapt aur implement karta hai."
-  },
-  {
-    question: "In the complete AI Agent Factory Ecosystem, what is at the absolute bottom layer that receives value from AI Workers?",
-    options: [
-      "The canonical book",
-      "The customer's actual business",
-      "The Zia Tutor AI interface",
-      "The Model Context Protocol (MCP) server"
-    ],
-    correct: 2,
-    explanation: "Ecosystem ki complete chain Canonical Book se start hokar pure operational stack ke baad end-user Business (Customer Business) ko support aur automated value provide karti hai."
+    explanation: "System of Context temporary task files ko hold karta hai jo current execution ke liye chahiye, jab ke permanent standards SoR mein rehte hain."
   }
 ];
 
@@ -876,416 +688,593 @@ export const glossary = [
 export const course2Lessons: Lesson[] = [
   {
     id: 1,
-    title: "Station 01 — The Two Problems",
-    shortTitle: "01 — The Two Problems",
-    explanation: "Two major challenges define the current AI landscape: Problem A - AI is automating routine coding, making standard developer services cheaper and highly crowded. Problem B - Companies invest heavily in generic AI pilots, but most projects fail to deliver measurable business returns because the AI isn't integrated into actual company workflows.",
-    explanationUrdu: "Aaj ke AI dour mein do bare masle hain: Masla A: AI standard coding khud kar leta hai, jis se simple coders ki market value kam ho rahi hai. Masla B: Companies AI tools to khareedti hain par unka business workflows se direct link nahi hota, jis se koi measurable return nahi milta. In dono problems ke milaap se 'Deployment Gap' banta hai.",
-    analogy: "Think of a factory. They purchased a highly advanced robotic arm (Problem B - Pilot tool), but it sits in the warehouse because none of the existing assembly lines fit its plug. Meanwhile, the manual welders are worried because the robot is fast (Problem A).",
-    example: "A company gets a ChatGPT enterprise subscription, but employees only use it to draft letters instead of using it to automatically audit accounts. The company sees zero profit change.",
-    remember: "Developer losing routine work + Company failing in AI pilots = The Deployment Gap.",
-    whyMatters: "To earn money, you shouldn't just offer coding or generic prompts. You must solve the deployment problem for companies.",
+    title: "Station 01 — The New Opportunity",
+    shortTitle: "01 — The Opportunity",
+    explanation: `What is it?
+Agentic AI represents a shift from simple chat prompting to autonomous agents that execute complete multi-step tasks. This shift creates a new engineering category: the Forward-Deployed Engineer.
+
+Why does it matter?
+Traditional coding is getting commoditized, making basic development services cheaper and crowded. The real opportunity is deploying autonomous agents that integrate into actual business workflows to save human time.
+
+Simple Example
+Instead of writing an automated script that a developer must trigger, you build an agent that sits in Slack, monitors incoming emails, and processes client invoices autonomously.
+
+Key Takeaway
+The opportunity is no longer in just writing code, but in orchestrating autonomous agentic workflows that solve real business bottlenecks.`,
+    explanationUrdu: `Yeh Kya Hai?
+Agentic AI aam chatbot prompts se barh kar autonomous agents ki tarah kaam karne ka name hai jo multi-step tasks khud complete karte hain. Is se FDE ki ek new career opportunity banti hai.
+
+Yeh Kyun Zaroori Hai?
+Simple coding ab standard hoti ja rahi hai aur generic programmers ki value kam ho rahi hai. Real profit is baat mein hai ke AI agents ko real business workflows ke sath connect kiya jaye.
+
+Sada Misaal
+Aik simple script likhne ke bajaye jo manually run ho, aap aik aisa agent banate hain jo emails monitor kare aur invoices ko autonomously process kare.
+
+Aham Nuqta
+Asal opportunity code likhne mein nahi, balkay client ke problems solve karne wale autonomous agents set up karne mein hai.`,
+    analogy: "Think of the electricity grid. Finding coal (AI raw API) is cheap, but laying the power transmission wires directly to houses (deployment) is where the value lies.",
+    example: "Building an automated client lead processor that automatically qualifies leads and updates the CRM, instead of just using ChatGPT to draft emails.",
+    remember: "Value lies in the automation of workflows, not raw LLM APIs.",
+    whyMatters: "Commoditization of coding means developers must move up the value chain.",
     diagramType: "two_problems",
     miniQuestion: {
-      question: "What is Problem B in the AI era?",
+      question: "Why is Agentic AI a major new opportunity for engineers?",
       options: [
-        "Internet speeds are too slow for LLM models",
-        "Companies invest in AI pilots but fail to produce measurable business results due to poor workflow integration",
-        "All AI models are written in Python only",
-        "Developers refuse to learn how to write prompt rules"
+        "Because it makes code editing completely illegal",
+        "Because it allows engineers to focus on workflow deployment and outcomes rather than raw code writing",
+        "Because it reduces cloud database speed",
+        "Because it works without internet connections"
       ],
       correct: 1,
-      explanation: "Exactly! Most corporate AI pilots fail because they are not connected to actual workflows and rules."
+      explanation: "Exactly! Deploying agentic workflows directly resolves the deployment bottlenecks businesses face today."
     }
   },
   {
     id: 2,
     title: "Station 02 — The Deployment Gap",
     shortTitle: "02 — Deployment Gap",
-    explanation: "A raw AI model alone is not a business solution. The 'Deployment Gap' is the distance between AI capability (raw APIs) and actual business value. Value is unlocked only when the AI model connects directly with company data, compliance rules, approval systems, and existing software workflows.",
-    explanationUrdu: "AI model khud se koi business value generate nahi karta. AI capability (jaise OpenAI API) aur actual business outcome ke beech jo faasla hota hai, use 'Deployment Gap' kehte hain. Jab tak AI company rules, databases aur approvals ke sath connect nahi hota, woh sirf ek demo rehta hai.",
-    analogy: "A high-speed sports car engine sitting on a wooden stand. The engine is powerful (AI capability), but without wheels, a steering system, a fuel tank, and a driver (workflows & data), it cannot travel anywhere.",
-    example: "A company wants to process incoming vendor invoices. The raw AI model can read the text, but the complete business outcome requires checking if the pricing matches the original purchase order and saving the status in the ERP system.",
-    remember: "AI capability + Context + Rules + Existing Tools = Business Result.",
-    whyMatters: "Bridge the gap, and you get paid. Ignore the gap, and you are just another developer offering generic code.",
+    explanation: `What is it?
+The Deployment Gap is the distance between raw AI capabilities (like API keys or generic chatbots) and actual business value.
+
+Why does it matter?
+Most corporate AI pilots fail because raw LLMs cannot interact with database records, local laws, approval systems, and existing corporate software out of the box.
+
+Simple Example
+Having a raw Claude API key is a capability. Having an agent that reads vendor invoice PDFs, checks them against purchase orders in SAP, and updates the ledger is a business outcome.
+
+Key Takeaway
+To deliver business outcomes, raw AI models must be bridged with company data, workflows, and regulatory compliance rules.`,
+    explanationUrdu: `Yeh Kya Hai?
+Deployment Gap raw AI capabilities (APIs) aur actual business value ke darmiyan ka faasla hai.
+
+Yeh Kyun Zaroori Hai?
+Boht se AI pilots isliye fail ho jate hain kyunke AI model direct databases, company rules, aur security checks ke sath connect nahi hota.
+
+Yeh Kaise Kaam Karta Hai?
+FDE is gap ko bridge karta hai: AI ko custom context, tool access, databases, aur human approval gates ke sath combine kar ke actual result deliver karta hai.
+
+Sada Misaal
+Aap ke paas GPT key hai (capability), lekin client ko aisi invoice check machine chahiye jo purchase orders read kare aur ledger write kare (outcome).
+
+Aham Nuqta
+FDE ka primary kaam raw AI power ko direct business value se link karna hai.`,
+    analogy: "A high-speed car engine sitting on a wooden stand. The engine is powerful (AI API), but without wheels, steering, and a driver (workflows & data), it goes nowhere.",
+    example: "Connecting raw OpenAI APIs with local company SQL tables via MCP server setups to audit files automatically.",
+    remember: "API + Context + Rules = Outcome.",
+    whyMatters: "Bridging the gap is how you get paid in the agentic era.",
     diagramType: "deployment_gap",
     miniQuestion: {
-      question: "Which formula represents a complete business result in the FDE roadmap?",
+      question: "What does the Deployment Gap represent?",
       options: [
-        "AI Model + Prompt = Business Result",
-        "AI Model + Company Data + Company Rules + Real Workflow = Business Result",
-        "AI model + High Subscription Fee = Business Result",
-        "Developer + Chatbot = Business Result"
+        "The download time of large language models",
+        "The gap between raw AI capability and actual integrated business outcomes",
+        "The cost differences between OpenAI and Claude",
+        "The physical distance between server rooms"
       ],
       correct: 1,
-      explanation: "Yes! A true business solution requires data, rules, workflows, and integrations."
+      explanation: "Correct! Bridging this gap is the primary mission of a Forward-Deployed Engineer."
     }
   },
   {
     id: 3,
-    title: "Station 03 — The FDE",
-    shortTitle: "03 — The FDE",
-    explanation: "A Forward-Deployed Engineer (FDE) is a technical expert who works directly inside the client's business environment. Their role is to observe real human workflows, map the data, integrate the system of records, and build AI workers that produce concrete, measurable business results.",
-    explanationUrdu: "FDE (Forward-Deployed Engineer) wo expert hota hai jo client ki company ke andar jaa kar unka real workflow dekhta hai, data ko samajhta hai aur standard AI engines ko customer database ke sath safely connect karke outcomes deliver karta hai.",
-    analogy: "A generic architect writes blueprints in an office (Traditional Developer). A site engineer stands in the muddy ground, checking the local bricks, water levels, and adjusting the structure to stand correctly on the customer's soil (FDE).",
-    example: "A traditional coder writes an invoicing script on their own computer. An FDE joins the accounting firm's Slack channels, studies how their accountant validates PDFs manually, hooks the API to their local database via MCP, and runs checks live.",
-    remember: "FDEs make software work inside the customer's actual environment.",
-    whyMatters: "Companies do not want more software files. They want someone to implement and automate their workflows.",
-    diagramType: "fde_comparison",
+    title: "Station 03 — The Forward Deployed Engineer",
+    shortTitle: "03 — What is an FDE",
+    explanation: `What is it?
+A Forward Deployed Engineer (FDE) is a highly technical professional who works directly with clients to customize, integrate, and deploy AI core solutions into their live operations.
+
+Why does it matter?
+Enterprises will not trust raw AI agents with their live files and databases. A human engineer is required to handle context setup, security permissions, and workflow checks.
+
+Simple Example
+Instead of selling software online, you work closely with a logistics company's IT team to safely connect an AI dispatcher bot to their fleet database.
+
+Key Takeaway
+FDE is the human bridge that safely connects standardized AI cores to unique customer environments.`,
+    explanationUrdu: `Yeh Kya Hai?
+Forward Deployed Engineer (FDE) ek technical expert hota hai jo client ke sath close mil kar standard AI platforms ko customized settings ke mutabiq deploy karta hai.
+
+Yeh Kyun Zaroori Hai?
+Enterprises direct automated AI ko apne secret records ka access nahi dete. FDE setup aur security check manage karne ke liye zaroori hai.
+
+Sada Misaal
+Bank managers ke sath bath kar, secure local network par AI ledger validation model link karna taake accounting bots live ho sakein.
+
+Aham Nuqta
+FDE technical capability aur business context ke overlap par kaam karta hai.`,
+    analogy: "A high-end kitchen installer. The factory builds standard cabinets (80% core), but the installer comes to your kitchen, measures, and fits them perfectly (20% customization).",
+    example: "Configuring a local MCP server that allows Claude Code to safely query a client's private inventory database.",
+    remember: "FDE = Technical builder + Client-facing integrator.",
+    whyMatters: "Without FDEs, enterprise AI systems cannot be safely installed.",
+    diagramType: "fde_role",
     miniQuestion: {
-      question: "How does an FDE's goal differ from a traditional software developer?",
+      question: "What is the primary function of a Forward Deployed Engineer (FDE)?",
       options: [
-        "FDEs only write code in Python, while developers use JavaScript",
-        "Traditional developers focus on code deliverables; FDEs focus on deploying AI to achieve a real business outcome in the client's environment",
-        "FDEs work for AI cloud hosts only",
-        "Traditional developers work on-site, but FDEs always work remotely"
+        "To write marketing articles about AI trends",
+        "To work directly with client systems and customize the standard AI core for their workflow",
+        "To run Facebook ads for database software",
+        "To configure physical hardware inside servers"
       ],
       correct: 1,
-      explanation: "Perfect! FDEs focus on the actual, working business outcome in the client's operational environment."
+      explanation: "Correct! FDEs specialize in connecting core systems to the client's actual live environments."
     }
   },
   {
     id: 4,
     title: "Station 04 — Vendor-Neutral Vertical FDE",
     shortTitle: "04 — Vendor-Neutral",
-    explanation: "This is the ultimate professional positioning: 'Vendor-Neutral' means you do not lock clients into one AI model (you build systems that can switch between OpenAI, Claude, Gemini, or open-source runtimes). 'Vertical' means specializing in a specific profession + jurisdiction (e.g. Tax practice in Pakistan).",
-    explanationUrdu: "Vendor-Neutral Vertical FDE ka matlab hai do cheezein: 1. Vendor-Neutral: Apka system kisi ek AI provider (e.g. OpenAI) par bound na ho, balkay different model connections (Gemini, Claude, Llama) use kar sake. 2. Vertical: Ap kisi aik specific field + local country (jaise Pakistan Customs clearance) ke workflow expert hoon.",
-    analogy: "A chef who can cook on any stove (gas, electric, firewood - Vendor-Neutral) specializing exclusively in baking premium wedding cakes in Lahore (Vertical).",
-    example: "Instead of being a generic 'AI developer', you position yourself as a 'Vendor-Neutral AI Architect for Customs Brokerage firms in Karachi'.",
-    remember: "Vendor-Neutral (flexible AI models) + Vertical (specific profession & country) = High Value.",
-    whyMatters: "Broad niches like 'Accounting AI' are too crowded. Specific verticals have little competition and massive margins.",
-    diagramType: "vendor_neutral_vertical",
+    explanation: `What is it?
+A Vendor-Neutral Vertical FDE is an engineer specialized in a single industry vertical whose designs are not locked into any single AI model vendor.
+
+Why does it matter?
+Binding a business to one provider (like OpenAI or Anthropic) creates extreme vendor lock-in. If pricing increases or models degrade, the business is stuck. Vendor-neutral designs keep client options open.
+
+Simple Example
+Instead of writing hardcoded OpenAI API bindings, you use Model Context Protocol (MCP) and model gateways. If you need to switch to Claude, you change one config line.
+
+Key Takeaway
+Open standards (like MCP) protect clients from vendor lock-in and make systems future-proof.`,
+    explanationUrdu: `Yeh Kya Hai?
+Vendor-Neutral FDE ka matlab hai aisi architecture design karna jo kisi aik AI provider (jaise OpenAI ya Google) par locked na ho.
+
+Yeh Kyun Zaroori Hai?
+Proprietary systems lock-in create karte hain. Agar pricing change ho ya servers down hon, to business hang ho jata hai.
+
+Yeh Kaise Kaam Karta Hai?
+Hum standard protocols (jaise MCP) aur abstraction layers use karte hain taake background models easily switch ho sakein.
+
+Sada Misaal
+Aap aisi tool configuration design karte hain jise client bina core code change kiye OpenAI se Claude par shift kar sake.
+
+Aham Nuqta
+Open standards ko use karna client ko vendor dependency se bachata hai.`,
+    analogy: "A multi-plug travel adapter. It doesn't matter if the socket is British, American, or European; your adapter plugs in and powers your device.",
+    example: "Structuring database calls through standardized MCP endpoints that work with Claude, Gemini, or Llama models.",
+    remember: "Vendor lock-in is a business risk. Neutrality is an asset.",
+    whyMatters: "Clients value independence and portability of their AI systems.",
+    diagramType: "vendor_neutral",
     miniQuestion: {
-      question: "Why should you choose a specific Vertical (e.g., Tax practice in a specific country) instead of general AI consulting?",
+      question: "Why should an FDE practice vendor neutrality?",
       options: [
-        "General AI consulting is illegal",
-        "Specific verticals have less competition, clear rules, and client pain points that generic AI cannot solve without customization",
-        "All AI models are blocked in general consulting",
-        "Specific verticals do not require databases"
+        "To avoid paying for model subscriptions",
+        "To protect clients from vendor lock-in and enable easy model switching",
+        "To ensure code runs only on local hardware",
+        "To restrict the client from using databases"
       ],
       correct: 1,
-      explanation: "Correct! Highly focused verticals allow you to build deep, irreplaceable domain systems."
+      explanation: "Correct! Neutrality protects clients from cost hikes and single-point-of-failure API dependency."
     }
   },
   {
     id: 5,
-    title: "Station 05 — What You Own",
-    shortTitle: "05 — What You Own",
-    explanation: "You cannot own the base AI models (they belong to tech giants). You cannot own cloud servers (rented from AWS/Azure). What you can actually own as an asset is 'Governed Professional Knowledge'—the structured, verified, rules-based vertical data (System of Record) that guides the AI on how to perform a specialized job in a specific country.",
-    explanationUrdu: "Aap AI models (ChatGPT, Gemini) ke owner nahi ban sakte, na hi cloud servers apke hain. Ap jis asset ke owner ban sakte hain, wo hai 'Governed Professional Knowledge' (Rules, legal workflow databases, edge cases aur local policies) jo AI workers ko feed kiye jate hain.",
-    analogy: "A lawyer owns their law library and deep knowledge of court procedures. The courtroom and physical chairs belong to the state, but the lawyer's knowledge is their ownable asset.",
-    example: "By partnering with an accounting expert, you write down every local tax rule, exception, and approval template into a structured SQL/JSON schema. That schema is your ownable intellectual property.",
-    remember: "You own the governed vertical rules database; you rent the AI compute models.",
-    whyMatters: "Compute will become a commodity. Governed context and vertical rules will remain highly valuable assets.",
+    title: "Station 05 — What an FDE Owns",
+    shortTitle: "05 — What FDE Owns",
+    explanation: `What is it?
+In the agentic era, an FDE does not sell simple hours. An FDE owns and carries their own ownable intellectual assets: the "suitcase" containing governed vertical knowledge.
+
+Why does it matter?
+If you only sell hourly services, you have no leverage. If you own the System of Record and the specialized templates, you scale your earnings through licensing and repeatable setups.
+
+Simple Example
+You build and own a highly optimized, pre-tested Pakistan Customs Import Duty SoR kernel. When hiring clients, you carry this suitcase in, customize it, and license it.
+
+Key Takeaway
+Owning the governed domain knowledge (SoR) and templates gives you the ultimate leverage.`,
+    explanationUrdu: `Yeh Kya Hai?
+FDE hourly rates ke liye kaam nahi karta. Woh proprietary assets aur templates (apna "suitcase") khud own karta hai.
+
+Yeh Kyun Zaroori Hai?
+Simple hourly work mein scale nahi hota. Jab aap core rules database aur templates own karte hain, to aap multiple clients ko license kar sakte hain.
+
+Sada Misaal
+Aap ne tax verification checklist ka solid template framework banaya aur own kiya. Aap isay different companies ko setup kar ke retainers charge karte hain.
+
+Aham Nuqta
+Apne templates aur System of Record assets khud own karein taake repeat values generate ho sakein.`,
+    analogy: "A master mechanic who travels with their own premium toolbox containing custom-made tools that nobody else owns.",
+    example: "Developing a proprietary schema template for tax compliance rules that you deploy for multiple clients.",
+    remember: "Own the rules database and the workflow template to retain market leverage.",
+    whyMatters: "Selling raw hours is a race to the bottom; selling outcome assets is scalable.",
     diagramType: "what_you_own",
     miniQuestion: {
-      question: "In the agentic AI era, what is an ownable asset for an AI Engineer?",
+      question: "What is the primary asset a Vertical FDE should own and carry?",
       options: [
-        "The physical servers of OpenAI",
-        "The core LLM model weights",
-        "Governed Professional Knowledge (custom schemas, workflows, and rules)",
-        "The web browser program"
+        "A physical server rack",
+        "The 'suitcase' of governed domain knowledge, templates, and System of Record schemas",
+        "A general marketing presentation deck",
+        "An exclusive contract with OpenAI"
       ],
-      correct: 2,
-      explanation: "Yes! Governed professional vertical knowledge is the key asset you can own."
+      correct: 1,
+      explanation: "Correct! Owning your schemas and domain rules database is your source of leverage."
     }
   },
   {
     id: 6,
-    title: "Station 06 — Choose Your Vertical",
-    shortTitle: "06 — Choose Vertical",
-    explanation: "Selecting the right vertical requires validating it through five key questions: 1) Can you access a senior practitioner? 2) Is it governed by public law (not secret licenses)? 3) Can you fund 6-9 months of development? 4) Are the rules poorly documented in English? 5) Can you legally receive cross-border payments? If you lack a domain partner, start with service work (Service Ladder) first.",
-    explanationUrdu: "Sahi vertical choose karne ke liye 5 sawaal validate karein: Kya apke paas senior practitioner access hai? Kya rules public law par hain? Kya 6-9 months ka back up hai? Kya rules english mein clear nahi hain? Aur payment validation. Agar expert nahi hai, to Service Ladder se start karein.",
-    analogy: "Choosing a crop to plant. You don't just pick a seed because it sounds nice; you check if you have water supply, suitable soil, local weather data, and a farmer who knows how to grow it.",
-    example: "Choosing 'Import/Export Customs compliance rules in Karachi' is a great vertical because the local rules are complicated, poorly documented in standard English online, and need a local clearing agent expert to check.",
-    remember: "No expert access = Do NOT build a Vertical. Start with Service work.",
-    whyMatters: "Building a vertical without domain experts leads to AI tools that hallucinate and fail industry compliance tests.",
-    diagramType: "vertical_selection",
+    title: "Station 06 — What is a Vertical",
+    shortTitle: "06 — What is a Vertical",
+    explanation: `What is it?
+A Vertical is a highly focused market niche consisting of a specific profession combined with a specific country or local jurisdiction.
+
+Why does it matter?
+Broad fields like "Accounting AI" are too massive, complex, and highly competitive. "Sales tax accounting compliance in Pakistan" is a viable vertical because the rules are clear and bounded.
+
+Simple Example
+Building a bot for general tax filing is too broad. Building a bot for real estate transfer registry filings in Karachi is a vertical.
+
+Key Takeaway
+Narrow your focus to a specific profession and jurisdiction to capture low competition and clear rules.`,
+    explanationUrdu: `Yeh Kya Hai?
+Vertical ka matlab hai aik specific domain/profession ke sath kisi specific country ya local jurisdiction ka combination.
+
+Yeh Kyun Zaroori Hai?
+'Accounting' ya 'Law' boht bare subjects hain. 'Sales tax registry in Lahore' aik clear, specific aur bounded vertical hai.
+
+Sada Misaal
+General invoice generation ke bajaye, custom clearance agents ke excise duty forms handle karna aik clear vertical hai.
+
+Aham Nuqta
+Domain ko narrow down kar ke local jurisdiction rules ke sath map karein.`,
+    analogy: "A general physician vs. a pediatric cardiologist specialized in a single rare valve condition. The specialist surgeon has zero competition and high fees.",
+    example: "Selecting 'Punjab Revenue Authority tax compliance rules' as your build target.",
+    remember: "Vertical = Specific Profession + Specific Jurisdiction.",
+    whyMatters: "Narrow verticals have well-defined bounds that are easy to model into a System of Record.",
+    diagramType: "niche_tax_customs",
     miniQuestion: {
-      question: "What is recommended if you do not have direct access to a Senior Domain Practitioner for a vertical?",
+      question: "Which of the following is the best example of a specialized Vertical?",
       options: [
-        "Invent the rules using generic ChatGPT prompts",
-        "Start with the Service Ladder (building direct client scripts/SoRs) to gain trust and access",
-        "Quit the AI field entirely",
-        "Deploy the AI immediately without testing"
+        "General artificial intelligence consulting",
+        "Corporate legal filing compliance rules under Pakistan SECP guidelines",
+        "Writing code for mobile applications",
+        "A generic chatbot website"
       ],
       correct: 1,
-      explanation: "Exactly! Starting with the Service Ladder builds client trust, funds your learning, and exposes you to experts."
+      explanation: "Correct! The SECP corporate filing vertical combines a specific profession (corporate law) with a local jurisdiction (Pakistan)."
     }
   },
   {
     id: 7,
-    title: "Station 07 — Design & Build the Vertical SoR",
-    shortTitle: "07 — Build SoR",
-    explanation: "Designing the Vertical System of Record means indexing industry rules, terminology, and workflows into a clean, searchable format. You must analyze the old workflow and choose what to: KEEP (legally required files), REDESIGN (inefficient human steps), and DELETE (obsolete manual steps). This database serves humans via a web app and AI via MCP.",
-    explanationUrdu: "Vertical SoR design karne ka matlab hai industry rules ko structured format (JSON/Database) mein index karna. Purane manual workflow ko analyse karke decide karein: Kya KEEP karna hai, kya REDESIGN karna hai aur kya DELETE karna hai. Ye SoR standard database banata hai jo humans aur AI dono read karte hain.",
-    analogy: "Updating an old cooking recipe binder. You keep the core ingredients (KEEP), change manual mixing to electric blending (REDESIGN), and throw away the step where you had to fetch water from a well (DELETE).",
-    example: "An accounting SoR holds GAAP standards. Humans view them through a clean web dashboard, while the AI Agent reads them automatically through an MCP connector.",
-    remember: "One database source of truth, two readers: Human (Website) + AI (MCP connection).",
-    whyMatters: "A structured SoR keeps the AI's output accurate, complying with legal guidelines.",
-    diagramType: "build_sor_pipeline",
+    title: "Station 07 — Choosing Your Vertical",
+    shortTitle: "07 — Selection Rules",
+    explanation: `What is it?
+Choosing Your Vertical is the selection discipline used to validate a domain startup idea before writing any code.
+
+Why does it matter?
+If you select a vertical with no expert access or where the rules are hidden company secrets, your AI will fail because you cannot build a reliable System of Record.
+
+How does it work?
+We use the selection rules: 1) Verify access to a senior practitioner partner. 2) Ensure rules are public laws. 3) Select poorly documented English niches. 4) Validate client willingness to pay.
+
+Simple Example
+You partner with a senior customs officer in Karachi. The customs rules are public but poorly documented in English. This is a validated vertical.
+
+Key Takeaway
+No domain expert partner = No vertical. Start with basic service tasks.`,
+    explanationUrdu: `Yeh Kya Hai?
+Vertical selection ka matlab hai product code likhne se pehle specific industry aur rules ko select aur test karna.
+
+Yeh Kyun Zaroori Hai?
+Agar aap aisi domain select karein ge jahan rules copy-protected ya secret hon, to aap accurate System of Record database nahi bana sakein ge.
+
+Sada Misaal
+Aap local tax expert ke sath mil kar corporate tax filing rules select karte hain jahan public tax directories accessible hain.
+
+Aham Nuqta
+Pehle expert partner aur public rules verify karein, phir building shuru karein.`,
+    analogy: "A prospector scouting for gold: checking if there is a land registry, public survey records, and a local guide before buying excavation equipment.",
+    example: "Checking if a vertical passes the 8 tests, particularly verifying if a local senior expert has agreed to review the rule schemas.",
+    remember: "Expert access is the prerequisite to accuracy.",
+    whyMatters: "Validating your vertical prevents wasted development cycles on unbuildable niches.",
+    diagramType: "vertical_selection",
     miniQuestion: {
-      question: "What does 'One source, two readers' refer to in the Vertical SoR architecture?",
+      question: "What is the most critical validation check when choosing a vertical?",
       options: [
-        "A database that supports two human admins simultaneously",
-        "A structured database that serves humans via a Web Interface and AI Agents via Model Context Protocol (MCP)",
-        "An AI model that can read both PDF and Excel formats",
-        "A backup database mirror system"
+        "Ensuring the project has zero human involvement",
+        "Ensuring access to a senior domain practitioner to validate rules",
+        "Selecting the absolute largest industry possible",
+        "Running the app only on local databases"
       ],
       correct: 1,
-      explanation: "Yes! The same canonical database serves humans through a GUI and AI agents via MCP."
+      explanation: "Correct! Without expert validation, your rules database will likely contain bugs or legal compliance gaps."
     }
   },
   {
     id: 8,
-    title: "Station 08 — System of Context",
-    shortTitle: "08 — System of Context",
-    explanation: "While the System of Record contains the permanent, official rules, the 'System of Context' is a temporary collection of live data needed to execute a specific task right now. For an invoice approval task, the System of Context pulls the invoice file, purchase order history, vendor details, and ERP status to guide the AI Worker.",
-    explanationUrdu: "System of Record permanent rules/truth save karta hai, jabke 'System of Context' wo temporary data aur history hai jo kisi specific task ko run karne ke liye use hoti hai (jaise current invoice, client history, order forms). Context SoR ko replace nahi karta, use support karta hai.",
-    analogy: "A judge's court: The law book is the System of Record (permanent truth). The active case file containing local witness testimonies, evidence, and suspect records is the System of Context (temporary task data).",
-    example: "The AI Accountant needs to check an invoice. The System of Record provides the tax guidelines (17% tax rule). The System of Context provides the vendor's invoice PDF and the purchase order contract to check if they match.",
-    remember: "System of Record = What is officially true. System of Context = What this task needs right now.",
-    whyMatters: "Providing the correct context prevents AI from hallucinating or using old client data during tasks.",
+    title: "Station 08 — The FDE Workflow: SoR and SoC",
+    shortTitle: "08 — SoR vs SoC",
+    explanation: `What is it?
+In the FDE workflow, we divide data into the permanent System of Record (SoR) and the temporary System of Context (SoC).
+
+Why does it matter?
+AI agents fail when they mix permanent rules with temporary task files. Keeping them separate ensures high reliability and compliance.
+
+How does it work?
+The System of Record holds the official tax codes or company rules database. The System of Context holds the temporary client invoice file. The worker agent reads both to complete the check.
+
+Simple Example
+To verify an shipping excise duty: the excise duty rates (SoR) are static, while the shipping manifest PDF (SoC) is temporary.
+
+Key Takeaway
+FDE Workflow = Permanent SoR rules + Temporary SoC details = Verified Outcome.`,
+    explanationUrdu: `Yeh Kya Hai?
+FDE workflow mein hum permanent rules (System of Record) aur temporary files (System of Context) ko alag rakhte hain.
+
+Yeh Kyun Zaroori Hai?
+Agar AI dono ko mix kare ga to hallucination ho gi. Dono layers ko split rakhne se checks accurate rehte hain.
+
+Sada Misaal
+Aap ke tax rate tables SoR mein save hain, aur check hone wali current client bank statement System of Context mein aati hai.
+
+Aham Nuqta
+SoR = Permanent rules database. SoC = Temporary task details.`,
+    analogy: "A laboratory test: The standard medical reference range is the SoR (fixed guidelines). The patient's blood sample report is the System of Context (temporary info).",
+    example: "The AI agent queries the SoR for regulatory guidelines, and matches them with the uploaded client PDF invoice (System of Context).",
+    remember: "Rules go to SoR; task files go to Context.",
+    whyMatters: "Separation of concerns keeps the prompt sizes small and execution costs low.",
     diagramType: "system_of_context",
     miniQuestion: {
-      question: "Does the System of Context replace the System of Record?",
+      question: "In the FDE workflow, how do System of Record and System of Context interact?",
       options: [
-        "Yes, context replaces all records",
-        "No, they work together; SoR contains official rules, while System of Context supplies live task details",
-        "Yes, but only in dark mode layouts",
-        "No, because context is a type of base AI model"
+        "The System of Context replaces the System of Record",
+        "The SoR provides permanent rules, while the SoC supplies current task details to evaluate",
+        "They are two separate database backends that never run at the same time",
+        "They are only used in offline text files"
       ],
       correct: 1,
-      explanation: "Correct! They complement each other: SoR handles rules, Context handles current case data."
+      explanation: "Correct! The SoR handles the permanent standard rules, while the SoC contains the temporary live details for the specific run."
     }
   },
   {
     id: 9,
-    title: "Station 09 — Go to Work & Get Paid",
-    shortTitle: "09 — Go to Work",
-    explanation: "Once you build working slices and vertical systems, you go to work via three routes: 1) Job: Join enterprises as an FDE with a premium salary. 2) Freelance: Build custom AI workers and systems for clients, securing upfront project fees and monthly retainers. 3) Startup: Package your vertical rules and AI workers into a subscription product (SaaS) and sell domain-specific licenses.",
-    explanationUrdu: "Apna system complete karne ke baad earn karne ke 3 doors hain: Door 1 (Job): Enterprise companies mein high salary FDE lagna. Door 2 (Freelance): Clients ke liye SoR aur AI Workers banana aur monthly retainers lena. Door 3 (Startup): Apne specialized vertical tools ko recurring SaaS models me convert karna.",
-    analogy: "You have built an automated crop harvesting machine. You can work as a machinery expert for a big farm (Job), rent the machine to local farms for daily fees (Freelance), or manufacture and sell the machines to the market (Startup).",
-    example: "A freelancer builds a customs clearance bot for one logistics client, then charges them $500/month as a retainer to keep the connector updated with local port regulatory changes.",
-    remember: "Deploy real value → Charge for outcomes → Establish monthly retainers.",
-    whyMatters: "Building first and selling working proof (slices) is the only way to stand out in a noisy market.",
+    title: "Station 09 — Three Ways to Earn",
+    shortTitle: "09 — Ways to Earn",
+    explanation: `What is it?
+An FDE can monetize their skills through three distinct business paths: 1) Job, 2) Freelance / Retainers, and 3) Startup.
+
+Why does it matter?
+Different developers prefer different lifestyles. Understanding these paths helps you match your technical execution with your income goals.
+
+How does it work?
+- Job: Work as an in-house FDE customizing the employer's core templates.
+- Freelance: Set up custom client connections and charge monthly retainers.
+- Startup: Build, own, and license a Vertical SoR and AI Worker ecosystem.
+
+Simple Example
+You start with immediate freelance service tasks (SoR setups) to fund and validate your vertical accounting startup templates.
+
+Key Takeaway
+Leverage your templates across all three routes to maximize value.`,
+    explanationUrdu: `Yeh Kya Hai?
+FDE ke paas earn karne ke teen primary options hain: Job, Freelancing (Monthly Retainer), aur SaaS Startup.
+
+Yeh Kyun Zaroori Hai?
+Aap ko apni preference aur setup ke mutabiq sahi route select karna chahiye jo aap ke targets ko match kare.
+
+Sada Misaal
+Aap local companies ke liye database MCP setup karte hain (Freelance), aur bad mein isi custom stack ko license kar ke Startup bana dete hain.
+
+Aham Nuqta
+Teeno options mein base FDE components and templates standard rehte hain.`,
+    analogy: "A baker: working in a hotel kitchen (Job), catering local weekend parties (Freelance), or opening a specialized automated bakery franchise (Startup).",
+    example: "Using freelance retainers to secure immediate cash flow while coding your Layer 3 SaaS startup.",
+    remember: "Job = Stability. Freelance = Cashflow. Startup = Scale.",
+    whyMatters: "Aligning your business model with your technical execution ensures success.",
     diagramType: "go_to_work_doors",
     miniQuestion: {
-      question: "Which of the following is NOT one of the three earning routes defined in the FDE roadmap?",
+      question: "Which monetization path offers recurring, scalable product licensing?",
       options: [
-        "Job: Salary + Enterprise experience",
-        "Freelance: Projects + Monthly retainers",
-        "Cryptocurrency trading and speculative coin flips",
-        "Startup: Own a Vertical + Domain products"
+        "Hourly job contracts",
+        "A SaaS Vertical Startup licensing the SoR and AI Worker templates",
+        "A one-off freelance prompt-writing task",
+        "Offline document printing services"
       ],
-      correct: 2,
-      explanation: "Yes! Crypto speculation is not part of this professional FDE roadmap."
+      correct: 1,
+      explanation: "Correct! Licensing proprietary vertical templates as a startup scales far better than renting hourly services."
     }
   },
   {
     id: 10,
-    title: "Service Ladder",
-    shortTitle: "Service Ladder",
-    explanation: "The Service Ladder is the easiest starting route. You do NOT need your own vertical or custom licensed expert data first. You begin by offering manual or script-based services (like configuring database schemas, cleaning legacy records, or building simple API workflows). You charge direct service fees and gradually upgrade the client to monthly retainer workers.",
-    explanationUrdu: "Service Ladder earning ka pehla seedhi hai. Isme apko shuru me apna vertical ya expert nahi chahiye hota. Ap standard tasks perform karte hain jaise database set karna, clean rules coding aur connectors design karna, aur outcomes par retainers built karte hain.",
-    analogy: "Instead of opening a high-end restaurant, you work as a private catering chef, preparing specific meals for clients while funding your future restaurant goals.",
-    example: "You clean and structure 500 PDF manuals for a client into a JSON schema, saving them weeks of manual catalog indexing.",
-    remember: "Service Ladder = Deliver fast value without needing complex custom verticals first.",
-    whyMatters: "It funds your learning journey and builds client trust, giving you access to real-world experts.",
-    diagramType: "service_ladder_flow",
+    title: "Station 10 — Service Ladder",
+    shortTitle: "10 — Service Ladder",
+    explanation: `What is it?
+The Service Ladder is an FDE earning progression where you start with low-risk setup services and scale to monthly retainer agreements.
+
+Why does it matter?
+Clients will not pay for complex vertical startups immediately. You must build trust first through immediate, simple tasks that deliver fast value.
+
+How does it work?
+- Step 1: Clean and index client PDFs into a database.
+- Step 2: Map legacy workflow rules.
+- Step 3: Connect standard models (MCP setup).
+- Step 4: Secure a monthly retainer to monitor and maintain the system.
+
+Simple Example
+You charge a client $500 to clean and index their PDF policy sheets into Postgres. Once done, you offer to maintain it for a monthly retainer.
+
+Key Takeaway
+Use simple service steps to build trust and fund your research.`,
+    explanationUrdu: `Yeh Kya Hai?
+Service Ladder aik step-by-step career growth tareeqa hai jahan aap shuru mein simple tasks se start kar ke monthly retainers tak jate hain.
+
+Yeh Kyun Zaroori Hai?
+Naye clients aap par heavy projects ke liye foran trust nahi karte. Pehle clean aur index tasks kar ke unka trust jeetna hota hai.
+
+Sada Misaal
+Pehle client ke rough documents and rules list ko set up karein (Step 1), phir MCP link configure karein (Step 2), aur phir continuous maintenance retainer charge karein.
+
+Aham Nuqta
+Trust aur cashflow build karne ke liye pehle lower-risk services provide karein.`,
+    analogy: "A mechanic cleaning your spark plugs for cheap first, proving their honesty, and eventually getting the contract to manage your entire logistics fleet.",
+    example: "Charging a small fee to clean a client's folder of disorganized regulatory PDFs and indexing them.",
+    remember: "Proving immediate thin slice value is the best sales technique.",
+    whyMatters: "The Service Ladder provides immediate cash flow for FDEs starting out.",
+    diagramType: "service_ladder_steps",
     miniQuestion: {
-      question: "What is a main advantage of starting with the Service Ladder?",
+      question: "What is the primary benefit of starting on the Service Ladder?",
       options: [
-        "It requires a highly expensive AI license key",
-        "It lets you earn sooner and gain client trust without needing your own proprietary vertical first",
-        "It removes the need for databases",
-        "It guarantees that AI models will run 100% offline"
+        "It removes the need to use coding agents",
+        "It secures immediate cash flow and builds client trust through low-risk setups",
+        "It guarantees that AI models will never change",
+        "It is only applicable to offline physical businesses"
       ],
       correct: 1,
-      explanation: "Exactly! The Service Ladder allows you to enter the market and earn immediate income with simpler integrations."
+      explanation: "Correct! Starting with simpler tasks validates you to the client and funds your domain research."
     }
   },
   {
     id: 11,
-    title: "Vertical Ladder",
-    shortTitle: "Vertical Ladder",
-    explanation: "The Vertical Ladder is the long-term asset ownership path. You partner with a domain expert, define a highly specific profession + jurisdiction, structure a Vertical System of Record, build customized AI Workers, and package them as licensed software products (SaaS) or structured FDE consulting agreements.",
-    explanationUrdu: "Vertical Ladder lamba par owned asset ka rasta hai. Ap senior domain expert ke sath milkar specialized vertical system design karte hain, custom worker bots customize karte hain aur software system deploy karke recurring license feed scale karte hain.",
-    analogy: "Transitioning from renting out manual labor (Services) to owning the factory that sells automated manufacturing units globally (Product Ownership).",
-    example: "Creating a dedicated compliance platform for dental clinics in Pakistan that handles automated medical filings and patient record audits.",
-    remember: "Service Ladder = Earn money now. Vertical Ladder = Build owned assets for the future.",
-    whyMatters: "True scale and leverage in the AI era come from owning the vertical systems and datasets, not just writing hours of code.",
-    diagramType: "vertical_ladder_flow",
+    title: "Station 11 — Vertical Ladder",
+    shortTitle: "11 — Vertical Ladder",
+    explanation: `What is it?
+The Vertical Ladder is the startup pathway where you secure an expert partner, map public laws into a Vertical SoR, build custom vertical workers, and scale as a SaaS business.
+
+Why does it matter?
+Scaling services is limited by human time. A vertical startup licenses software, allowing you to scale to thousands of clients without hiring more engineers.
+
+How does it work?
+1) Secure Domain Expert. 2) Map Jurisdiction Laws. 3) Build Vertical Workers. 4) Package as SaaS.
+
+Simple Example
+You partner with a Karachi exporter. You build a specialized import/export customs clearance bot, package it as a subscription site, and sell it to 50 clearing agencies.
+
+Key Takeaway
+Convert services into product assets (Vertical SoR) to achieve scalability.`,
+    explanationUrdu: `Yeh Kya Hai?
+Vertical Ladder startup aur SaaS product banane ka path hai jahan FDE domain experts ke sath mil kar standard industry rules database aur workers banata hai.
+
+Yeh Kyun Zaroori Hai?
+Services mein scale limited hota hai. SaaS product bana kar licensing karne se scale fast aur cost low ho jati hai.
+
+Sada Misaal
+Excise and custom clearing agents ke liye complete excise tax AI system design karna aur isay licensing base subscription banana.
+
+Aham Nuqta
+Services ko standard platform components mein convert karein taake product scale mil sake.`,
+    analogy: "Instead of driving a taxi yourself (Service), you manufacture standard taximeters and license them to all taxi fleets in the city (Vertical SaaS).",
+    example: "Packaging your mapped tax database files and verification code into a subscription portal for tax advisors.",
+    remember: "Productize your services by building a reusable Vertical SoR.",
+    whyMatters: "Building a SaaS vertical creates equity and scalable, hands-off income.",
+    diagramType: "vertical_ladder_steps",
     miniQuestion: {
-      question: "Which path focuses on building owned proprietary software assets rather than quick services?",
+      question: "What is the final stage of the Vertical Ladder?",
       options: [
-        "The URL paste method",
-        "The Service Ladder",
-        "The Vertical Ladder",
-        "The Generic prompting model"
+        "Doing manual data cleaning forever",
+        "Packaging the vertical rules database and workers as a scalable SaaS product",
+        "Working hourly job shifts at a local company",
+        "Shutting down the database server"
       ],
-      correct: 2,
-      explanation: "Yes! The Vertical Ladder focuses on long-term ownership of vertical AI assets."
+      correct: 1,
+      explanation: "Correct! Scaling as a SaaS product is the ultimate goal of the Vertical Ladder."
     }
   },
   {
     id: 12,
-    title: "The 80/20 Customization Rule",
-    shortTitle: "80/20 Customization",
-    explanation: "When building FDE architectures, 80% of your AI Worker code is a common, reusable core framework (like database connectors, standard NLP parsers, and chat structures). Only 20% is customized for a specific customer (their pricing databases, custom approval pipelines, and local credentials).",
-    explanationUrdu: "FDE system building mein 80/20 rule boht helpful hai. Apka system 80% reusable templates par base karta hai jo common hain. Baaqi 20% har customer ke mutabiq customise hota hai (pricing, CRM details). Is se product speed barh jati hai.",
-    analogy: "A modular wardrobe. 80% is the standard frame built in the factory. 20% is the customized doors chosen by the homeowner.",
-    example: "Your AI Invoice worker has standard PDF reading logic (80%). When implementing for a client, you hook it to their custom SAP database keys (20%).",
-    remember: "Build once, customize slightly, deploy quickly.",
-    whyMatters: "If you rebuild 100% of the AI from scratch for every customer, your business will scale too slowly to remain profitable.",
-    diagramType: "eighty_twenty_paid",
+    title: "Station 12 — The 80/20 Customization Split",
+    shortTitle: "12 — 80/20 Customization",
+    explanation: `What is it?
+The 80/20 rule states that 80% of an AI worker is a reusable, common core (the industry vertical rules), and only 20% is client-specific customization.
+
+Why does it matter?
+Fully custom software is too expensive to maintain. Standardized SaaS is hard to customize. The 80/20 split gives clients the best of both: hand-built customization that inherits core platform updates.
+
+How does it work?
+The FDE maintains the core System of Record (80%). When a client buys, the FDE configures the remaining 20% (private API keys, database URLs, custom validation rules).
+
+Simple Example
+A sales bot core is 80% standard. The shoe store pricing and catalog (20%) is configured by the FDE.
+
+Key Takeaway
+Maintain a standard core to scale, and configure the custom 20% to capture high-margin implementation fees.`,
+    explanationUrdu: `Yeh Kya Hai?
+80/20 Customization ka matlab hai AI Worker ka 80% core standard aur reusable hota hai, jabke 20% specific client ke liye customize kiya jata hai.
+
+Yeh Kyun Zaroori Hai?
+Is split ke bina aap ko har client ke liye zero se program likhna pare ga. Core 80% same rakhne se development boht fast ho jati hai.
+
+Sada Misaal
+Accounting bot ka core tax engine 80% same hai. FDE har client ki specific database credentials (20%) connect kar deta hai.
+
+Aham Nuqta
+Core engine common rakhein aur customization 20% ko implementation fee ke liye use karein.`,
+    analogy: "A prefabricated house. The factory constructs 80% of the walls and structure. The local workers install the house and let you pick the paint color and kitchen tiles (20%).",
+    example: "Adjusting the customization ratio slider to see the balance between shared core rules and custom database endpoints.",
+    remember: "80% shared core + 20% client customization = High speed, high compliance.",
+    whyMatters: "This split keeps implementation fast while delivering custom, tailored value to clients.",
+    diagramType: "eighty_twenty",
     miniQuestion: {
-      question: "Under the 80/20 rule, why is a reusable core important?",
+      question: "Under the 80/20 customization rule, what does the 20% represent?",
       options: [
-        "It is required by OpenAI's licensing terms",
-        "It prevents you from writing code on your own computer",
-        "It allows fast scaling and rapid custom client deployments without starting from scratch",
-        "It ensures AI works in only one language"
+        "The error tolerance of the model",
+        "The customer-specific configuration, credentials, and custom constraints",
+        "The time spent training LLM weights",
+        "The percentage of code written without specifications"
       ],
-      correct: 2,
-      explanation: "Yes! It allows you to rapidly onboard and customize workflows for new clients."
+      correct: 1,
+      explanation: "Correct! The 20% represents the client's custom database keys, permissions, and specific local rules."
     }
   },
   {
     id: 13,
-    title: "The 10-80-10 Workflow Rule",
-    shortTitle: "10-80-10 Workflow",
-    explanation: "The 10-80-10 Rule defines human-AI collaboration: Humans perform the first 10% (outlining requirements, variables, and parameters). The AI Agent handles the middle 80% of bulk execution (generating code, writing text, sorting tables). The Human checks, tests, and signs off on the final 10% (quality review & deployment).",
-    explanationUrdu: "10-80-10 rule responsibility ka division hai: Pehla 10% human specification likhta hai. Darmiyan ka 80% AI bulk coding ya execution karta hai. Aakhri 10% human tests aur feedback checks kar ke final approve karta hai. Ye 80/20 rule se bilkul alag hai.",
-    analogy: "An editor giving a writer an outline (10%). The writer drafts the book (80%). The editor checks the grammar, refines the style, and prints the book (10%).",
-    example: "You feed a database schema definition to Zia Developer (10%). The developer writes 500 lines of typescript backend logic (80%). You review and run compile tests (10%).",
-    remember: "Humans specs 10% ➔ AI builds 80% ➔ Humans approve 10%.",
-    whyMatters: "It gives you maximum scaling speed while maintaining 100% human quality control.",
-    diagramType: "ten_eighty_ten_paid",
+    title: "Station 13 — Takeaways & Common Mistakes",
+    shortTitle: "13 — Common Mistakes",
+    explanation: `What is it?
+This station summarizes the critical practical guidelines and common implementation traps FDEs face in the market.
+
+Why does it matter?
+Most beginner FDEs fail because they build massive systems without expert validation, lock themselves into single vendors, or sell hourly instead of outcome-based services.
+
+How does it work?
+Follow the rules: 1) Build First, Sell Second (demo working slice). 2) Secure expert access before coding. 3) Enforce the 10-80-10 collaboration rules. 4) Use outcome-based retainer contracts.
+
+Simple Example
+Instead of sending a PDF pitch, you show a prospect client a live, working 5-minute demo of their own messy data parsed by your local MCP server.
+
+Key Takeaway
+Focus on validated outcome slices rather than selling abstract promises.`,
+    explanationUrdu: `Yeh Kya Hai?
+FDEs ke liye aham practical guidelines aur common mistakes ka summary.
+
+Yeh Kyun Zaroori Hai?
+Aksar developers isliye fail ho jate hain kyunke woh direct code likhte hain bina expert validation ke, ya phir hourly rate par negotiate karte hain jo scalable nahi.
+
+Sada Misaal
+Bina rules verification ke product build karne ke bajaye, pehle domain expert partner dhundna aur outcomes check karna.
+
+Aham Nuqta
+Hamesha working demo (thin slice) pehle build karein, aur hourly ke bajaye outcome-based price set karein.`,
+    analogy: "A pilot checking the pre-flight checklist. Missing one verification step (like expert access) is the difference between a smooth flight and a crash.",
+    example: "Evaluating common mistakes: pitch presentation instead of showing a working prototype.",
+    remember: "Working proof replaces the sales pitch.",
+    whyMatters: "Adhering to these takeaways ensures long-term viability and recurring retainer contracts.",
+    diagramType: "mistakes_checklist",
     miniQuestion: {
-      question: "Which of the following is true about the 10-80-10 rule?",
+      question: "Which of the following is a critical mistake for an FDE?",
       options: [
-        "It is exactly the same as the 80/20 rule",
-        "It defines human-AI work division: 10% specs, 80% AI execution, 10% human audit",
-        "It applies only to cloud server network pricing",
-        "It recommends that humans perform 100% of the software writing"
+        "Building a working slice first",
+        "Pitching abstract slides instead of showing a working demo with client data",
+        "Charging monthly retainers for maintenance",
+        "Using open standards like MCP"
       ],
       correct: 1,
-      explanation: "Exactly! It governs the work division between humans and AI."
-    }
-  },
-  {
-    id: 14,
-    title: "Contract of Success",
-    shortTitle: "Contract of Success",
-    explanation: "Do not sell your AI services based on hours ('I will code for 30 hours'). Instead, sell measurable outcomes. The Contract of Success defines three things: 1) Baseline: Where the client is today (e.g. 5 hours to process forms). 2) Target: What success looks like (e.g. 30 minutes). 3) Acceptance: How it is verified (e.g. 98% accuracy log).",
-    explanationUrdu: "Insaan ko hourly rate par code nahi bechna chahiye, balkay outcomes sell karne chahiye. Success contract 3 cheezon se banta hai: Baseline (aaj kidhar khare hain), Target (kahan pohanchna hai), aur Acceptance Criteria (validation kaise hogi).",
-    analogy: "Hiring a weight loss coach. You don't pay them for the whistles they blow; you pay them because you drop from 90kg (Baseline) to 80kg (Target) using a scale (Acceptance).",
-    example: "A client company pays you $2000 because invoice processing time drops from 4 hours to 10 minutes with zero data errors.",
-    remember: "Define baseline, target, and measurement to avoid endless unpaid requirement changes.",
-    whyMatters: "Outcome-based pricing protects your margins and aligns your code directly with client profit.",
-    diagramType: "contract_of_success_visual",
-    miniQuestion: {
-      question: "What are the three pillars of a Contract of Success?",
-      options: [
-        "Code, Cloud, and Credentials",
-        "Baseline, Target, and Acceptance Criteria",
-        "Salary, Bonus, and Health insurance",
-        "Prompt, Chat, and Result"
-      ],
-      correct: 1,
-      explanation: "Yes! Baseline, Target, and Acceptance Criteria form the bedrock of outcome-based agreements."
-    }
-  },
-  {
-    id: 15,
-    title: "Retainers",
-    shortTitle: "Retainers",
-    explanation: "Projects are one-off payments. Retainers are recurring monthly fees. Once an AI worker is deployed, it needs continuous monitoring, evaluation, context checks, and updates as API models change. Charge a monthly retainer to manage these operations.",
-    explanationUrdu: "Project ek baar ki payment hoti hai jabke Retainer har month milne wali fee hai. AI system deploy hone ke baad rules updates, prompt fine-tuning aur logs checks mangta hai. In services ke liye ap client se monthly recurring fee lete hain.",
-    analogy: "A home security system. You pay once to install the cameras (Project), but pay a monthly fee to the security team to monitor the feeds (Retainer).",
-    example: "Charging a medical clinic $300/month to monitor their automated file sorting system and update prompt templates when national healthcare policies change.",
-    remember: "A project ends; a retainer continues.",
-    whyMatters: "Retainers create highly stable, predictable cashflow for FDE professionals.",
-    diagramType: "retainer_lifecycle",
-    miniQuestion: {
-      question: "What service justifies charging a monthly retainer in AI deployments?",
-      options: [
-        "Simply hosting the website on a personal computer",
-        "Continuous monitoring, prompt adjustments, compliance updates, and workflow maintenance",
-        "Translating client texts manually",
-        "Buying more API key credits on behalf of the client"
-      ],
-      correct: 1,
-      explanation: "Spot on! Ongoing maintenance and optimization justify a recurring retainer."
-    }
-  },
-  {
-    id: 16,
-    title: "Build First, Sell Second",
-    shortTitle: "Build First",
-    explanation: "Do not pitch generic promises ('I can build any AI'). Clients receive hundreds of spam messages. Instead, build a tiny working prototype (a slice), test it, document the results, and show concrete proof. Working proof stands out instantly.",
-    explanationUrdu: "Sirf promises ya CV se clients convince nahi hote. Pehle ek choti, working prototype (working slice) khud se banayein, use check karein, aur client ko live result ya recording ke sath proof dikhayein. Working proof bechna aasan hai.",
-    analogy: "A baker placing a small, delicious cake slice on the counter for you to taste rather than talking about their premium flour.",
-    example: "Instead of emailing a shipping company saying 'I know AI agents', you build a mini-bot that reads a dummy bill of lading and extracts ports. You send a 60-second video of it working.",
-    remember: "Proof of a working slice is stronger than any abstract promise.",
-    whyMatters: "It lowers the client's risk perception, making them willing to pay you.",
-    diagramType: "build_first_flow",
-    miniQuestion: {
-      question: "What is the core idea behind 'Build First, Sell Second'?",
-      options: [
-        "Charge the client before starting coding research",
-        "Create working proof or a demo slice to show actual value before selling",
-        "Buy server nodes in bulk to run multiple applications",
-        "Force the client to learn programming languages"
-      ],
-      correct: 1,
-      explanation: "Yes! Showing concrete working proof makes selling simple and low-friction."
-    }
-  },
-  {
-    id: 17,
-    title: "The Slice Methodology",
-    shortTitle: "Slice Methodology",
-    explanation: "A 'Slice' is one single, complete professional outcome handled from end-to-end. Rather than promising a giant, unfinished 'Complete Accounting AI System', you build a tight, flawless 'Invoice Verification Worker'. A working slice beats 50 incomplete features.",
-    explanationUrdu: "Slice ka matlab hai aik chota aur mukammal outcome jo end-to-end sahi kaam kare. Bare features ke daaway karne ke bajaye, aik niche task (jaise PDF data extraction worker) flawless design karein. Ek aam chatbot se slice behtar hai.",
-    analogy: "A single complete cupcake that is delicious and ready to eat, versus a giant, underbaked, raw wedding cake skeleton.",
-    example: "Instead of trying to automate the whole HR department, you build a single worker that does 'Generate onboarding contracts from candidate names'.",
-    remember: "1 working slice >> 50 half-baked features.",
-    whyMatters: "It reduces development risks, controls bugs, and delivers quick wins.",
-    diagramType: "slice_concept",
-    miniQuestion: {
-      question: "What is a 'Slice'?",
-      options: [
-        "A database backup table copy",
-        "One thin, complete professional outcome covered from end-to-end",
-        "A custom python package",
-        "An AI model prompt template"
-      ],
-      correct: 1,
-      explanation: "Correct! A slice is a tight, complete, end-to-end automated outcome."
-    }
-  },
-  {
-    id: 18,
-    title: "Common Failure Modes",
-    shortTitle: "Common Failures",
-    explanation: "FDEs must avoid 8 common traps: 1) Endless CV polishing (instead of building projects). 2) Picking a vertical without an expert practitioner. 3) Building before validating market demand. 4) Building a giant product instead of a slice. 5) Doing a demo without real data testing. 6) Selling hours instead of outcomes. 7) Choosing a vertical that is too broad. 8) Building context before establishing the System of Record.",
-    explanationUrdu: "FDEs ko in 8 baray mistakes se bachna chahiye: 1. CV polish karte rehna, 2. Expert practitioner ke bagair kam shuru karna, 3. Market validate na karna, 4. Giant product banana, 5. Saste demos dikhana, 6. Hours sell karna, 7. Boht broad niche chun'na, aur 8. Context pehle banana SoR ke bagair.",
-    analogy: "A sailor who spends all their time polishing the boat anchor, but leaves the dock without checking if they have maps, sails, or fresh water.",
-    example: "An engineer builds a massive 'Corporate Legal AI tool' without talking to a single lawyer. When launched, lawyers refuse to buy it because the tool violates basic evidentiary rules.",
-    remember: "Validate market, consult experts, start with slices, and sell outcomes.",
-    whyMatters: "Knowing common pitfalls protects you from wasting months of time on code nobody will pay for.",
-    diagramType: "failure_modes_grid",
-    miniQuestion: {
-      question: "Which of the following is a common failure mode in AI agent engineering?",
-      options: [
-        "Writing code in TypeScript instead of pure Python",
-        "Building a massive, generic product without partnering with a domain expert or validating market demand",
-        "Using local databases instead of cloud networks",
-        "Charging a monthly retainer to manage rules"
-      ],
-      correct: 1,
-      explanation: "Yes! Building massive, generic systems without validation is a major cause of project failures."
+      explanation: "Correct! Showing working proof (thin slice) is always superior to pitching abstract concepts or slides."
     }
   }
 ];
@@ -1329,119 +1318,31 @@ export const course2Flashcards = [
   {
     term: "Service Ladder",
     definition: "Starting with consulting and manual data configurations (services) to fund product building.",
-    example: "Structuring a client's old PDF documentation database before building their AI search bots."
+    example: "Indexing PDFs for a client to earn immediate trust and cashflow."
   },
   {
     term: "Vertical Ladder",
-    definition: "The path of building, scaling, and owning a highly specialized vertical AI software startup.",
-    example: "Creating a specialized software asset for legal audit firms in your country."
+    definition: "The scaling path where you secure an expert, map laws, build workers, and package as a SaaS startup.",
+    example: "Partnering with a tax lawyer to build and license a nationwide tax filing SaaS."
   },
   {
-    term: "Contract of Success",
-    definition: "An outcome-based sales agreement defined by baseline, targets, and success measurements.",
-    example: "Client pays once billing processing speed drops from 5 hours to 30 minutes with 98% accuracy."
+    term: "80/20 Customization Split",
+    definition: "Product model where 80% is the reusable generic core and 20% is client-custom rules.",
+    example: "Core sales bot (80%) + specific company product catalog (20%)."
   },
   {
-    term: "Retainer",
-    definition: "Ongoing monthly fee charged to monitor, update, evaluate, and maintain AI workers.",
-    example: "Charging $400/month to keep checking and adapting AI prompts as local laws update."
+    term: "10-80-10 Rule",
+    definition: "Work structure where human sets specs (10%), AI builds (80%), and human reviews/approves (10%).",
+    example: "You outline a code file layout, AI drafts all components, and you review/test it."
   },
   {
-    term: "Expert Twin",
-    definition: "An AI worker trained on the governed knowledge and professional judgment of a senior human expert.",
-    example: "An automated underwriting agent matching the exact guidelines of a senior risk officer."
+    term: "Monthly Retainer",
+    definition: "Ongoing monthly fee charged to monitor, evaluate, and update deployed AI workers against degradation.",
+    example: "Charging $1,000/month to keep a client's invoice auditing loop aligned with new API updates."
   }
 ];
 
 export const course2QuizQuestions = [
-  {
-    question: "What is the 'Deployment Gap' in the context of the Agentic Era?",
-    options: [
-      "The distance between two servers in a datacenter",
-      "The distance between a raw AI capability (API) and an actual, working business result",
-      "A bug in the local Git code commit system",
-      "The price difference between OpenAI and Claude APIs"
-    ],
-    correct: 1,
-    explanation: "Deployment Gap capability aur outcome ke darmiyan ka faasla hai. AI model hona kafi nahi, use company data aur rules ke sath setup karna parta hai."
-  },
-  {
-    question: "What is the primary focus of a Forward-Deployed Engineer (FDE)?",
-    options: [
-      "Writing generic blogs about artificial intelligence history",
-      "Deploying AI systems directly into the client's real data environment to achieve business results",
-      "Selling cloud storage subscriptions to managers",
-      "Designing corporate logos for startups"
-    ],
-    correct: 1,
-    explanation: "FDE actual client system aur workflows ko study aur integrate karta hai taake real business problem solve ho."
-  },
-  {
-    question: "What does 'Vendor-Neutral' mean in FDE architectures?",
-    options: [
-      "The developer does not charge any service fees",
-      "The system is not locked to one AI provider and can swap models (OpenAI, Claude, Gemini, local) easily",
-      "The client does not use any cloud servers",
-      "The code is written without using variables"
-    ],
-    correct: 1,
-    explanation: "Vendor neutrality ka matlab hai flexible client system design karna jo market dynamics ke mutabiq best LLM api par switch kar sake."
-  },
-  {
-    question: "Which of the following is a specific 'Vertical'?",
-    options: [
-      "Writing python scripts for websites",
-      "Generative AI consulting",
-      "Customs clearance compliance brokerage in Pakistan",
-      "Cloud hosting configurations"
-    ],
-    correct: 2,
-    explanation: "Vertical hamesha aik specific profession + local country/jurisdiction ka milap hota hai (jaise customs clearing in Pakistan)."
-  },
-  {
-    question: "What is the ownable intellectual asset in the agentic AI business model?",
-    options: [
-      "The raw public weights of LLM models",
-      "The user's computer monitor hardware",
-      "Governed Professional Knowledge (custom schemas, rules-books, and indexed workflows)",
-      "The generic OpenAI developers documentation page"
-    ],
-    correct: 2,
-    explanation: "Base model sab ke paas same hain. Original asset apka structured, authoritative vertical rules database hota hai."
-  },
-  {
-    question: "What should you do if you do not have direct access to a Senior Domain Expert for a vertical?",
-    options: [
-      "Guess the professional rules and release the product",
-      "Start with the Service Ladder to deliver basic services and build practitioner connections",
-      "Wait for AI models to become 100% accurate",
-      "Use generic search queries to draft tax codes"
-    ],
-    correct: 1,
-    explanation: "Domain expert na hone ki surat mein Service Ladder (services build process) behtareen entry point hai."
-  },
-  {
-    question: "What is a key difference between the System of Record (SoR) and the System of Context?",
-    options: [
-      "System of Record contains the static HTML templates only",
-      "SoR holds the official, permanent rules of truth; System of Context supplies the temporary case data for a specific task",
-      "System of Context is a database backup, while SoR is active",
-      "There is no difference in architecture"
-    ],
-    correct: 1,
-    explanation: "SoR rulebook hai jo permanent hai, jabke Context case file hai jo temporary hai."
-  },
-  {
-    question: "What is a 'Slice' in FDE product methodology?",
-    options: [
-      "A part of a physical hard drive partitioning",
-      "One complete, end-to-end professional outcome covered fully (e.g. Invoice verification worker)",
-      "A quick presentation slide deck for client meetings",
-      "A snippet of code copy-pasted from StackOverflow"
-    ],
-    correct: 1,
-    explanation: "Slice ka matlab hai complete product ke bajaye ek specific problem/outcome (jaise statement checking) ko pehle fully handle karna."
-  },
   {
     question: "Under the 80/20 rule of AI deployment, what does the 80% stand for?",
     options: [
@@ -1465,17 +1366,6 @@ export const course2QuizQuestions = [
     explanation: "10-80-10 represents human-AI collaboration where human handles specs at start and checks output at end."
   },
   {
-    question: "How is the Contract of Success defined?",
-    options: [
-      "By charging a high daily consulting hour rate",
-      "By setting baseline metrics, target outcomes, and explicit verification criteria",
-      "By signing a secret vendor agreement",
-      "By guaranteeing that AI will never make mistakes"
-    ],
-    correct: 1,
-    explanation: "Contract of Success outcome-based pricing ko check karta hai (Baseline status vs Target status vs verification method)."
-  },
-  {
     question: "What does a Monthly Retainer represent in FDE freelance contracts?",
     options: [
       "A security deposit that is returned to the client",
@@ -1484,7 +1374,7 @@ export const course2QuizQuestions = [
       "The cost of renting base cloud hosting nodes"
     ],
     correct: 1,
-    explanation: "Retainer continuous monitoring aur prompt updates/maintenance ke liye charge hone wali monthly fee hai."
+    explanation: "Retainer is the recurring monthly fee paid by the client to maintain the AI workers against prompt degradation."
   },
   {
     question: "Why is 'Build First, Sell Second' crucial for beginner FDEs?",
@@ -1520,17 +1410,6 @@ export const course2QuizQuestions = [
     explanation: "Service Ladder se shuru mein quick projects milte hain jis se research fund hoti hai."
   },
   {
-    question: "Under the 10-80-10 rule, who is responsible for the final 10% review and approval?",
-    options: [
-      "The AI Agent system",
-      "The human expert/operator",
-      "The database manager server",
-      "The MCP gateway host"
-    ],
-    correct: 1,
-    explanation: "Final quality checks aur approval human expert (operator) manually perform karta hai."
-  },
-  {
     question: "What is a 'Vertical System of Record'?",
     options: [
       "A server racks rack layout database",
@@ -1564,50 +1443,6 @@ export const course2QuizQuestions = [
     explanation: "Slices manageable aur fast outcomes deliver karte hain, jis se client and model validate ho jate hain."
   },
   {
-    question: "What is the ultimate purpose of outcome-based selling?",
-    options: [
-      "To charge the client based on hours spent writing code lines",
-      "To align compensation directly with the actual value/speed delivered (e.g. time saved)",
-      "To hide the database structure from clients",
-      "To avoid writing tests"
-    ],
-    correct: 1,
-    explanation: "Outcome selling hourly model se behtar hai kaikyuki ye AI ki speed aur efficiency leverage karti hai."
-  },
-  {
-    question: "What is a Monthly Retainer's primary business value?",
-    options: [
-      "It makes the client sign a long-term loan agreement",
-      "It provides predictable, recurring revenue for maintaining and checking the AI worker",
-      "It forces the client to use only your database",
-      "It removes the need for FDEs on-site"
-    ],
-    correct: 1,
-    explanation: "Retainers provide recurring revenue and keep the AI updated against prompt degradation."
-  },
-  {
-    question: "Which of the following is a symptom of vendor lock-in?",
-    options: [
-      "Using local open-source models exclusively",
-      "Being unable to switch away from one provider due to proprietary API bindings and custom configurations",
-      "Writing documentation in Markdown files",
-      "Paying tax on cross-border transactions"
-    ],
-    correct: 1,
-    explanation: "Vendor lock-in means proprietary APIs bind you to one vendor's platform."
-  },
-  {
-    question: "What does FDE stand for?",
-    options: [
-      "Front Database Engine",
-      "Forward-Deployed Engineer",
-      "Free Developer Edition",
-      "File Deployment Environment"
-    ],
-    correct: 1,
-    explanation: "FDE stands for Forward-Deployed Engineer."
-  },
-  {
     question: "In the final FDE money roadmap, what is the 'Startup' route based on?",
     options: [
       "Selling random domain names on auctions",
@@ -1617,16 +1452,5 @@ export const course2QuizQuestions = [
     ],
     correct: 1,
     explanation: "Startup path proprietary vertical assets (SoR + workers) build aur license karne par focus karta hai."
-  },
-  {
-    question: "What is 'Build First, Sell Second'?",
-    options: [
-      "Selling a product blueprint before writing any code",
-      "Building and validating a working model (slice) before pitching to clients",
-      "Buying server storage nodes before hiring coders",
-      "Asking the client for funding before showing prototypes"
-    ],
-    correct: 1,
-    explanation: "Pehle working slice build aur test karein, aur phir client ko live results dikha kar pitch karein."
   }
 ];

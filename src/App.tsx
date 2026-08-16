@@ -1215,7 +1215,7 @@ export default function App() {
                     <div className="absolute top-2 left-3 text-[10px] uppercase font-bold tracking-wider text-gray-500">Interactive Canvas Element</div>
                     <div className="w-full py-4 flex items-center justify-center">
                       {activeCourse === 1 
-                        ? renderLessonDiagram(activeLessonId, activeRung, setActiveRung, customizationRatio, setCustomizationRatio)
+                        ? renderLessonDiagram(activeLessonId, activeRung, setActiveRung, customizationRatio, setCustomizationRatio, sliderPosition, setSliderPosition, vertQuestions, setVertQuestions, verticalCalculated, setVerticalCalculated)
                         : activeCourse === 2
                         ? renderCourse2Diagram(activeLessonId, sliderPosition, setSliderPosition, invoiceAnswer, setInvoiceAnswer, vertQuestions, setVertQuestions, verticalCalculated, setVerticalCalculated, contractBase, setContractBase, contractTarget, setContractTarget, contractMeasure, setContractMeasure, contractGenerated, setContractGenerated, customizationRatio, setCustomizationRatio)
                         : activeCourse === 3
@@ -1232,7 +1232,7 @@ export default function App() {
                         <BookOpen size={16} />
                         Simple Explanation
                       </h3>
-                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed font-light font-sans">
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed font-light font-sans whitespace-pre-line">
                         {activeLesson.explanation}
                       </p>
                     </div>
@@ -1242,7 +1242,7 @@ export default function App() {
                         <Sparkles size={16} />
                         Roman Urdu / English
                       </h3>
-                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed font-light">
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed font-light whitespace-pre-line">
                         {activeLesson.explanationUrdu}
                       </p>
                     </div>
@@ -1923,10 +1923,17 @@ function renderLessonDiagram(
   activeRung: number,
   setActiveRung: (n: number) => void,
   customizationRatio: number,
-  setCustomizationRatio: (n: number) => void
+  setCustomizationRatio: (n: number) => void,
+  sliderPosition: "before" | "after",
+  setSliderPosition: (pos: "before" | "after") => void,
+  vertQuestions: Record<number, boolean>,
+  setVertQuestions: (q: Record<number, boolean>) => void,
+  verticalCalculated: boolean,
+  setVerticalCalculated: (b: boolean) => void
 ) {
   switch (id) {
     case 1:
+      // Topic 1: The Ecosystem Concept (Ecosystem intro diagram)
       return (
         <svg className="w-full max-w-lg h-44" viewBox="0 0 500 160">
           <g>
@@ -1955,6 +1962,7 @@ function renderLessonDiagram(
       );
 
     case 2:
+      // Topic 2: System of Record
       return (
         <div className="flex flex-col sm:flex-row items-center gap-6 w-full max-w-md justify-between">
           <div className="p-4 rounded-xl border border-white/5 bg-slate-900 w-full text-center space-y-2">
@@ -1972,137 +1980,7 @@ function renderLessonDiagram(
       );
 
     case 3:
-      return (
-        <div className="space-y-2.5 w-full max-w-sm">
-          <div className="flex items-center justify-between p-2.5 rounded-lg border border-white/5 bg-slate-950/30 opacity-60 text-xs">
-            <span>Project File v1.0 (Draft)</span>
-            <span className="text-[9px] text-gray-400 uppercase">Obsolete</span>
-          </div>
-          <div className="flex items-center justify-between p-2.5 rounded-lg border border-white/5 bg-slate-950/30 opacity-60 text-xs">
-            <span>Project File v2.0 (Edited)</span>
-            <span className="text-[9px] text-gray-400 uppercase">Obsolete</span>
-          </div>
-          <div className="flex items-center justify-between p-2.5 rounded-lg border border-purple-500 bg-purple-500/10 text-xs font-bold">
-            <span className="text-purple-300">Project File v3.0 (Officially Approved)</span>
-            <span className="text-[9px] px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 uppercase">Canonical</span>
-          </div>
-        </div>
-      );
-
-    case 4:
-      return (
-        <div className="flex items-center justify-center gap-2.5 w-full max-w-md">
-          <div className="p-3 rounded-lg border border-white/5 bg-slate-900 text-center flex-1">
-            <span className="text-[10px] text-purple-400 uppercase font-bold">Textbook</span>
-          </div>
-          <span className="text-gray-500">➔</span>
-          <div className="p-3 rounded-lg border border-white/5 bg-slate-900 text-center flex-1">
-            <span className="text-[10px] text-blue-400 uppercase font-bold">Student</span>
-          </div>
-          <span className="text-gray-500">➔</span>
-          <div className="p-3 rounded-lg border border-white/5 bg-slate-900 text-center flex-1">
-            <span className="text-[10px] text-cyan-400 uppercase font-bold">Software</span>
-          </div>
-        </div>
-      );
-
-    case 5:
-      return (
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md justify-between">
-          <div className="p-4 rounded-xl border border-white/5 bg-slate-900 w-full text-center">
-            <span className="text-[10px] text-pink-400 font-bold uppercase">Generic Chatbot</span>
-            <div className="text-xs text-gray-400 mt-2 font-mono">Q ➔ Ans<br />(No Session Memory)</div>
-          </div>
-          <div className="text-gray-500">vs</div>
-          <div className="p-4 rounded-xl border border-purple-500/30 bg-purple-950/20 w-full text-center">
-            <span className="text-[10px] text-purple-300 font-bold uppercase">Ecosystem AI</span>
-            <div className="text-xs text-white mt-2 font-mono">Tracks Levels<br />& Course Records</div>
-          </div>
-        </div>
-      );
-
-    case 6:
-      return (
-        <svg className="w-full max-w-lg h-36" viewBox="0 0 500 120">
-          <rect x="20" y="10" width="180" height="100" rx="10" fill="#0f172a" stroke="rgba(239,68,68,0.2)" strokeWidth="1" />
-          <text x="110" y="30" fill="#ef4444" fontSize="10" fontWeight="bold" textAnchor="middle">Generic AI (Raw)</text>
-          <text x="110" y="60" fill="#9ca3af" fontSize="9" textAnchor="middle">Question ➔ Output (No structure)</text>
-          <text x="110" y="80" fill="#9ca3af" fontSize="9" textAnchor="middle">No records / Unknown start</text>
-
-          <text x="250" y="65" fill="#4b5563" fontSize="20" textAnchor="middle">↔</text>
-
-          <rect x="300" y="10" width="180" height="100" rx="10" fill="#0f172a" stroke="rgba(168,85,247,0.3)" strokeWidth="1" />
-          <text x="390" y="30" fill="#a855f7" fontSize="10" fontWeight="bold" textAnchor="middle">Structured AI Tutor</text>
-          <text x="390" y="55" fill="#9ca3af" fontSize="8" textAnchor="middle">Level Check ➔ Study Lesson</text>
-          <text x="390" y="75" fill="#9ca3af" fontSize="8" textAnchor="middle">➔ Practice ➔ Progress Saved</text>
-        </svg>
-      );
-
-    case 7:
-      return (
-        <div className="flex flex-col items-center gap-3 w-full max-w-xs">
-          <div className="p-3 rounded-lg border border-purple-500 bg-purple-500/10 w-full text-center">
-            <span className="text-xs font-bold text-white block">Canonical Textbook</span>
-            <span className="text-[9px] text-purple-300 uppercase font-mono">Official Reference SoR</span>
-          </div>
-          <div className="text-gray-500">↓ feeds both</div>
-          <div className="flex gap-4 w-full">
-            <div className="p-2.5 rounded-lg border border-white/5 bg-slate-900 text-center flex-1 text-xs">Human Student</div>
-            <div className="p-2.5 rounded-lg border border-white/5 bg-slate-900 text-center flex-1 text-xs">AI Tutor Agent</div>
-          </div>
-        </div>
-      );
-
-    case 8:
-      return (
-        <div className="flex items-center justify-center gap-4 w-full max-w-sm bg-slate-950/40 p-4 rounded-xl border border-white/5">
-          <div className="p-2 rounded-lg bg-slate-900 border border-purple-500/30 text-xs font-mono text-purple-300">
-            AI Agent
-          </div>
-          <div className="h-0.5 w-8 bg-purple-500 relative">
-            <div className="absolute -top-1 left-2 h-2.5 w-2.5 rounded-full bg-cyan-400"></div>
-          </div>
-          <div className="p-2 rounded-lg bg-cyan-950/30 border border-cyan-500 text-xs font-bold text-cyan-400">
-            MCP Bridge
-          </div>
-          <div className="h-0.5 w-8 bg-purple-500"></div>
-          <div className="p-2 rounded-lg bg-slate-900 border border-blue-500/30 text-xs font-mono text-blue-300">
-            Records & Tools
-          </div>
-        </div>
-      );
-
-    case 9:
-      return (
-        <div className="w-full max-w-md space-y-4">
-          <div className="flex items-end gap-1 justify-center h-28 pt-2">
-            {[1, 2, 3, 4].map((rung) => {
-              const isActive = activeRung === rung;
-              const rungNames = ["URL Paste", "SoR Connect", "Zia Tutor", "Zia Developer"];
-              const heightClass = ["h-8", "h-14", "h-20", "h-26"][rung - 1];
-              return (
-                <button
-                  key={rung}
-                  onClick={() => setActiveRung(rung)}
-                  className={`flex-1 rounded-t-lg transition-all ${heightClass} ${isActive ? "bg-gradient-to-t from-purple-600 to-pink-500 shadow-lg" : "bg-slate-800 hover:bg-slate-700"} flex flex-col items-center justify-end pb-2`}
-                >
-                  <span className="text-[10px] font-bold text-white">L{rung}</span>
-                  <span className="text-[8px] text-gray-300 truncate max-w-full px-1">{rungNames[rung - 1]}</span>
-                </button>
-              );
-            })}
-          </div>
-          <div className="p-3.5 rounded-xl border border-white/5 bg-slate-900/60 text-xs">
-            <strong>Active Level Rung {activeRung}:</strong>{" "}
-            {activeRung === 1 && "Copy-pasting data manually. High manual effort."}
-            {activeRung === 2 && "Direct pipeline connection to the live database System of Record."}
-            {activeRung === 3 && "Structured AI tutor guides the student with sequence memory."}
-            {activeRung === 4 && "Autonomous AI developer assistant codes, compiles, and tests software."}
-          </div>
-        </div>
-      );
-
-    case 10:
+      // Topic 3: Zia Tutor AI (Personal tutor records)
       return (
         <div className="flex flex-col items-center gap-1.5 w-full max-w-xs">
           {["Knowledge Record", "Identity Record", "Learner Record", "Personal Profile"].map((rec, rIdx) => (
@@ -2117,7 +1995,8 @@ function renderLessonDiagram(
         </div>
       );
 
-    case 11:
+    case 4:
+      // Topic 4: Zia Developer AI (Software lifecycle steps)
       return (
         <div className="grid grid-cols-3 gap-2 w-full max-w-xs justify-items-center">
           {["Requirement", "Architecture", "Specification", "Build", "Test", "Install"].map((step, idx) => (
@@ -2128,168 +2007,114 @@ function renderLessonDiagram(
         </div>
       );
 
-    case 12:
-      return (
-        <svg className="w-full max-w-xs h-36" viewBox="0 0 200 120">
-          <polygon points="10,10 190,10 140,80 60,80" fill="#0f172a" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-          <text x="100" y="30" fill="#9ca3af" fontSize="10" textAnchor="middle" fontWeight="bold">General Knowledge AI</text>
-          <text x="100" y="55" fill="#a855f7" fontSize="8" textAnchor="middle">Accounting / Domain Filter</text>
-          
-          <rect x="60" y="90" width="80" height="25" rx="5" fill="#3b82f6" />
-          <text x="100" y="105" fill="#fff" fontSize="8" fontWeight="bold" textAnchor="middle">Vertical AI Worker</text>
-        </svg>
-      );
-
-    case 13:
-      return (
-        <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-sm justify-between">
-          <div className="p-2.5 rounded-lg border border-white/5 bg-slate-900 text-center flex-1 text-[10px]">
-            Agent Factory SoR
-          </div>
-          <span className="text-gray-500 font-bold">+</span>
-          <div className="p-2.5 rounded-lg border border-purple-500 bg-purple-500/10 text-center flex-1 text-[10px] text-purple-300 font-bold">
-            Accounting Rules SoR
-          </div>
-          <span className="text-gray-500 font-bold">➔</span>
-          <div className="p-2.5 rounded-lg border border-blue-500 bg-blue-500/10 text-center flex-1 text-[10px] text-blue-300 font-bold">
-            Accounting Workers
-          </div>
-        </div>
-      );
-
-    case 14:
-      return (
-        <div className="space-y-2 w-full max-w-sm">
-          <div className="flex justify-between items-center text-[10px] font-bold text-gray-400 mb-1">
-            <span>Sales AI Worker Pipeline:</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-1.5 justify-center">
-            {["Lead ID", "Qualify", "Interact", "Follow-up", "CRM Sync"].map((step, idx, arr) => (
-              <React.Fragment key={idx}>
-                <span className="px-2.5 py-1 rounded bg-slate-900 border border-white/5 text-[9px] font-mono text-gray-200">
-                  {step}
-                </span>
-                {idx < arr.length - 1 && <span className="text-gray-600">➔</span>}
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      );
-
-    case 15:
-      return (
-        <div className="grid grid-cols-2 gap-4 w-full max-w-sm text-center text-xs">
-          <div className="p-3.5 rounded-xl border border-white/5 bg-slate-900 space-y-1">
-            <span className="text-blue-400 font-bold uppercase text-[9px]">Human Role</span>
-            <p className="font-semibold">Full-Time Employee</p>
-            <p className="text-[10px] text-gray-500 mt-1">40 hrs / wk limit</p>
-          </div>
-          <div className="p-3.5 rounded-xl border border-purple-500/30 bg-purple-950/20 space-y-1">
-            <span className="text-purple-300 font-bold uppercase text-[9px]">Digital Role</span>
-            <p className="font-bold text-white">AI FTE Worker</p>
-            <p className="text-[10px] text-purple-400 mt-1">24/7 autonomous run</p>
-          </div>
-        </div>
-      );
-
-    case 16:
-      return (
-        <div className="flex items-center justify-center gap-3 w-full max-w-xs">
-          <div className="p-3 rounded-lg bg-slate-900 border border-white/5 text-center text-xs text-gray-300">
-            Slack / Teams Platform
-          </div>
-          <div className="text-purple-400 font-bold">+</div>
-          <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500 text-center text-xs font-bold text-purple-300">
-            AI Plugin Connector
-          </div>
-        </div>
-      );
-
-    case 17:
-      return (
-        <div className="w-full max-w-sm space-y-4">
-          <div className="flex h-10 rounded-xl overflow-hidden border border-white/10">
-            <div 
-              className="bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center text-white text-[10px] font-extrabold transition-all duration-300"
-              style={{ width: `${100 - customizationRatio}%` }}
-            >
-              Reusable Core ({100 - customizationRatio}%)
-            </div>
-            <div 
-              className="bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center text-white text-[10px] font-extrabold transition-all duration-300"
-              style={{ width: `${customizationRatio}%` }}
-            >
-              Client Custom ({customizationRatio}%)
-            </div>
-          </div>
-          <div className="space-y-1">
-            <label className="text-[10px] text-gray-400 flex justify-between font-bold">
-              <span>Adjust Customization Ratio:</span>
-              <span>{customizationRatio}% Custom</span>
-            </label>
-            <input 
-              type="range" 
-              min="5" 
-              max="50" 
-              value={customizationRatio}
-              onChange={(e) => setCustomizationRatio(Number(e.target.value))}
-              className="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-pink-500" 
-            />
-          </div>
-        </div>
-      );
-
-    case 18:
-      return (
-        <div className="flex items-center justify-center gap-2.5 w-full max-w-sm">
-          <div className="p-2.5 rounded-lg border border-blue-500/30 bg-blue-950/20 text-center flex-1">
-            <span className="text-[9px] text-blue-400 block font-bold">Human 10%</span>
-            <span className="text-[10px] text-white">Specs</span>
-          </div>
-          <span className="text-gray-600">➔</span>
-          <div className="p-2.5 rounded-lg border border-purple-500 bg-purple-500/10 text-center flex-1">
-            <span className="text-[9px] text-purple-300 block font-bold">AI 80%</span>
-            <span className="text-[10px] text-white">Building</span>
-          </div>
-          <span className="text-gray-600">➔</span>
-          <div className="p-2.5 rounded-lg border border-blue-500/30 bg-blue-950/20 text-center flex-1">
-            <span className="text-[9px] text-blue-400 block font-bold">Human 10%</span>
-            <span className="text-[10px] text-white">Review</span>
-          </div>
-        </div>
-      );
-
-    case 19:
-      return (
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-sm justify-between bg-slate-950/40 p-4 rounded-xl border border-white/5">
-          <div className="p-2 rounded bg-slate-900 border border-white/5 text-[10px] text-center w-full">
-            Standard AI Core
-          </div>
-          <div className="p-2 rounded bg-purple-500 text-white font-bold text-[10px] text-center w-full shadow-md">
-            ➔ Human FDE ➔
-          </div>
-          <div className="p-2 rounded bg-slate-900 border border-white/5 text-[10px] text-center w-full">
-            Customer Live App
-          </div>
-        </div>
-      );
-
-    case 20:
+    case 5:
+      // Topic 5: The FDE AF Model (Five layers structure)
       return (
         <div className="w-full space-y-2 max-w-md">
           {[
-            { title: "1. Canonical Book Source", color: "border-purple-500 text-purple-300" },
-            { title: "2. Official System of Record", color: "border-pink-500 text-pink-300" },
-            { title: "3. Human Learners + Zia Tutor & Developer", color: "border-blue-500 text-blue-300" },
-            { title: "4. Vertical System of Record Database", color: "border-cyan-500 text-cyan-300" },
-            { title: "5. Vertical AI Workers & Digital FTEs", color: "border-teal-500 text-teal-300" },
-            { title: "6. Customer Actual Business", color: "border-emerald-500 text-emerald-300" }
+            { title: "Layer 4: Customer Instances", color: "border-purple-500 text-purple-300" },
+            { title: "Layer 3: Vertical Ecosystems", color: "border-pink-500 text-pink-300" },
+            { title: "Layer 2: Teaching & Development Ecosystem", color: "border-blue-500 text-blue-300" },
+            { title: "Layer 1: Content System of Record Component", color: "border-cyan-500 text-cyan-300" },
+            { title: "Layer 0: The Foundation Framework", color: "border-teal-500 text-teal-300" }
           ].map((node, idx) => (
             <div key={idx} className={`p-2.5 rounded-lg border-l-4 bg-slate-900 text-xs font-semibold ${node.color} flex items-center gap-2 pl-3`}>
-              <span className="font-mono bg-gray-800 px-1.5 py-0.5 rounded text-[10px]">{idx + 1}</span>
+              <span className="font-mono bg-gray-800 px-1.5 py-0.5 rounded text-[10px]">{idx}</span>
               <span>{node.title}</span>
             </div>
           ))}
+        </div>
+      );
+
+    case 6:
+      // Topic 6: Choosing Your Vertical (5 Vertical questions readiness check)
+      return (
+        <div className="w-full max-w-sm space-y-3 text-left">
+          {!verticalCalculated ? (
+            <>
+              {[
+                { id: 1, text: "Do you have a senior domain practitioner to work with you?" },
+                { id: 2, text: "Is the vertical governed by public laws?" },
+                { id: 3, text: "Do you have 6–9 months of savings/funding?" },
+                { id: 4, text: "Are rules poorly documented in standard English online?" },
+                { id: 5, text: "Can you legally receive cross-border payments?" }
+              ].map((q) => (
+                <div key={q.id} className="flex items-center justify-between gap-3 p-1.5 rounded bg-slate-900/60 border border-white/5 text-[10px]">
+                  <span className="text-gray-300 font-semibold">{q.text}</span>
+                  <div className="flex gap-1 shrink-0">
+                    <button 
+                      onClick={() => setVertQuestions({ ...vertQuestions, [q.id]: true })}
+                      className={`px-2 py-0.5 rounded text-[9px] ${vertQuestions[q.id] === true ? "bg-purple-600 text-white" : "bg-white/5 text-gray-400"}`}
+                    >
+                      Yes
+                    </button>
+                    <button 
+                      onClick={() => setVertQuestions({ ...vertQuestions, [q.id]: false })}
+                      className={`px-2 py-0.5 rounded text-[9px] ${vertQuestions[q.id] === false ? "bg-red-600 text-white" : "bg-white/5 text-gray-400"}`}
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+              ))}
+              <button
+                onClick={() => setVerticalCalculated(true)}
+                className="w-full py-2 rounded bg-purple-600 text-white font-bold text-xs shadow-md"
+              >
+                Calculate Readiness
+              </button>
+            </>
+          ) : (
+            <div className="p-4 rounded-xl border border-purple-500 bg-purple-500/5 space-y-3 text-center">
+              <h4 className="text-xs font-bold text-white uppercase">Readiness Result:</h4>
+              <p className="text-xs text-gray-300 font-semibold leading-relaxed">
+                {vertQuestions[1] === true
+                  ? "✅ VERTICAL READY: You have expert access. Start designing your Vertical SoR database."
+                  : "⚠️ SERVICE LADDER RECOMMENDED: Missing expert access. Start with basic service configurations to gain trust and meet experts first."}
+              </p>
+              <button 
+                onClick={() => { setVerticalCalculated(false); setVertQuestions({}); }}
+                className="text-[10px] text-purple-400 underline"
+              >
+                Re-calculate
+              </button>
+            </div>
+          )}
+        </div>
+      );
+
+    case 7:
+      // Topic 7: Designing the Vertical SoR (KEEP/REDESIGN/DELETE cards)
+      return (
+        <div className="flex gap-2.5 w-full max-w-sm text-center text-[10px] font-bold">
+          <div className="p-3.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex-1">
+            <span>KEEP</span>
+            <span className="block text-[8px] text-gray-400 font-normal mt-1">Regulatory rules & trust factors</span>
+          </div>
+          <div className="p-3.5 rounded bg-purple-500/10 border border-purple-500/30 text-purple-400 flex-1">
+            <span>REDESIGN</span>
+            <span className="block text-[8px] text-gray-400 font-normal mt-1">Manual data entries with AI</span>
+          </div>
+          <div className="p-3.5 rounded bg-red-500/10 border border-red-500/30 text-red-400 flex-1">
+            <span>DELETE</span>
+            <span className="block text-[8px] text-gray-400 font-normal mt-1">Obsolete routing paperwork</span>
+          </div>
+        </div>
+      );
+
+    case 8:
+      // Topic 8: System of Context (System of Context vs SoR diagram)
+      return (
+        <div className="flex flex-col items-stretch gap-3 w-full max-w-xs text-xs">
+          <div className="p-3 rounded-lg border border-purple-500/30 bg-purple-950/20 text-center font-semibold text-purple-300">
+            System of Record (SoR)
+            <span className="block text-[10px] text-gray-400 font-normal mt-1">Permanent Law / Rules database</span>
+          </div>
+          <div className="text-gray-500 text-center">➕</div>
+          <div className="p-3 rounded-lg border border-blue-500/30 bg-blue-950/20 text-center font-semibold text-blue-300">
+            System of Context
+            <span className="block text-[10px] text-gray-400 font-normal mt-1">Temporary Invoice PDF + Client PO file</span>
+          </div>
         </div>
       );
 

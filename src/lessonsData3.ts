@@ -22,12 +22,32 @@ export const course3Lessons: Lesson[] = [
     id: 1,
     title: "Containers, Not Steps",
     shortTitle: "01 — Containers, Not Steps",
-    explanation: "Many beginners think Prompt, Context, Harness, and Loop are sequential steps that happen one after the other. This is wrong. They are nested containers. The Prompt is inside the Context. The Context exists inside a Harness. The Harness exists inside a Loop. You do not graduate from writing prompts; even the most advanced loops generate prompts at every model call.",
-    explanationUrdu: "Boht se log samajhte hain ke Prompt, Context, Harness, aur Loop sequential steps hain (jaise seedhiyan). Ye ghalat hai. Ye nested containers hain (aik ke andar doosra container). Prompt hamesha Context ke andar hota hai, Context Harness ke andar, aur Harness Loop ke andar hota hai. Aap prompt se 'graduate' nahi hote; sab se advanced autonomous system bhi har step par prompts hi banata hai.",
-    analogy: "A nested doll (Matryoshka). The smallest doll is the Prompt. It sits inside the Context doll. That sits inside the Harness doll. All of them sit inside the largest doll, the Loop.",
-    example: "An AI coder agent running for 10 beats to write a program is in a Loop. In beat 3, it queries the model using a tool harness. That harness builds a context window (files + tool errors) and runs a specific prompt instructions template.",
-    remember: "Loop ➔ Harness ➔ Context ➔ Prompt. They are nested, not sequential.",
-    whyMatters: "If you think they are steps, you will try to replace prompts with loops. Instead, you must design loops that build better prompts.",
+    explanation: `What is it?
+Prompt, Context, Harness, and Loop are nested containers, not sequential steps. The Prompt is inside Context, Context is inside Harness, and Harness is inside Loop.
+
+Why does it matter?
+Understanding nesting stops you from trying to replace prompts with loops. Advanced loops don't bypass prompting; they dynamically construct and send prompts at every step.
+
+Simple Example
+A coding loop runs for 10 beats. In beat 3, it calls the model (Harness). The harness builds a context window (files + errors) containing a prompt instruction.
+
+Key Takeaway
+Loop contains Harness, which contains Context, which contains Prompt. They are nested.`,
+    explanationUrdu: `Yeh Kya Hai?
+Prompt, Context, Harness, aur Loop sequential steps nahi hain balkay nested containers hain (aik ke andar doosra container).
+
+Yeh Kyun Zaroori Hai?
+Is concept ko samjhe bina aap prompt ko loop se replace karne ki ghalat koshish karein ge. Advanced loops bhi har step par prompts generate karte hain.
+
+Sada Misaal
+Aik autonomous coding agent loop run kar raha hai. Beat 3 par, woh model call (Harness) karta hai jise target context files aur check specifications (Prompt) di jati hain.
+
+Aham Nuqta
+Nesting Model: Loop ➔ Harness ➔ Context ➔ Prompt.`,
+    analogy: "A nested Russian Matryoshka doll. The smallest doll is the Prompt. It sits inside the Context. That sits inside the Harness. All of them sit inside the largest doll, the Loop.",
+    example: "An AI coding loop running for 10 beats. In beat 3, it calls the model, utilizing a tool harness that packages open files (Context) and guidelines (Prompt).",
+    remember: "Loop contains Harness, which contains Context, which contains Prompt.",
+    whyMatters: "If you think they are steps, you will make architectural mistakes in loop design.",
     diagramType: "nested_containers_c3",
     miniQuestion: {
       question: "Which model represents the correct relationship between the four layers?",
@@ -45,12 +65,32 @@ export const course3Lessons: Lesson[] = [
     id: 2,
     title: "Unit of Work Test",
     shortTitle: "02 — Unit of Work",
-    explanation: "To understand any AI system or terminology, ask: 'What unit of work are they talking about?' 1) Prompt: Unit of work is one single model call. 2) Context: Unit of work is the model's active window during that call. 3) Harness: Unit of work is one beat (calling model, running tools, handling errors). 4) Loop: Unit of work is the whole run from start to completion.",
-    explanationUrdu: "AI systems ko samajhne ke liye hamesha poochien: 'Kam ki unit (Unit of work) kya hai?' 1. Prompt: Aik single model call. 2. Context: Us call ke waqt active window ki limit. 3. Harness: Aik beat (model call + tool run + error catch). 4. Loop: Poora run shuru se khatam hone tak.",
-    analogy: "A book writing process: A prompt is writing one sentence. Context is the notebook pages open in front of you. Harness is writing one chapter (outline, draft, grammar check). Loop is the entire process of finishing the book.",
-    example: "If someone says 'the harness failed', they mean something broke during a single tool call or beat execution, not that the entire multi-run loop shut down.",
-    remember: "Prompt = Call, Context = Window, Harness = Beat, Loop = Whole Run.",
-    whyMatters: "Terminology varies across vendors. The Unit of Work test helps you bypass vendor jargon and see what actually changed.",
+    explanation: `What is it?
+The Unit of Work is the specific scope of execution for each layer: Prompt (one model call), Context (active model window), Harness (one beat/tool run), and Loop (entire task run).
+
+Why does it matter?
+AI vendors use different terms for similar features. Asking 'what unit of work is this?' helps you bypass marketing jargon and identify what layer is executing.
+
+Simple Example
+If a developer says 'the agent harness failed', they mean a tool call broke during a single beat, not that the entire multi-run loop crashed.
+
+Key Takeaway
+Define your execution boundary: Call (Prompt), Window (Context), Beat (Harness), and Lifecycle (Loop).`,
+    explanationUrdu: `Yeh Kya Hai?
+Unit of Work har layer ke kam ki hadd (execution boundary) ko define karta hai.
+
+Yeh Kyun Zaroori Hai?
+Vendor jargon aapas mein change hota rehta hai. Unit of work se aap identify kar sakte hain ke kis layer par error aaya hai.
+
+Sada Misaal
+Harness ka failure means aik specific tool call (beat) fail hui hai, jabke Loop failure ka matlab hai ke poora execution task fail ho gaya hai.
+
+Aham Nuqta
+Prompt = Call, Context = Window, Harness = Beat, Loop = Whole Run.`,
+    analogy: "Writing a book: Prompt is writing one sentence. Context is pages open on your desk. Harness is writing one chapter (outline + draft + grammar check). Loop is finishing the book.",
+    example: "Differentiating between 'Prompt limits' (character limit of one call) and 'Loop limits' (maximum runtime attempts permitted).",
+    remember: "Always ask: What is the Unit of Work?",
+    whyMatters: "Knowing execution boundaries stops you from debugging the wrong layer.",
     diagramType: "unit_of_work_cards",
     miniQuestion: {
       question: "What is the unit of work for the Harness layer?",
@@ -68,12 +108,32 @@ export const course3Lessons: Lesson[] = [
     id: 3,
     title: "The Prompt Layer & Weakest Ingredient",
     shortTitle: "03 — Prompt Layer",
-    explanation: "The Prompt is the specific message sent to the model. It contains roles, instructions, examples, and output formats. The 'weakest ingredient' principle states that you should diagnose what exactly is wrong before editing: if output shape is wrong, fix format rules; if tone is wrong, adjust audience instructions. Do not rewrite the whole prompt at once.",
-    explanationUrdu: "Prompt wo message hai jo model ko bheja jata hai. Isme instructions, examples, aur formats hote hain. 'Weakest Ingredient' rule kehta hai ke jo cheez kharab hai sirf usey thik karein: agar format kharab hai to rules/examples update karein, agar tone kharab hai to instruction badlein. Poora prompt shuru se naya mat likhein.",
-    analogy: "Cooking soup: If the soup is too sweet, you don't throw it all away and restart. You identify the extra sweet ingredient and balance it.",
-    example: "Instead of changing a prompt from 'Analyze files' to 'You are an expert coder. Read these inputs and make a summary table.', just add a specific instruction: 'Output must be a 5-column markdown table.'",
-    remember: "Identify the weakest ingredient in your prompt first.",
-    whyMatters: "Prompts are easily overused because they are simple to edit, but overwriting them often breaks other working instructions.",
+    explanation: `What is it?
+The Prompt Layer is the specific instructions, roles, examples, and rules sent to the model for a single call.
+
+Why does it matter?
+Editing a prompt blindly can break other working instructions. The 'weakest ingredient' principle requires diagnosing the exact prompt failure before editing.
+
+Simple Example
+If your agent outputs incorrect markdown tables, don't rewrite the system prompt instructions. Simply refine the output formatting rules.
+
+Key Takeaway
+Target the weakest prompt ingredient (instructions, format, examples, or style) rather than rewriting everything.`,
+    explanationUrdu: `Yeh Kya Hai?
+Prompt Layer specific instructions aur parameters ka set hai jo model ko raw input ke sath bheja jata hai.
+
+Yeh Kyun Zaroori Hai?
+Poora prompt bar-bar badalne se doosri working instructions break ho sakti hain. 'Weakest Ingredient' rule kehta hai ke sirf kharab hissay ko target karein.
+
+Sada Misaal
+Agar output table shape kharab hai, to pure prompt ko change karne ke bajaye formatting rule and markdown example text update karein.
+
+Aham Nuqta
+Weakest ingredient ko target karein, prompt bloat se bachein.`,
+    analogy: "Cooking soup: If the soup is too salty, you don't throw it all away. You balance the salt or add water. You identify the weakest ingredient.",
+    example: "Fixing a JSON parsing error by modifying only the schema template in the prompt rules.",
+    remember: "Don't rewrite. Find the weakest ingredient.",
+    whyMatters: "Prompt bloat wastes token space and confuses the model.",
     diagramType: "weakest_ingredient_flow",
     miniQuestion: {
       question: "If an agent outputs correct data but in the wrong text format, what should you adjust?",
@@ -91,207 +151,411 @@ export const course3Lessons: Lesson[] = [
     id: 4,
     title: "The Context Layer & Limits",
     shortTitle: "04 — Context Layer",
-    explanation: "Context is everything the model can see during one single generation call (e.g. system instructions, files, chat history, tool results). If data is not inside this active window, the model cannot use it as a fact. It might try to answer from training data, leading to hallucinations.",
-    explanationUrdu: "Context wo sab cheezain hain jo model aik call ke waqt dekh sakta hai (chat history, rules, files, tool results). Agar koi detail is context window ke andar nahi hai, to model use sach ki tarah verify nahi kar sakta. Woh apni training memory se guess karega jo ke confident aur ghalat ho sakta hai.",
-    analogy: "An open-book exam. You can only write answers using the pages currently open on your desk. If a page is missing, you have to guess from memory.",
-    example: "An agent tries to verify customer pricing but the current catalog file is missing from the context. The model replies with last year's pricing because it was trained on older data.",
-    remember: "No context = Guessing/hallucinating.",
-    whyMatters: "Confident but incorrect answers are almost always context failures, not prompt errors.",
+    explanation: `What is it?
+The Context Layer is the sum of all information (system prompt, files, chat logs, tool returns) the model can see during one execution call.
+
+Why does it matter?
+If key facts are missing from this active window, the model cannot utilize them. It will guess from its training memory, causing confident hallucinations.
+
+Simple Example
+If an invoicing agent is missing the vendor catalog file from its context, it will guess the item prices from generic training records.
+
+Key Takeaway
+No context = Guessing. Ensure all required facts reside inside the active window.`,
+    explanationUrdu: `Yeh Kya Hai?
+Context Layer wo active window hai jo model model call ke waqt dekh sakta hai.
+
+Yeh Kyun Zaroori Hai?
+Agar context mein facts aur files missing hon ge to model hallucinate kare ga aur confident ghalat answers de ga.
+
+Sada Misaal
+Client ledger verify karte waqt current transaction log load na hona. Model purani memory se guess kare ga jo ghalat ho gi.
+
+Aham Nuqta
+Hallucinations aksar weak prompts ki waja se nahi balkay context failures ki waja se hoti hain.`,
+    analogy: "An open-book exam. You can only write answers using the pages currently open on your desk. If a page is missing, you have to guess.",
+    example: "An invoicing bot failing to check pricing matches because the current price sheet PDF was not loaded into the context window.",
+    remember: "Model can only compute what it can see in the active window.",
+    whyMatters: "Context management prevents expensive hallucination risks in business software.",
     diagramType: "context_window_anatomy",
     miniQuestion: {
-      question: "If a model gives a confident but outdated answer about a client record, what is the most likely cause?",
+      question: "What is the primary cause of confident AI hallucinations?",
       options: [
-        "The model is too slow",
-        "The correct current client record was not loaded into the context window",
-        "The prompt role instructions were too friendly",
-        "The loop encountered a network error"
+        "Slow internet connections",
+        "Unstyled UI screens",
+        "Missing facts or reference files from the active context window",
+        "Using loops instead of prompts"
       ],
-      correct: 1,
-      explanation: "Exactly! The information must be in the context window for the model to use it as a fact."
+      correct: 2,
+      explanation: "Correct! If a fact is not in the context, the model guesses from training data, leading to hallucinations."
     }
   },
   {
     id: 5,
     title: "Context Curator: Order, Compress, Drop",
     shortTitle: "05 — Context Curator",
-    explanation: "A 'Curator' is the code mechanism that decides what information enters the context window, in what order, and what gets compressed or removed. Since model context windows are limited and expensive, the curator has three critical jobs: Order (place key items at start/end), Compress (shorten logs), and Drop (discard irrelevant files).",
-    explanationUrdu: "Curator wo code hota hai jo decide karta hai ke context window mein kya data jayega, kis sequence mein jayega, aur kya drop/delete hoga. Chunkay context space limited aur expensive hoti hai, isliye curator information ko (1) Order, (2) Compress, aur (3) Drop karta hai.",
-    analogy: "A busy CEO's personal assistant. Out of 100 emails, they select the 5 most critical ones, highlight the key sentences, and place them on the CEO's desk in order of priority.",
-    example: "Instead of feeding 50 full database tables to the model, the curator queries relevant tables, extracts matching columns, and passes only 10 rows to the context.",
-    remember: "Every compression or drop decision runs the risk of losing important information.",
-    whyMatters: "Too much context degrades model speed and accuracy. Good curators ensure models only process high-value facts.",
-    diagramType: "curator_pipeline",
+    explanation: `What is it?
+The Context Curator is a programmatic component that filters, compresses, and structures raw data before sending it to the model context.
+
+Why does it matter?
+Pasting raw files blindly wastes tokens, increases cost, slows response times, and dilutes model focus.
+
+How does it work?
+The curator follows three rules: 1) Order (put important files first). 2) Compress (convert raw HTML/JSON to compact text). 3) Drop (delete irrelevant files).
+
+Simple Example
+Instead of sending 5MB of raw HTML pages, the curator parses out only the plain text tables, saving 95% of token space.
+
+Key Takeaway
+Curate context before sending it to the model. Do not dump raw data.`,
+    explanationUrdu: `Yeh Kya Hai?
+Context Curator aik code helper hai jo raw files ko compress aur filter kar ke model ko bhejta hai.
+
+Yeh Kyun Zaroori Hai?
+Dher saara raw data model ko bhejna tokens waste karta hai aur AI response ko slow aur ghalat banata hai.
+
+Yeh Kaise Kaam Karta Kaam?
+Curator teen rules follow karta hai: Order (zaroori data pehle), Compress (summarize/clean text), aur Drop (fuzool files delete karna).
+
+Sada Misaal
+5MB ka raw invoice directory model ko bhejne ke bajaye, curator parse kar ke sirf text summary bhejta hai.
+
+Aham Nuqta
+Data dump mat karein. Model ko clean, targeted information hi supply karein.`,
+    analogy: "An executive assistant summarizing a 500-page market report into a 2-page bulleted brief for the CEO.",
+    example: "A Python parser stripping HTML script tags and returning only raw table rows to reduce context footprint.",
+    remember: "Curate data: Order, Compress, Drop.",
+    whyMatters: "Good curation reduces API costs and improves model reasoning accuracy.",
+    diagramType: "curator_ops_flow",
     miniQuestion: {
-      question: "What is the primary role of the Context Curator?",
+      question: "Which of the following describes the correct order of curator operations?",
       options: [
-        "To compile the typescript files into javascript",
-        "To decide what enters the context window, in what order, and what gets dropped",
-        "To translate prompts into multiple languages",
-        "To store API keys securely"
+        "Ignore, expand, replicate",
+        "Order (important first), Compress (clean text), Drop (remove noise)",
+        "Re-write, double, publish",
+        "Delete all prompts and files"
       ],
       correct: 1,
-      explanation: "Correct! The curator controls the entry, order, and density of context window data."
+      explanation: "Exactly! Order, Compress, and Drop are the three steps to optimize context."
     }
   },
   {
     id: 6,
     title: "Lost in the Middle",
-    shortTitle: "06 — Lost in Middle",
-    explanation: "Research shows that language models often perform worse when relevant information is buried in the middle of long context inputs. They have high visibility and recall for details located at the absolute beginning or the absolute end. Curators must place key rules and query targets at these high-retrieval spots.",
-    explanationUrdu: "Research kehti hai ke agar important information lambay inputs ke bilkul beech (middle) mein chup jaye, to models use ignore kar dete hain. Models start aur end ki details ko sab se acchi tarah retrieve aur read karte hain. Curator ko rules hamesha shuru ya aakhir mein rakhne chahiye.",
-    analogy: "Reading a massive 100-page document in a hurry. You remember the first page and the conclusion clearly, but the details on page 53 get blurred in your memory.",
-    example: "Putting the instruction 'CRITICAL: Output must ONLY be JSON' in the middle of 20,000 lines of files often results in a text output. Moving it to the end fixes the issue.",
-    remember: "Burying info in the middle degrades attention. Move rules to the end.",
-    whyMatters: "Knowing this prevents you from blaming model capability when the real issue is context ordering.",
+    shortTitle: "06 — Lost in the Middle",
+    explanation: `What is it?
+Lost in the Middle is a model retrieval phenomenon where LLMs ignore information placed in the middle of a long context window, focusing only on the start and end.
+
+Why does it matter?
+If you place your primary rule or query in the middle of a massive context, the model will likely miss it and fail the task.
+
+Simple Example
+In a 100,000-token document prompt, placing 'Rule: Always double-check pricing' at page 50 leads to the model ignoring the rule and auditing blindly.
+
+Key Takeaway
+Place critical instructions, queries, and target schemas at the absolute start or absolute end of the context layout.`,
+    explanationUrdu: `Yeh Kya Hai?
+Lost in the Middle aik phenomenon hai jahan LLM model context window ke beech mein likhi hui details ko ignore kar deta hai aur start/end par focus karta hai.
+
+Yeh Kyun Zaroori Hai?
+Agar aap ne complex database files ke beech mein main instruction chupa di, to AI use miss kar de ga aur error generate kare ga.
+
+Sada Misaal
+100 pages ke document text ke bilkul center (page 50) par 'Do not process invoices above $1000' likhna. AI model is rule ko bypass kar de ga.
+
+Aham Nuqta
+Main instructions ko hamesha context ke start ya end par place karein.`,
+    analogy: "Reading a long laundry list: You easily remember the first three items and the last item, but forget the items in the middle.",
+    example: "Placing the response schema template at the very end of the model prompt, after all data payloads.",
+    remember: "Middle = dead zone. Put key details at the start or end.",
+    whyMatters: "Failing to account for this leads to silent failures in long-context document processing.",
     diagramType: "lost_in_middle_u",
     miniQuestion: {
-      question: "Where should critical instructions or query targets be placed in a long context window?",
+      question: "Where does an LLM pay the most attention in a large context window?",
       options: [
-        "In the exact middle of the files",
-        "Spread randomly across all lines",
-        "At the absolute beginning or the absolute end of the input context",
-        "In a separate background task only"
+        "Exactly in the middle",
+        "Only in the comments of the code",
+        "At the absolute beginning and the absolute end of the window",
+        "It distributes attention equally across all tokens"
       ],
       correct: 2,
-      explanation: "Yes! High-visibility spots are the absolute beginning and end."
+      explanation: "Correct! Attention follows a U-shaped curve, dropping sharply in the middle."
     }
   },
   {
     id: 7,
     title: "The Harness Layer & One Beat",
     shortTitle: "07 — Harness Layer",
-    explanation: "The Harness is the wrapper code that executes 'one beat'. A beat represents one action step: assembling the context, calling the model, receiving a response, executing tools (like reading files or running a compiler), catching errors, and feeding results back. The harness manages the tools and validates single-step compliance.",
-    explanationUrdu: "Harness wo software code hota hai jo AI ke 'aik beat' (step) ko chalata hai. Aik beat ka matlab hai: data ikatha karna, model call karna, model ka action verify karna (jaise file edit karna ya command chalana), tool errors catch karna, aur result wapas model ko dena.",
-    analogy: "A laboratory safety glovebox. The researcher (AI Model) wants to mix chemicals. The glovebox (Harness) provides the tools, monitors oxygen, stops leaks, and logs the chemical reactions safely.",
-    example: "When Claude Code edits a file, the harness reads the file slice, sends it to Claude, receives the edit diff block, applies the edits to the disk, runs compilation checks, and feeds compilation errors back to the context.",
-    remember: "Harness controls the tools and execution environment of one beat.",
-    whyMatters: "If tools fail to run or errors are not sent back to the context, the AI gets stuck. A robust harness prevents this.",
-    diagramType: "harness_beat_flow",
+    explanation: `What is it?
+The Harness Layer is the execution environment that runs one single 'beat' of the agent: making the model call, running tools, catching system errors, and returning results.
+
+Why does it matter?
+AI models cannot run tools or catch shell errors themselves. The harness acts as the wrapper that makes tools functional and parses system exceptions.
+
+Simple Example
+When Claude Code runs a shell command, the harness executes the script in PowerShell, catches the error code, and feeds it back to Claude's context.
+
+Key Takeaway
+Harness = the single-beat executor. It translates model intents into real-world actions.`,
+    explanationUrdu: `Yeh Kya Hai?
+Harness Layer wo environment hai jo agent ka 'one beat' run karta hai (model call + tool run + exception catch).
+
+Yeh Kyun Zaroori Hai?
+AI model direct commands run nahi kar sakta. Harness model ko system permissions, database connections, aur API tools safely execute karne ka bridge deta hai.
+
+Sada Misaal
+AI tool SQL database read karna chahta hai. Harness database query run karta hai, results context memory mein load karta hai, aur errors clean karta hai.
+
+Aham Nuqta
+Harness aik single execution beat ko manage aur secure karta hai.`,
+    analogy: "A test pilot harness: It provides the flight controls, the seatbelts, the dial displays, and records flight telemetry for one single take-off run.",
+    example: "An agent tool execution harness catching a 'File Not Found' terminal error and formatting it as a markdown context string.",
+    remember: "Harness manages the beat: tool execution and exception handling.",
+    whyMatters: "Without a robust harness, runtime code crashes will cause the whole AI application to freeze.",
+    diagramType: "harness_bridge",
     miniQuestion: {
-      question: "Which of the following is a responsibility of the Harness layer?",
+      question: "What is the primary role of the Harness Layer?",
       options: [
-        "Defining daily project schedules",
-        "Managing tool execution, error handling, and context assembly for one beat",
-        "Paying for API subscription keys",
-        "Storing the permanent system of records database"
+        "To write prompts automatically",
+        "To manage the execution of a single beat (running tools, handling system errors, and returning results to context)",
+        "To host the frontend HTML layouts",
+        "To manage long-term user billing details"
       ],
       correct: 1,
-      explanation: "Yes! The harness operates tools, errors, and context assembly for a single beat."
+      explanation: "Spot on! The Harness handles tool routing and safety boundaries during a single beat."
     }
   },
   {
     id: 8,
     title: "Sub-agents & Summary Risks",
     shortTitle: "08 — Sub-agents",
-    explanation: "A sub-agent is a nested stack of Prompt-Context-Harness-Loop created to handle a sub-task. While they allow processing massive documents in parallel without bloating the main context window, they introduce summary risks: if a sub-agent summarizes details confidently but incorrectly, the main agent will act on false summaries.",
-    explanationUrdu: "Sub-agent ek chota, nested agent stack hota hai jo kisi sub-task ko solve karta hai. Iska faida ye hai ke 50 tables ko aapas mein read karne ke liye main context bloat nahi hota. Lekin risk ye hai ke agar sub-agent ne ghalat summary banayi, to main agent use sach samajh kar ghalat decision le lega.",
-    analogy: "A CEO (Main Agent) asking an intern (Sub-agent) to summarize a 500-page report. If the intern misses a critical financial debt detail but writes a beautiful summary, the CEO will sign the contract blindly.",
-    example: "An auditing agent asks a sub-agent to summarize bank logs. The sub-agent outputs: 'All checks match.' But it ignored minor decimal differences. The main agent reports success, hiding the error.",
-    remember: "Never trust summaries blindly. Force sub-agents to return direct quotes or source IDs.",
-    whyMatters: "To design safe systems, check the sub-agent's validation criteria and evidence requirements.",
-    diagramType: "subagent_hierarchy",
+    explanation: `What is it?
+Sub-agents are child agents spawned by the harness to execute specific, narrow subtasks (like file editing or parsing).
+
+Why does it matter?
+Running everything in one giant prompt accumulates massive context, confuses the model, and dilutes its reasoning. Sub-agents handle subtasks in clean, isolated context windows.
+
+Simple Example
+Instead of letting the main loop compile, test, and write code in one window, the harness spawns a temporary Sub-agent to compile the code and returns only the final pass/fail flag.
+
+Key Takeaway
+Delegate noisy subtasks to sub-agents to keep the parent context clean.`,
+    explanationUrdu: `Yeh Kya Hai?
+Sub-agents chote child agents hote hain jinhein harness specific tasks (jaise code testing ya syntax checks) complete karne ke liye spawn karta hai.
+
+Yeh Kyun Zaroori Hai?
+Aik hi windows mein saara kaam karne se context bahar chala jata hai aur model confuse hota hai. Sub-agents isolated limits mein clean kam karte hain.
+
+Sada Misaal
+Main controller agent file summarize karne ke liye aik sub-agent banata hai jo summary clear kar ke result wapas bhej deta hai.
+
+Aham Nuqta
+Gande aur noisy tasks ko sub-agents par delegate karein taake parent context clean rahe.`,
+    analogy: "A corporate manager who hires a freelance graphic designer to design a single slide layout, rather than bringing them into every strategic board meeting.",
+    example: "Spawning an independent validator sub-agent that verifies the JSON schema output of a data processor before saving.",
+    remember: "Delegate to sub-agents to isolate context and cost.",
+    whyMatters: "Sub-agents improve system reliability and prevent parent window overflow.",
+    diagramType: "subagent_spawning",
     miniQuestion: {
-      question: "What is the primary risk of relying on summaries returned by sub-agents?",
+      question: "Why should a harness spawn sub-agents?",
       options: [
-        "Sub-agents run too fast for cloud databases",
-        "The main agent might accept a confident but incorrect summary without verifying actual evidence",
-        "Sub-agents only compile python files",
-        "Sub-agents require human passwords at every call"
+        "To replace the need for database storage",
+        "To isolate noisy subtasks and keep the main parent context clean and focused",
+        "To run marketing campaigns autonomously",
+        "To translate prompts into multiple languages"
       ],
       correct: 1,
-      explanation: "Correct! Summary risks mean error details can get swallowed in simple summary text."
+      explanation: "Correct! Isolating task execution in sub-agents prevents context contamination in the main model run."
     }
   },
   {
     id: 9,
     title: "Harness Limit vs. Verification",
-    shortTitle: "09 — Limit & Verify",
-    explanation: "A beat can terminate for many reasons: token limits, time limits, tool errors, or model signals. However, 'beat ended' does not mean 'work succeeded'. Harness verification forces test runs, schema checks, and logic audits before concluding. The Maker-Checker principle states that the agent creating the code should not be the sole judge of its validity.",
-    explanationUrdu: "Harness beat khatam hone ke kai reasons hote hain (e.g. error, timeout). Lekin 'beat ended' ka matlab ye nahi ke kaam complete ho gaya. Harness verification (tests, schema audits) checks apply karti hai. 'Maker-Checker' rule kehta hai ke jo AI code likhe, usey khud pass/fail ka final decider nahi hona chahiye.",
-    analogy: "An automated factory: A robot welds a car door (Maker). A separate sensor scanner checks if the welds are aligned (Checker). The welding robot doesn't approve its own work.",
-    example: "The coder agent updates a server route. The harness automatically runs integration tests. If tests fail, it forces a reject loop, preventing the code from merging.",
-    remember: "Beat ended != Work succeeded. Validate work via independent checkers.",
-    whyMatters: "Unverified agents frequently hallucinate success, reporting 'Done!' while leaving broken code.",
-    diagramType: "maker_checker_c3",
+    shortTitle: "09 — Harness Limit",
+    explanation: `What is it?
+Harness Limit vs Verification is the design discipline of capping harness tool runtime and ensuring explicit verification checks before finishing a beat.
+
+Why does it matter?
+If an agent has infinite loop access without verification, it can query tools repeatedly, wasting hundreds of dollars on failing loops.
+
+How does it work?
+We enforce: 1) Hard boundaries on maximum tool calls per beat. 2) Strict test verification requirements (the build must pass lint checks) before tool execution closes.
+
+Simple Example
+A test running harness allows the coding bot up to 5 attempts to compile. If it still fails, it blocks further runs and alerts the operator.
+
+Key Takeaway
+Set hard call caps and require verification checks to prevent infinite runaway loops.`,
+    explanationUrdu: `Yeh Kya Hai?
+Harness Limit ka matlab hai tool calls aur API runs par hard bounds lagana, aur verification checks apply karna.
+
+Yeh Kyun Zaroori Hai?
+Bina limits ke AI agents infinite loops mein phans sakte hain aur bar-bar redundant tools call kar ke dollars waste kar sakte hain.
+
+Sada Misaal
+Code compilation check: harness ko max 5 attempts ki ijazat dena. Agar 5 baar mein code compile na ho to system run stop kar ke status update kare ga.
+
+Aham Nuqta
+Harness boundaries aur verification rules cost protection aur safety ensure karte hain.`,
+    analogy: "A safety valve on a pressure cooker. If pressure builds up past a safe limit, the valve releases steam automatically to prevent an explosion.",
+    example: "Implementing a strict maximum step counter inside the model tool executor hook.",
+    remember: "Infinite loops cost money. Set harness caps.",
+    whyMatters: "Verification safeguards system integrity and controls execution budget.",
+    diagramType: "harness_limit_flow",
     miniQuestion: {
-      question: "What does the Maker-Checker principle advocate?",
+      question: "What is the primary danger of having no Harness execution limits?",
       options: [
-        "The same model should compile and write documentation",
-        "An independent checker (tests/separate agent) should evaluate the work produced by the maker",
-        "The user must write all tests manually before starting",
-        "The system should skip checks if the model is confident"
+        "The model will shut down permanently",
+        "The agent can trigger infinite tool loops, leading to run-away API costs",
+        "The server will run out of database memory",
+        "The user interface will switch to light mode"
       ],
       correct: 1,
-      explanation: "Spot on! The maker writes the work, while a separate checker verifies it."
+      explanation: "Correct! Without step limits, agent loops can enter infinite retry states, generating high API bills."
     }
   },
   {
     id: 10,
     title: "The Loop Layer",
-    shortTitle: "10 — The Loop",
-    explanation: "The Loop is the outer layer governing the entire run. It starts beats, monitors state, handles recovery, and decides what happens next. The Loop comprises three key parts: 1) Heartbeat (starts work), 2) Spine (saves state outside the model so next beats can resume), and 3) Outside Stops (success criteria, max budget, no-progress rules).",
-    explanationUrdu: "Loop sab se outer container hai jo poore execution flow ko chalata hai. Ye beats ko call karta hai, progress save karta hai, aur next steps decide karta hai. Iske 3 parts hote hain: 1. Heartbeat (kaam start karna), 2. Spine (state ko memory mein save karna taake restart na karna pare), 3. Outside Stops (limits aur success rules).",
-    analogy: "A shipping business: Heartbeat is the dispatch schedule. Spine is the shipping ledger tracking delivery status. Outside Stops are safety policies like budget logs and damage limits.",
-    example: "If an agent is stopped at beat 4 due to a rate limit, the Loop saves progress to `state.json`. When the rate limit cools down, it fires beat 5 resuming from that exact step rather than starting over.",
-    remember: "Without a Spine (saved state), your agent has no memory between runs.",
-    whyMatters: "Understanding the Loop layer allows you to build agents that can run unattended for hours safely.",
-    diagramType: "loop_spine_stops",
+    shortTitle: "10 — The Loop Layer",
+    explanation: `What is it?
+The Loop Layer is the outer container that coordinates the entire task lifecycle over multiple beats until a stopping condition is met.
+
+Why does it matter?
+Complex tasks cannot be solved in one step. The loop manages state, coordinates worker beats, and evaluates progress over time to ensure completion.
+
+How does it work?
+It runs a continuous lifecycle: Start Beat ➔ Execute Harness ➔ Observe Output ➔ Save State (Spine) ➔ Check Stopping Conditions ➔ Loop or Exit.
+
+Simple Example
+A file translation agent runs beat-by-beat, translating 10 pages at a time, saving progress to a manifest, and stopping once all pages are marked 'done'.
+
+Key Takeaway
+The Loop is the master supervisor that ensures multi-step tasks are carried through to the end.`,
+    explanationUrdu: `Yeh Kya Hai?
+Loop Layer sab se outer container hai jo complete task lifecycle ko manage aur synchronize karta hai jab tak task finish na ho jaye.
+
+Yeh Kyun Zaroori Hai?
+Complex tasks single call mein solve nahi ho sakte. Loop har run ka state save karta hai aur continuous execution track karta hai.
+
+Yeh Kaise Kaam Karta Hai?
+Yeh beat-by-beat cycle run karta hai: Beat shuru karna ➔ Harness chalana ➔ State (Spine) save karna ➔ Stop condition check karna ➔ Repeat ya Exit.
+
+Sada Misaal
+Aik coding task jo 4 steps mein files create karta hai. Har step ke baad loop state check karta hai ke kya doosra component ready hai.
+
+Aham Nuqta
+Loop = Master supervisor jo tasks ko end-to-end follow up karta hai.`,
+    analogy: "A project manager supervising a construction crew. They check daily progress (beats), update the schedule chart, and close the project once the building passes inspection.",
+    example: "An automated code migration loop running until all TypeScript compilation errors are cleared from the codebase.",
+    remember: "Loop manages state and lifecycle across multiple beats.",
+    whyMatters: "Without a loop, agentic systems cannot handle complex, long-running processes.",
+    diagramType: "loop_lifecycle_c3",
     miniQuestion: {
-      question: "Why is the 'Spine' (state saved outside the model) crucial in Loop Engineering?",
+      question: "Which component of the loop is responsible for holding the persistent state between execution beats?",
       options: [
-        "It increases the model's speed",
-        "It allows subsequent beats to resume from the last known state instead of starting from scratch",
-        "It replaces the need for any prompts",
-        "It is a type of cloud database server"
+        "The Prompt template",
+        "The system context buffer",
+        "The Spine (state file)",
+        "The user browser cookies"
       ],
-      correct: 1,
-      explanation: "Yes! The spine connects the progress records across different runs and beats."
+      correct: 2,
+      explanation: "Correct! The Spine holds the state history so successive beats know what has already been done."
     }
   },
   {
     id: 11,
     title: "Human Gates & Triggers",
     shortTitle: "11 — Human Gates",
-    explanation: "A Human Gate is a predefined checkpoint in the Loop where the execution pauses and awaits human decision. Triggers must be coded in advance: e.g., ambiguity (two equal database matches), risky actions (deleting files, executing payments), or low confidence levels. Guessing in high-ambiguity situations leads to silent failures.",
-    explanationUrdu: "Human Gate ek pre-defined point hota hai jahan system ruk kar human approval ya input ka wait karta hai. Triggers pehle se code hone chahiye: jaise high risk actions (payment transfer), ya low confidence matching (do similar files). AI ko guess karne ke bajaye human se poochhna chahiye.",
-    analogy: "A junior clerk in a bank. If a check is for $50, they sign it automatically. If it's for $500,000, bank policy forces them to get the manager's signature (Human Gate).",
-    example: "The match agent finds two records for 'Bob Smith' (match scores 0.72 vs 0.72). Guessing is risky. The loop halts, sends a Slack notification to the operator, and resumes after approval.",
-    remember: "Guessing looks like success but creates silent bugs. Trigger human gates for ambiguity.",
-    whyMatters: "Safe automation requires defining boundary limits where systems yield control back to humans.",
-    diagramType: "human_gate_flow",
+    explanation: `What is it?
+Human Gates & Triggers are execution breakpoints where the loop pauses and requests human validation before running risky or expensive actions.
+
+Why does it matter?
+Autonomous AI can make errors, overwrite files, or send wrong invoices. Human gates keep humans accountable while utilizing AI speed.
+
+Simple Example
+An AI accounting loop verifies an invoice. If it is under $500, it auto-files. If it is above $500 (trigger), the loop pauses and requests human sign-off.
+
+Key Takeaway
+Automation does not remove accountability. Use Human Gates for high-risk actions.`,
+    explanationUrdu: `Yeh Kya Hai?
+Human Gates execution checkpoints hain jahan loop pause ho kar human operator se validation and permission maangta hai.
+
+Yeh Kyun Zaroori Hai?
+AI ghaltian kar sakta hai. Risky actions (jaise live payment send karna ya production push) par human gate lagana zaroori hai.
+
+Sada Misaal
+Accounting bot invoice check karta hai. Agar value 10,000 PKR se kam ho to auto-approve, agar zyada ho to pause kar ke expert ko notification send karna.
+
+Aham Nuqta
+Human verification risky tasks ko control mein rakhti hai jabke simple tasks auto-run hote hain.`,
+    analogy: "A bank manager signing off on loans: Teller processes minor transactions automatically, but loan documents above a threshold require the manager's signature.",
+    example: "Setting up a validation gate in your loop that requires a Slack slash-command approval to deploy a container.",
+    remember: "Risky actions require a Human Gate. Human holds the accountability.",
+    whyMatters: "Human gates ensure regulatory compliance and prevent operational accidents.",
+    diagramType: "human_gate_box",
     miniQuestion: {
-      question: "When is it appropriate to trigger a Human Gate in an autonomous agent run?",
+      question: "What is the primary purpose of a Human Gate inside a loop?",
       options: [
-        "Only when the model runs out of subscription tokens",
-        "At predefined points of ambiguity, high cost, or risky actions that are hard to undo",
-        "After every single word output",
-        "Never, because loops must be 100% autonomous"
+        "To shut down the server permanently",
+        "To pause the loop and request manual verification/approval for high-risk actions",
+        "To force the user to type python scripts",
+        "To translate context files automatically"
       ],
       correct: 1,
-      explanation: "Correct! Predefined checkpoints for risk and ambiguity keep autonomous loops safe."
+      explanation: "Correct! Human Gates pause execution on risky tasks to get safety sign-offs from humans."
     }
   },
   {
     id: 12,
     title: "Which Layer Broke?",
-    shortTitle: "12 — Which Layer?",
-    explanation: "When an agent fails, you must diagnose before you act. Look for the layer symptom signature: 1) Output is in the wrong format or tone ➔ Prompt. 2) Confident but factually wrong, or misses clear guidelines ➔ Context. 3) Tool fails to run, error is ignored, tests don't run ➔ Harness. 4) Loops indefinitely, stops too early, guesses silently ➔ Loop.",
-    explanationUrdu: "Jab AI agent kharab ho jaye, to change karne se pehle diagnose karein: 1. Format ya tone kharab hai ➔ Prompt check karein. 2. Confident hai par factually wrong hai ➔ Context check karein (data load nahi hua). 3. Tool nahi chala ya validation test fail hua ➔ Harness check karein. 4. Infinite loop chal raha hai ya bina validation close ho gaya ➔ Loop check karein.",
-    analogy: "Car troubleshooting: If the lights don't turn on, you don't replace the engine (Loop). You check the fuse (Prompt/Harness).",
-    example: "An agent runs for 40 minutes repeating the same command. Do not edit the system prompt to say 'don't loop'. Add a no-progress checking condition in the Loop layer.",
-    remember: "First isolate the failing layer, then apply the fix.",
-    whyMatters: "Most developers blame prompts when the actual solution requires adding validation checks or loop safety caps.",
-    diagramType: "diagnosis_table_visual",
+    shortTitle: "12 — Which Layer Broke?",
+    explanation: `What is it?
+Which Layer Broke is the troubleshooting discipline used to isolate agentic failures into Prompt, Context, Harness, or Loop categories.
+
+Why does it matter?
+If you fix the wrong layer (e.g. rewriting instructions when files were missing from context), you will introduce new bugs and fail to resolve the error.
+
+How does it work?
+- Prompt Failure: Model got all data but disobeyed output formatting rules.
+- Context Failure: Model guessed because key reference files were missing.
+- Harness Failure: Runtime execution crashed due to unhandled database or script errors.
+- Loop Failure: Beat ran repeatedly without making progress (runaway execution).
+
+Simple Example
+Your agent outputs correct text but in French instead of English. This is a Prompt Failure. Fix the instructions.
+
+Key Takeaway
+Isolate the error to its specific container level before editing any code.`,
+    explanationUrdu: `Yeh Kya Hai?
+Which Layer Broke debug-discipline hai jo failures ko Prompt, Context, Harness, ya Loop layers mein classify karti hai.
+
+Yeh Kyun Zaroori Hai?
+Ghalat layer ko fix karne se time waste hota hai aur new bugs create hote hain. Maslan, missing files ke liye prompt ko edit karna.
+
+Yeh Kaise Kaam Karta Hai?
+Check list: 1) Model format instructions bhool gaya? ➔ Prompt fix. 2) Facts missing the? ➔ Context fix. 3) Database tool crash hua? ➔ Harness fix. 4) Loop ruk nahi raha? ➔ Loop fix.
+
+Sada Misaal
+AI bot invoice parse karta hai par database update nahi hoti kyunke connection port wrong hai. Yeh Harness failure hai.
+
+Aham Nuqta
+Code edit karne se pehle error container level locate karein.`,
+    analogy: "A car breakdown check: If the headlight doesn't turn on, you don't rebuild the car engine. You check the light bulb (Prompt) or the wiring harness (Harness).",
+    example: "Diagnosing an API timeout limit as a Harness configuration error, and a hallucinated tax rate as a Context layer retrieval error.",
+    remember: "Isolate error container: Prompt, Context, Harness, or Loop.",
+    whyMatters: "Systematic diagnosis keeps codebase clean and saves debugging time.",
+    diagramType: "diagnose_layers_table",
     miniQuestion: {
-      question: "An agent runs for 2 hours, executing the same command over and over, spending money. Which layer needs fixing?",
+      question: "If an agent enters an infinite run cycle and never shuts down, which layer has failed?",
       options: [
-        "The Prompt (make it ask more politely)",
-        "The Loop (add a no-progress check and attempt limits)",
-        "The Context (add more files)",
-        "The Harness (rewrite the compilation rules)"
+        "Prompt Layer",
+        "Context Layer",
+        "Harness Layer",
+        "Loop Layer"
       ],
-      correct: 1,
-      explanation: "Yes! Retrying the same command indefinitely is a Loop-level failure (missing no-progress checks)."
+      correct: 3,
+      explanation: "Correct! Loop controls runtime lifecycles and stopping conditions. Infinite cycles represent Loop Failures."
     }
   }
 ];

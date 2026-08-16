@@ -5,12 +5,32 @@ export const course4Lessons: Lesson[] = [
     id: 1,
     title: "Overview & The Mindset Shift",
     shortTitle: "01 — Mindset Shift",
-    explanation: "Loop Engineering is the ultimate transition: moving from writing every single prompt manually to designing the system that decides what happens next. Prompting places the human in the cycle at every turn to check and prompt again. Looping automates the schedule, tool runs, verification checks, state management, and next steps.",
-    explanationUrdu: "Loop Engineering ka matlab hai mind ka shift: har step par manual prompt likhne ke bajaye aap aik aisi system design karte hain jo khud agla faisla karti hai. Prompting mein insaan ko har bar khud check kar ke doosra prompt likhna parta hai. Looping mein schedule, tool connections, checker tests, aur state management automatic hote hain.",
-    analogy: "Riding a bicycle where you have to manually push the pedals for every single yard (Prompting) vs. driving an automated car that maintains speed, maps the route, and checks sensors by itself (Looping).",
-    example: "Instead of you reading the output of an AI invoice reader, finding an error, and pasting a new prompt to fix it, a Loop checker automatically runs regex checks, detects matching mismatches, and triggers an editing beat.",
-    remember: "Move from writing prompts to designing the system that controls the turns.",
-    whyMatters: "Human time is limited. To scale AI, systems must run autonomously while humans provide high-level intent.",
+    explanation: `What is it?
+Loop Engineering is the transition from writing manual chat prompts (where humans control every turn) to designing systems that control the execution cycle autonomously.
+
+Why does it matter?
+Human time is limited. To scale AI, systems must run autonomously on schedule or triggers, handling database checks, tool runs, and error corrections without human supervision.
+
+Simple Example
+Instead of you pasting code into Claude and reviewing the error logs manually, a Loop checker automatically runs the tests, parses compiler warnings, and triggers repair beats until the code compiles.
+
+Key Takeaway
+Shift from writing prompts to designing the system that controls the turns.`,
+    explanationUrdu: `Yeh Kya Hai?
+Loop Engineering ka matlab hai manual prompt engineering se system design par shift hona jo execution flow ko khud manage karta hai.
+
+Yeh Kyun Zaroori Hai?
+Human time limited hai. Scaling ke liye AI systems ko schedule ya events par autonomous run hona chahiye aur errors ko khud repair karna chahiye.
+
+Sada Misaal
+Aap manually code check karne ke bajaye aik check loop run karte hain jo syntax tests run karta hai aur ghalat code ko automatically edit beat par bhejta hai.
+
+Aham Nuqta
+Prompts likhne ke bajaye aisi systems design karein jo execution decisions automatically control karein.`,
+    analogy: "Riding a bicycle where you must push the pedals for every single yard (Prompting) vs. driving an automated car that maintains speed, maps the route, and checks sensors (Looping).",
+    example: "A system triggering an automated file-sync script every hour, catching connection errors, and retrying up to 3 times before alerting humans.",
+    remember: "Looping = system control. Prompting = manual control.",
+    whyMatters: "Enables deploying background worker systems that scale without continuous human attention.",
     diagramType: "looping_vs_prompting",
     miniQuestion: {
       question: "What is the core transition in Loop Engineering?",
@@ -28,12 +48,35 @@ export const course4Lessons: Lesson[] = [
     id: 2,
     title: "What Is a Loop?",
     shortTitle: "02 — What Is a Loop?",
-    explanation: "A Loop is a system that starts work, performs the task, checks the result, remembers progress, and repeats the execution run until a stopping condition is met. A professional loop is not just an agent running repeatedly; it requires a heartbeat, a worker, a checker, a state manager, and boundary controls.",
-    explanationUrdu: "Loop aik aisi system hai jo kaam shuru karti hai, usey perform karti hai, validation check karti hai, progress save rakhti hai, aur tab tak chalti rehti hai jab tak success condition satisfy na ho. Ek safe loop mein hamesha heartbeat, worker, checker, aur safety rules hote hain.",
-    analogy: "A restaurant kitchen: A new order arrives (Heartbeat). The cook prepares the meal (Worker). The head chef inspects the presentation and temperature (Checker). If it fails, the cook adjusts it. If it passes, it is served (Stopping Condition).",
-    example: "A database clean-up system: Triggered every Sunday. It reads 100 rows, cleans text fields, runs schema verification, logs progress in `spine.json`, and schedules the next row batch.",
-    remember: "A loop needs a heartbeat, a worker, a checker, and a spine (saved state).",
-    whyMatters: "Running AI without validation checks leads to out-of-control API costs and incorrect data entries.",
+    explanation: `What is it?
+A Loop is a system that starts work, performs the task, checks the result, remembers progress, and repeats the execution beat until a stopping condition is met.
+
+Why does it matter?
+Running AI models repeatedly without boundaries leads to runaway token costs and incorrect data. A professional loop wraps AI with safety boundaries and persistent state.
+
+How does it work?
+It integrates the six core components: 1) Heartbeat (trigger), 2) Worktree (isolated sandbox), 3) Skill (saved rules), 4) Subagents (Maker-Checker execution), 5) Connector (MCP), and 6) State/Spine.
+
+Simple Example
+A database clean-up loop starts on a cron schedule, reads 10 customer records, cleans email fields, runs schema verification, saves status, and exits.
+
+Key Takeaway
+A true loop requires structured boundaries: heartbeat, workers, checkers, and a spine (saved state).`,
+    explanationUrdu: `Yeh Kya Hai?
+Loop aik aisi boundary-controlled system hai jo kaam shuru karti hai, perform karti hai, verify karti hai, state save karti hai, aur exit criteria check karti hai.
+
+Yeh Kyun Zaroori Hai?
+Bina checks ke repetitive models run runaway costs create karte hain. Safe loops mein hamesha verification checkers aur persistent states hone chahiye.
+
+Sada Misaal
+Weekly user audit loop: Cron trigger par system active hota hai, checks run karta hai, progress save karta hai, aur task complete hone par exit ho jata hai.
+
+Aham Nuqta
+Safe Loop = Heartbeat + Worker + Checker + Spine + Stopping Criteria.`,
+    analogy: "A restaurant kitchen: New order arrives (Heartbeat). Cook prepares meal (Worker). Chef inspects presentation (Checker). If approved, it is served (Stopping criteria).",
+    example: "Building a loop that monitors files, processes invoices, logs errors in a state file, and halts if attempts exceed 5 runs.",
+    remember: "Always bind AI execution inside a structured loop container.",
+    whyMatters: "Safety gates and checkers prevent automated code from corrupting production databases.",
     diagramType: "loop_kitchen_analogy",
     miniQuestion: {
       question: "Which of the following represents a true autonomous loop?",
@@ -51,12 +94,32 @@ export const course4Lessons: Lesson[] = [
     id: 3,
     title: "Loop vs Prompting",
     shortTitle: "03 — Loop vs Prompting",
-    explanation: "In Prompting, you are the controller: you start every turn, read every output, guess the next command, and work stops when you leave your computer. In Looping, the system is the controller: a schedule or event triggers the run, an independent checker verifies the work, and the spine decides the next action. Autonomy does not remove human ownership of intent and accountability.",
-    explanationUrdu: "Prompting mein aap supervisor hain: har message aap likhte hain, output parhte hain, aur agla instruction sochte hain. Looping mein system khud schedule se chalta hai, rules evaluate karta hai, aur next beat trigger karta hai. Autonomy se human responsibility khatam nahi hoti, insaan target (intent) aur final checks (accountability) own karta hai.",
-    analogy: "Watering a garden manually with a hand hose (Prompting) vs. installing an automated drip sprinkler system with timer clocks and moisture sensors (Looping).",
-    example: "A support agent reads customer emails automatically at night, queries databases via connectors, structures answers, verifies correctness against company policy, and posts a draft reply, waiting only for your final review gate in the morning.",
-    remember: "Prompting is manual control. Looping is system control governed by human intent.",
-    whyMatters: "Looping allows you to deploy workers that process hundreds of client tickets while you are asleep.",
+    explanation: `What is it?
+Loop vs Prompting separates manual interaction from automated system execution. In Prompting, the human is the controller. In Looping, the system is the controller.
+
+Why does it matter?
+If you remain in the prompting mindset, you cannot scale operations. Looping allows background tasks to run 24/7, keeping humans in a supervisor role.
+
+Simple Example
+Instead of you reading customer messages and copying them to Claude to draft replies, a loop reads emails, drafts responses, checks guidelines, and presents draft files for your morning review.
+
+Key Takeaway
+Prompting is manual control. Looping is system control governed by human intent.`,
+    explanationUrdu: `Yeh Kya Hai?
+Prompting aur Looping ke darmiyan supervisor roles ka difference. Prompting mein human controller hai, looping mein system controller hai.
+
+Yeh Kyun Zaroori Hai?
+Prompting model par scale possible nahi hai. Looping system 24/7 background tickets process kar sakta hai jabke human free rehta hai.
+
+Sada Misaal
+Subha office aakar support drafts check karna jo client tickets ke background check ke baad automatically save ho chuke hain.
+
+Aham Nuqta
+Insaan intent (target) aur final approval (accountability) own karta hai, system execution beats chalata hai.`,
+    analogy: "Watering a lawn: holding a hand hose (Prompting) vs. setting up an automated sprinkler system with timer clocks (Looping).",
+    example: "Transitioning a report drafting pipeline from manual copy-paste commands to a scheduled daily database compilation loop.",
+    remember: "Let the system drive the beats. You set the destination.",
+    whyMatters: "It enables scaling business workloads without hiring more operators.",
     diagramType: "prompting_vs_looping_table",
     miniQuestion: {
       question: "What does the human retain even in a highly autonomous loop?",
@@ -74,12 +137,32 @@ export const course4Lessons: Lesson[] = [
     id: 4,
     title: "Four Layers Connection",
     shortTitle: "04 — Layers Connection",
-    explanation: "Loop Engineering is the outermost container of our agentic framework. Inside the Loop resides the Harness, which executes a single beat. Inside the Harness is the Context window. Inside the Context is the Prompt instructions. Swapping prompts won't fix a looping bug (like retrying the same bad tool command); that must be resolved at the Loop layer using stopping conditions.",
-    explanationUrdu: "Loop Engineering humaray framework ki sab se baahir wali layer hai. Loop ke andar Harness chalta hai (one beat). Harness ke andar Context hota hai, aur Context ke andar Prompt. Agar AI system bar bar ghalat tool try kar ke paise waste kar raha hai, to prompt badalne se farq nahi parega; ye loop-level limit ki problem hai.",
-    analogy: "A watch case: The Loop is the outer waterproof casing. The Harness is the gear assembly. The Context is the dial face. The Prompt is the minute hand. Polishing the minute hand won't fix a broken casing.",
-    example: "An agent is stuck in an infinite cycle attempting to install a library. The prompt says 'Do not repeat'. The agent ignores it because it's a loop state problem. The loop layer must notice the duplicate attempt and halt.",
-    remember: "Always diagnose the container layer before changing the prompt details.",
-    whyMatters: "Saves hours of futile prompt adjustments when the bug is actually a missing database state variable.",
+    explanation: `What is it?
+Loop is the outermost container in our framework, holding the Harness, which contains the Context window, which contains the Prompt.
+
+Why does it matter?
+Debugging the wrong layer is useless. If your agent is stuck retrying the same bad command, changing the prompt to say "don't fail" won't work. The loop layer must handle the stop criteria.
+
+Simple Example
+An agent is stuck trying to access a missing file. The prompt says 'Retry if file error'. The harness loop must notice that the file is missing and halt execution after 3 attempts.
+
+Key Takeaway
+Always diagnose the failure container layer (Prompt, Context, Harness, or Loop) before editing instructions.`,
+    explanationUrdu: `Yeh Kya Hai?
+Loop sab se outer container layer hai jo internal layers (Harness, Context, Prompt) ki execution manage karti hai.
+
+Yeh Kyun Zaroori Hai?
+Repetitive failures (jaise bar-bar crash hona) loops ke states aur boundaries ki problems hain, prompts ki nahi.
+
+Sada Misaal
+AI coding agent bar bar broken link check kar raha hai. Prompt instructions ki jagah Loop execution counts par limit apply karna zaroori hai.
+
+Aham Nuqta
+Isolate failures to their nested container: Loop > Harness > Context > Prompt.`,
+    analogy: "A waterproof watch case. The Loop is the outer casing. The Harness is the gear assembly. The Context is the dial face. The Prompt is the minute hand.",
+    example: "Recognizing that a compilation retry limit belongs to the Loop stopping rules, not the compiler system prompt.",
+    remember: "Prompt is the text. Loop is the engine.",
+    whyMatters: "Prevents token waste and endless runaway agent execution.",
     diagramType: "nested_layers_c4",
     miniQuestion: {
       question: "If an agent repeatedly attempts the same failing code edit 10 times, where should the fix be applied?",
@@ -97,368 +180,362 @@ export const course4Lessons: Lesson[] = [
     id: 5,
     title: "Big Loop vs Small Loop",
     shortTitle: "05 — Big vs Small Loop",
-    explanation: "We must distinguish between: 1) Small Loop (Inner Loop): The prompt-response cycle inside a single model tool invocation (e.g. LLM calls a file-read tool and receives text). 2) Big Loop (Outer Loop): The orchestrator that manages multiple beats over time, tracks persistent state in files, handles cron schedules, and evaluates final success rules.",
-    explanationUrdu: "Humein do loops ka farq pata hona chahiye: 1. Small Loop (Inner Loop): Aik single model call ke andar ka flow (jaise model call ➔ tool use ➔ result ➔ next action). 2. Big Loop (Outer Loop): Poore run ka manager jo different beats ko manage karta hai, memory file save karta hai, aur final limits check karta hai.",
-    analogy: "A worker digging a hole: Small loop is the muscle movement of taking one shovel of dirt, throwing it, and checking the hole depth. Big loop is the manager who decides to start digging at 9 AM, tracks daily targets, and stops the job when the pipe is installed.",
-    example: "The Small Loop reads a line of code. The Big Loop runs the nightly test suite, checks if all repository issues are fixed, and sends the final deployment status email.",
-    remember: "Small loop = Inner task steps. Big loop = Outer run orchestration.",
-    whyMatters: "Small loops are often managed directly by the model (e.g. tool calling). Big loops require explicit software code around the agent.",
-    diagramType: "big_vs_small_loop",
+    explanation: `What is it?
+A Small Loop runs inside a single model invocation (asking questions, calling tools). A Big Loop is the external orchestrator managing multiple beats, cron schedules, and persistent state files.
+
+Why does it matter?
+Small loops have no memory between restarts: when the model process ends, everything is lost. Big loops preserve state in a database or file (Spine), making runs durable.
+
+Simple Example
+A coding tool repeatedly listing files inside its prompt window is a Small Loop. A cron job that runs, saves progress to 'spine.json', shuts down, and resumes tomorrow is a Big Loop.
+
+Key Takeaway
+Use Small Loops for rapid tool interactions. Use Big Loops for long-running, durable tasks.`,
+    explanationUrdu: `Yeh Kya Hai?
+Small Loop (Inner Loop) aik single model call ke tools runs ko kehte hain. Big Loop (Outer Loop) overall multi-run lifecycle aur states manage karta hai.
+
+Yeh Kyun Zaroori Hai?
+Small loop ka data model call end hote hi delete ho jata hai. Big loop external storage (Spine) par state save rakhta hai.
+
+Sada Misaal
+Model chat tool run hona small loop hai. Server cron job jo daily files backup save kar ke database track kare, big loop hai.
+
+Aham Nuqta
+Durable and long-running AI workers requires Outer Big Loop management.`,
+    analogy: "An active runner sprint (Small Loop - fast but tires quickly) vs. a multi-stage logistics shipping pipeline (Big Loop - tracks delivery states across cities).",
+    example: "A database sync loop checking batch status files between cron triggers.",
+    remember: "Inner Loop is fast. Outer Loop is durable.",
+    whyMatters: "Enables agents to survive system crashes and server restarts.",
+    diagramType: "big_vs_small_loop_diagram",
     miniQuestion: {
-      question: "Which loop is responsible for managing persistent state across different days and running code tests?",
+      question: "What is the primary characteristic of a Big Loop?",
       options: [
-        "The Inner Small Loop",
-        "The outer Big Loop",
-        "The database compiler",
-        "The prompt template"
+        "It runs entirely inside one single model token generation window",
+        "It manages multiple execution beats over time and saves persistent state in external storage",
+        "It runs only on desktop platforms",
+        "It does not use any tools or APIs"
       ],
       correct: 1,
-      explanation: "Spot on! The outer Big Loop manages scheduling, persistent state, and high-level verification."
+      explanation: "Correct! Big loops coordinate multiple beats and persist state in the Spine."
     }
   },
   {
     id: 6,
-    title: "Six Parts of a Loop",
-    shortTitle: "06 — Six Parts",
-    explanation: "A production-ready Big Loop has six essential components working in sync: 1) Heartbeat (what starts the run), 2) Worktree (isolated working folder), 3) Skill (saved rulebooks and guidelines), 4) Subagents (specialized maker and checker roles), 5) Connector/MCP (interfaces with real systems like GitHub or Slack), and 6) State/Spine (durable memory stored outside model inputs).",
-    explanationUrdu: "Aik complete loop ke 6 main parts hote hain: 1. Heartbeat (kab shuru hona hai), 2. Worktree (alag space taake files conflict na ho), 3. Skill (save kiye gaye rules), 4. Subagents (maker aur checker roles), 5. Connector/MCP (tools se connect karna), aur 6. State/Spine (persistent memory file).",
-    analogy: "A mobile repair shop: Heartbeat is the incoming customer ticket. Worktree is the isolated repair desk. Skill is the manual. Subagents are the solder technician and the tester. Connector is the tools set. Spine is the job sheet tracking status.",
-    example: "A pull request auditor: 1) Heartbeat fires on PR. 2) Worktree checks out branch. 3) Skill loads lint guidelines. 4) Coder subagent edits code. 5) GitHub connector posts comment. 6) State saves matching status logs.",
-    remember: "Heartbeat ➔ Worktree ➔ Skill ➔ Subagents ➔ Connector ➔ Spine.",
-    whyMatters: "Missing any of these parts makes your AI worker unstable or prone to overwriting human files.",
-    diagramType: "six_parts_overview",
+    title: "The Six Loop Components: Heartbeat to Spine",
+    shortTitle: "06 — Six Components",
+    explanation: `What is it?
+The six components of a loop are: 1) Heartbeat (starts beats). 2) Worktree (isolated code sandbox). 3) Skill (saved rule templates). 4) Subagents/Maker-Checker (delegated tasks). 5) Connector (MCP databases). 6) Spine (persistent state file).
+
+Why does it matter?
+A loop missing any of these parts will fail: without a spine, it has amnesia; without sub-agents, its context gets cluttered; without a worktree, it risk corrupting live files.
+
+Simple Example
+When building an auditing loop: the cron trigger is the Heartbeat, the database link is the Connector, and the saved run status file is the Spine.
+
+Key Takeaway
+Ensure all six components are designed and integrated to build a robust, safe loop.`,
+    explanationUrdu: `Yeh Kya Hai?
+Loop ke 6 main components hain: Heartbeat (cron trigger), Worktree (isolated sandbox), Skill (rules), Subagents (Maker-Checker), Connector (MCP link), aur Spine (state storage).
+
+Yeh Kyun Zaroori Hai?
+In mein se koi bhi part missing ho to loop fail ho ga: bina Spine ke amnesia ho ga, bina Worktree ke files corrupt hone ka risk ho ga.
+
+Sada Misaal
+Tax filing engine: Trigger event (Heartbeat), test environment (Worktree), tax directories (Skill), verification check (Checker), secure connection (Connector), aur progress log (Spine).
+
+Aham Nuqta
+Har professional AI agent loop in 6 essential components se mil kar banta hai.`,
+    analogy: "A spacecraft: engine ignition (Heartbeat), clean testing bay (Worktree), operations manual (Skill), automated landing sensors (Checker), radio comms (Connector), and flight computer logs (Spine).",
+    example: "Setting up a config JSON file containing the database endpoints (Connector) and the current loop iteration count (Spine).",
+    remember: "6 components: Heartbeat, Worktree, Skill, Sub-agents, Connector, Spine.",
+    whyMatters: "Structuring your agent around these six elements guarantees safety and reliability.",
+    diagramType: "six_components_circle",
     miniQuestion: {
-      question: "What is the purpose of the 'Worktree' component in the six parts diagram?",
+      question: "Which component represents the isolated sandbox where the loop edits and tests code safely?",
       options: [
-        "To translate prompts to Urdu",
-        "To provide an isolated, clean workspace so parallel agent actions don't cause file conflicts",
-        "To schedule daily runs",
-        "To act as the main model API key"
+        "The Spine",
+        "The Connector",
+        "The Worktree",
+        "The Heartbeat"
       ],
-      correct: 1,
-      explanation: "Yes! Worktree provides file isolation to prevent code collisions between agents."
+      correct: 2,
+      explanation: "Correct! The Worktree isolates the files being modified so they don't corrupt the main branch."
     }
   },
   {
     id: 7,
-    title: "Part 1 — Heartbeat & Triggers",
-    shortTitle: "07 — Heartbeat",
-    explanation: "The Heartbeat is the mechanism that starts a beat or run. Without it, the agent sits idle. There are four primary heartbeat types: 1) In-Session (user starts it manually), 2) Conditional (runs continuously until a specific test passes), 3) Scheduled (runs on a cron schedule, e.g., 9 AM daily), and 4) Event-Driven (triggered by external webhooks, like a new Git commit).",
-    explanationUrdu: "Heartbeat wo trigger hai jo loop ko shuru karta hai. Agar heartbeat na ho, to system band parha rehta hai. 4 main heartbeats hain: 1. In-Session (aap khud manually run karein), 2. Conditional (chalta rahe jab tak kaam done na ho), 3. Scheduled (har Monday ya specific time par chalaayein), 4. Event-Driven (jaise new email aane par automatic start ho).",
-    analogy: "An automated home alarm system: It can be armed manually (In-Session), fire at 10 PM daily (Scheduled), or trigger when a sensor detects motion (Event-Driven).",
-    example: "Setting up a GitHub Action to run an AI review loop whenever a developer opens a Pull Request is an Event-Driven Heartbeat.",
-    remember: "Without an automated Heartbeat, you are the heartbeat.",
-    whyMatters: "To build a truly hands-off digital worker, you must automate the heartbeat trigger.",
-    diagramType: "heartbeat_types",
+    title: "Heartbeat Types",
+    shortTitle: "07 — Heartbeats",
+    explanation: `What is it?
+A Heartbeat is the mechanism that triggers a new execution beat of the loop. There are four types: 1) In-Session, 2) Conditional, 3) Scheduled, and 4) Event-Driven.
+
+Why does it matter?
+Choosing the wrong trigger type wastes resources. Continuous loops waste server CPU, while slow scheduled cron jobs miss immediate client updates.
+
+Simple Example
+- In-Session: CLI waits for user input.
+- Conditional: Loop runs until all tests pass.
+- Scheduled: Weekly database audit at Sunday 12:00.
+- Event-Driven: Code runs when a new email arrives.
+
+Key Takeaway
+Match your trigger heartbeat type with your business outcome speed requirements.`,
+    explanationUrdu: `Yeh Kya Hai?
+Heartbeat wo trigger hai jo loop ki naye beat (run) ko start karta hai. Iski 4 main types hain.
+
+Yeh Kyun Zaroori Hai?
+Ghalat trigger select karne se server cost aur resources waste hote hain.
+
+Sada Misaal
+Support bot ke liye Event-Driven trigger sab se behtar hai, taake jaise hi new ticket (event) aaye, bot foran activate ho.
+
+Aham Nuqta
+4 types: In-Session, Conditional (run-until-done), Scheduled (cron), aur Event-Driven.`,
+    analogy: "Home heating: turning on the radiator manually (In-Session), running until temperature reaches 70F (Conditional), turning on at 6 PM daily (Scheduled), or turning on when window opens (Event-Driven).",
+    example: "Setting up a webhook on GitHub to trigger a builder beat whenever a commit is pushed.",
+    remember: "Choose the heartbeat: session, condition, schedule, or event.",
+    whyMatters: "Optimizing heartbeats controls execution budget and response latency.",
+    diagramType: "heartbeat_types_grid",
     miniQuestion: {
-      question: "If an AI review system starts automatically every night at 2:00 AM, what heartbeat type is it using?",
+      question: "Which heartbeat type is best suited for an automated accounting audit run once a month?",
       options: [
         "In-Session",
         "Event-Driven",
-        "Scheduled",
-        "Conditional"
+        "Scheduled (Cron)",
+        "Conditional (Run-until-done)"
       ],
       correct: 2,
-      explanation: "Correct! Runs triggered by time intervals are Scheduled Heartbeats."
+      explanation: "Correct! Scheduled (Cron) triggers are ideal for periodic tasks like monthly reports."
     }
   },
   {
     id: 8,
-    title: "Part 2 — Worktree Isolation",
-    shortTitle: "08 — Worktree Isolation",
-    explanation: "When agents modify files, they must work in isolated areas (Worktrees). If multiple parallel agent loops run on the same folder, they will overwrite each other's files, read half-written code, or cause compile blocks. Best practice: 'One task, one clean checkout'.",
-    explanationUrdu: "Jab multiple AI workers files par kaam karein, to unhein alag-alag areas (Worktrees) dene chahiye. Agar sab aik hi folder ko use karenge, to files crash ho jayengi ya code overwrite ho jayega. Rule: Har single task ke liye alag clean checkout branch banana.",
-    analogy: "Two painters working on the same canvas at the same time without talking. They will paint over each other's strokes, ruining the picture. Giving them separate canvases (Worktrees) to merge later fixes this.",
-    example: "An AI support loop creates a new git branch `agent-issue-44` and checkouts to a temporary directory. It performs coding and testing there. Only when passes, it creates a Pull Request to merge.",
-    remember: "Isolate workspaces to prevent agents from colliding.",
-    whyMatters: "Crucial for running concurrent agents on server environments without corrupting codebase files.",
-    diagramType: "worktree_conflict",
+    title: "End-to-End Loop Lifecycle",
+    shortTitle: "08 — Loop Lifecycle",
+    explanation: `What is it?
+The Loop Lifecycle is the complete step-by-step sequence an autonomous loop executes from trigger start to stopping resolution.
+
+Why does it matter?
+Understanding the lifecycle allows you to build trace logs and locate where an agent gets stuck or fails its checks.
+
+How does it work?
+Trigger Heartbeat ➔ Check Spine State ➔ Spawn Maker Sub-agent ➔ Run Checker Verification ➔ If check fails, run Repair Beat ➔ Save updated Spine ➔ Exit or Loop.
+
+Simple Example
+In an automated invoice matching engine: Heartbeat starts ➔ reads state ➔ Maker reads PDF ➔ Checker checks PO match ➔ if mismatch (error) runs repair ➔ saves status ➔ stops.
+
+Key Takeaway
+A complete lifecycle loops back through checkers and state updates until final victory conditions are met.`,
+    explanationUrdu: `Yeh Kya Hai?
+Loop Lifecycle aik complete execution path ko dikhata hai jo system startup se stop state tak run karta hai.
+
+Yeh Kyun Zaroori Hai?
+Is lifecycle se aap log files check kar sakte hain aur identify kar sakte hain ke error Maker side par hai ya Checker validation side par.
+
+Sada Misaal
+Invoice processing loop trigger hota hai ➔ purana database progress read karta hai ➔ Maker invoice details draft karta hai ➔ Checker double check karta hai ➔ Spine save hota hai ➔ Loop stop.
+
+Aham Nuqta
+Lifecycle is: Heartbeat ➔ State Read ➔ Maker ➔ Checker ➔ Spine Save ➔ Repeat/Exit.`,
+    analogy: "A manufacturing assembly line: Raw steel enters (start), robot welds (maker), camera scans alignment (checker), conveyor logs status (spine), and finished car rolls out (exit).",
+    example: "Monitoring logs: 'Beat 1: Maker compiled. Beat 2: Checker test failed. Beat 3: Repair compiled. Beat 4: Checker passed. Saving State. Halted.'",
+    remember: "Trigger ➔ Read State ➔ Make ➔ Check ➔ Save State ➔ Loop/Halt.",
+    whyMatters: "Provides a clear architecture to trace and debug agent actions.",
+    diagramType: "loop_lifecycle_flow",
     miniQuestion: {
-      question: "What is the primary risk of not using isolated worktrees for parallel agents?",
+      question: "What is the correct sequence in a loop beat lifecycle?",
       options: [
-        "The model will run out of tokens",
-        "Agents will clash and overwrite each other's files, causing broken code states",
-        "The script will only compile in python",
-        "API calls will double in cost"
+        "Start → Repeat → Crash → Delete",
+        "Heartbeat Trigger → Read State → Maker Action → Checker Verification → Save State → Exit/Loop",
+        "Delete State → Run Prompt → Ask User → Stop",
+        "Only run prompts infinitely without checks"
       ],
       correct: 1,
-      explanation: "Yes! Workspace isolation prevents parallel files corruption."
+      explanation: "Exactly! The structured flow goes: Trigger -> Read -> Make -> Check -> Save -> Exit/Loop."
     }
   },
   {
     id: 9,
-    title: "Part 3 — Skill (Saved Rules)",
-    shortTitle: "09 — Skill",
-    explanation: "A Skill is a saved directory of instructions, scripts, and guidelines loaded by the agent at the start of every run. Instead of pasting 100 lines of coding guidelines into every prompt, the loop reads the Skill directory, keeping prompts clean and ensuring the agent knows the project rules from the first beat.",
-    explanationUrdu: "Skill aik save kiya gaya rulebook folder hota hai jo har new run ke shuru mein read kiya jata hai. Har prompt mein guidelines likhne ke bajaye, loop is skill directory ko access karta hai. Is se instructions consistently follow hoti hain aur prompt space clean rehti hai.",
-    analogy: "A company's employee handbook. Instead of telling the new hire the dress code and database password every morning, you give them the handbook on day one.",
-    example: "Having a folder `skills/code-review` containing check lists and lint commands. When the reviewer agent starts, the loop automatically loads these files into the context.",
-    remember: "Skill directory = persistent project rules and execution guidelines.",
-    whyMatters: "Enforces codebase consistency without bloating the prompt window with duplicate text.",
-    diagramType: "skill_loader",
+    title: "Stopping Conditions & Cost Safety",
+    shortTitle: "09 — Stopping & Safety",
+    explanation: `What is it?
+Stopping Conditions are explicit rules that halt the loop to protect API budgets and codebase integrity. They include success checks, maximum beat limits, and no-progress checks.
+
+Why does it matter?
+If an agent fails to check compilation but keeps retrying, it will execute endlessly, costing hundreds of dollars in hours.
+
+How does it work?
+We enforce safety rules: 1) Success Check (all tests pass). 2) Max Beat Limit (stop after 10 runs). 3) No-Progress Check (stop if file edit count doesn't change).
+
+Simple Example
+Your coding bot attempts to fix a type check. It has run 5 times without decreasing the compile error count. The No-Progress check halts the run automatically.
+
+Key Takeaway
+Always define hard limits on maximum attempts and enforce no-progress checks to safeguard your budget.`,
+    explanationUrdu: `Yeh Kya Hai?
+Stopping Conditions rules hain jo AI loops ko infinite run se rokte hain aur budget/resources ko protect karte hain.
+
+Yeh Kyun Zaroori Hai?
+Agar system compile issues clear nahi kar pa raha aur continuous runs kar raha hai, to infinite calls ho sakti hain aur high bills generate ho sakte hain.
+
+Sada Misaal
+No-Progress Check apply karna: agar teen baar code test errors ki count change na ho to system run ko stop kar de.
+
+Aham Nuqta
+Safety limits are: Max Attempts reached, Success criteria met, aur No-Progress detected.`,
+    analogy: "A safety fuse in home wiring. If current increases past a safe threshold, the fuse breaks to prevent a fire.",
+    example: "Capping a script execution hook: `if (beatsCount > 10) haltLoop('Max runs reached');`.",
+    remember: "Never deploy a loop without a maximum budget cap and progress check.",
+    whyMatters: "Prevents runaway loops from draining your API balance overnight.",
+    diagramType: "safety_valve_graphic",
     miniQuestion: {
-      question: "Why should we use a Skill directory instead of copy-pasting rules into every prompt?",
+      question: "Which check halts the loop if the error count does not decrease after multiple runs?",
       options: [
-        "It speeds up compilation",
-        "It keeps prompts clean and ensures project rules are loaded consistently at every run",
-        "It allows models to run offline",
-        "It is a requirement for using HTML"
+        "The model temperature check",
+        "The No-Progress Check",
+        "The token length limit",
+        "The SQL query optimizer"
       ],
       correct: 1,
-      explanation: "Exactly! It maintains consistency and keeps your core prompts concise."
+      explanation: "Correct! The No-Progress Check detects if the system is stuck in an unproductive loop and halts execution."
     }
   },
   {
     id: 10,
-    title: "Part 4 — Subagents & Maker-Checker",
-    shortTitle: "10 — Maker-Checker",
-    explanation: "Do not let the model that creates the code be the only judge of its success. Maker-Checker architectures split work: the Maker Subagent builds/writes, and the Checker Subagent evaluates the output against explicit tests or guidelines. If the Checker fails, the Loop triggers another correction beat.",
-    explanationUrdu: "Jis AI model ne code likha hai, usey akele khud success decide nahi karni chahiye. 'Maker-Checker' system mein kaam aik model/prompt karta hai (Maker), aur doosra model ya test checks usey verify karta hai (Checker). Agar check fail ho, to loop new correction cycle start karta hai.",
-    analogy: "A magazine: The author writes the article (Maker). The editor reads it for spelling, layout, and legal compliance (Checker). The writer doesn't publish without the editor's check.",
-    example: "Zia Developer writes a SQL script. Zia Checker runs a schema validator tool and reports: 'Warning: missing foreign keys.' Zia Developer reads the report and rewrites the script.",
-    remember: "Maker creates. Checker verifies. Loop coordinates.",
-    whyMatters: "Prevents hallucinations where agents report code works perfectly while it actually has bugs.",
-    diagramType: "maker_checker_loop",
+    title: "Human Gate, Intent & Accountability",
+    shortTitle: "10 — Human Gates",
+    explanation: `What is it?
+Human Gates, Intent, and Accountability define the boundaries of human control in autonomous systems. Intent is the target, Accountability is the liability, and Human Gate is the check.
+
+Why does it matter?
+AI agents execute fast but lack human context and final accountability. The human operator always remains responsible for what the agent deploys or ships.
+
+Simple Example
+Your AI agent drafts a client tax filing. The loop runs all checks, but pauses at a Human Gate. You review the draft table, verify the totals, and click 'File with FBR'.
+
+Key Takeaway
+Automation does not remove accountability. Use Human Gates on all high-risk actions.`,
+    explanationUrdu: `Yeh Kya Hai?
+Human Gates aur human controls: Insaan goal set karta hai (Intent) aur results ka responsible hota hai (Accountability), jabke AI execution support karta hai.
+
+Yeh Kyun Zaroori Hai?
+AI legally accountability face nahi kar sakta. Risky decisions par manual validation triggers aur approvals zaroori hain.
+
+Sada Misaal
+AI tool local folder update karta hai par live git release push karne se pehle human operator ka slack command authorization verification trigger karta hai.
+
+Aham Nuqta
+AI execution handle karta hai, insaan intent aur final verification checklist own karta hai.`,
+    analogy: "A fighter jet pilot: autopilot handles stabilization and route tracking, but the pilot selects targets and authorizes weapon release.",
+    example: "Integrating approval prompts like `/approve` inside the deployment terminal logs before launching code.",
+    remember: "Autonomous execution requires human governance. You own what you ship.",
+    whyMatters: "Protects businesses from regulatory compliance failures caused by unchecked AI actions.",
+    diagramType: "human_gate_hierarchy",
     miniQuestion: {
-      question: "Under the Maker-Checker architecture, who decides if a task is successfully complete?",
+      question: "Who holds the final accountability for actions executed by an AI loop?",
       options: [
-        "The Maker agent only",
-        "The Checker agent/validation test results",
-        "The API billing portal",
-        "The user on every single beat"
+        "The AI Model provider API",
+        "The automated Cron scheduler",
+        "The human operator/engineer who deployed the system",
+        "The SQL database server"
       ],
-      correct: 1,
-      explanation: "Yes! The Checker evaluates and approves the Maker's work."
+      correct: 2,
+      explanation: "Correct! The human operator always carries the final accountability of the system's outcomes."
     }
   },
   {
     id: 11,
-    title: "Part 5 — Connectors & MCP",
-    shortTitle: "11 — Connectors & MCP",
-    explanation: "Connectors bridge the gap between AI reasoning and real systems execution. Model Context Protocol (MCP) provides a standard socket to connect models to local systems, file paths, databases, Slack, or GitHub. Suggesting changes is just dialogue; executing them requires secure connectors.",
-    explanationUrdu: "Connectors AI reasoning aur real system actions ko connect karte hain. MCP aik standard connector port hai jo model ko Slack, databases ya files read/write karne ki capability deta hai. Sirf batana kafi nahi hota, write/execute karne ke liye connectors zaroori hain.",
-    analogy: "A person's brain (AI Model) wanting to write a letter. The arm and pen are the connectors that translate thoughts into real ink on paper.",
-    example: "The loop uses a GitHub connector to post a code comment, and a Slack connector to notify the developer that the build passed successfully.",
-    remember: "Connectors turn AI suggestions into actual execution actions.",
-    whyMatters: "Without secure connectors, AI can only talk and cannot execute changes inside company databases.",
-    diagramType: "mcp_socket",
+    title: "Context Management in Long Loops",
+    shortTitle: "11 — Long Run Context",
+    explanation: `What is it?
+Context Management in Long Loops is the practice of keeping the active window compact during long-running execution cycles.
+
+Why does it matter?
+As loops run for multiple beats, context accumulates (tool logs, error dumps, outputs). A giant context window slows model speeds, increases cost, and degrades model reasoning.
+
+How does it work?
+We use strategies: 1) Store large outputs in files, not chat logs. 2) Move noisy compiles to isolated sub-agents. 3) Maintain the state separately in the Spine.
+
+Simple Example
+Instead of feeding 100 pages of logs to the main prompt, write the logs to 'build.log' and feed the main prompt only a one-line summary: 'Lint passed' or 'Failed at line 50'.
+
+Key Takeaway
+Keep your context window lean. Move raw data payloads to files.`,
+    explanationUrdu: `Yeh Kya Hai?
+Long loops ke context window ko compact aur clean rakhne ka method.
+
+Yeh Kyun Zaroori Hai?
+Loop jaise chalte hain, context ganda hota jata hai (tool outputs and compiler errors memory build karte hain), jis se model reasoning confuse ho jati hai.
+
+Sada Misaal
+100 pages ke compilation errors prompts window mein append karne ke bajaye, file edit summary pass karna: 'Lint failed at index 2'.
+
+Aham Nuqta
+Raw data files mein save karein, main context memory ko hamesha compact rakhein.`,
+    analogy: "Clearing your work desk: writing temporary drafts in notepad files and keeping only the active to-do list card directly in front of you.",
+    example: "Using a parser to strip compile logs before feeding outputs to the LLM agent prompt window.",
+    remember: "Context bloat degrades AI performance. Keep context clean.",
+    whyMatters: "Lean context ensures fast responses and reduces token consumption.",
+    diagramType: "lean_context_graphic",
     miniQuestion: {
-      question: "What role do Connectors and MCP play in Loop architectures?",
+      question: "How should you manage massive tool outputs in long-running loops?",
       options: [
-        "They translate prompts into different fonts",
-        "They allow AI models to connect to and execute actions inside databases, Slack, or file systems",
-        "They check the internet connection speed",
-        "They host the dashboard CSS styling"
+        "Append all output logs directly to the chat context window",
+        "Write raw outputs to files and pass only compact summaries to the active model window",
+        "Delete all database connections",
+        "Run the loops without checks"
       ],
       correct: 1,
-      explanation: "Correct! Connectors and MCP provide the ports for actual system integration."
+      explanation: "Spot on! Writing outputs to files and passing summaries keeps the context lean and focused."
     }
   },
   {
     id: 12,
-    title: "Part 6 — State / Memory (Spine)",
-    shortTitle: "12 — Spine & State",
-    explanation: "Models are stateless; they forget everything when a call session ends. The 'Spine' is the persistent state file (like `state.json` or `progress.md`) stored on disk. The Loop reads the Spine at the start of every beat to know what tasks are done, what is next, and how much budget is left.",
-    explanationUrdu: "AI models stateless hote hain; call session band hotay hi sab bhool jate hain. 'Spine' ek file hoti hai (jaise state.json) jo computer par save rehti hai. Loop har beat ke shuru mein is file ko read karta hai taake usey pata ho ke kya ho chuka hai aur aage kya karna hai.",
-    analogy: "A nurse's shift chart. When a new shift begins, they don't guess what medicine was given; they read the chart to continue patient care safely.",
-    example: "If task 3 fails, the loop logs `status: failed, attempt: 2` in the Spine. When restarted, it resumes task 3 rather than executing task 1 and 2 again.",
-    remember: "No Spine = no memory between runs. Always persist progress to disk.",
-    whyMatters: "Enables agents to recover from network disconnects or API errors and resume work seamlessly.",
-    diagramType: "spine_flow",
+    title: "Troubleshooting & Failure Diagnosis",
+    shortTitle: "12 — Loop Diagnosis",
+    explanation: `What is it?
+Troubleshooting and Failure Diagnosis is the systematic analysis of logs and states to locate loop failures.
+
+Why does it matter?
+When loops break (getting stuck, exceeding budgets, crashing), you must diagnose whether it's a Heartbeat, Maker, Checker, Connector, or Spine failure to apply the correct fix.
+
+How does it work?
+- Heartbeat Failure: System doesn't trigger runs.
+- Maker Failure: System runs but outputs wrong edits.
+- Checker Failure: Test rules are broken or pass invalid code.
+- Spine Failure: State is lost or not updated between runs.
+
+Simple Example
+Your agent compiles code but does not save progress, restarting from scratch on every run. This is a Spine (state saving) failure.
+
+Key Takeaway
+Systematic troubleshooting isolates bugs into the specific loop components before altering code.`,
+    explanationUrdu: `Yeh Kya Hai?
+Systematic logging analysis jis se failures ko 6 loop components (Heartbeat, Maker, Checker, Spine) mein trace kiya jata hai.
+
+Yeh Kyun Zaroori Hai?
+Bina correct trace ke aap database issues thik karne ke liye main prompts update kar ke time waste kar dein ge.
+
+Sada Misaal
+AI code edit karta hai par compile check running failed alerts pass nahi hote. Yeh Checker tool script ka check failure hai.
+
+Aham Nuqta
+Error diagnostics ko specific loop components se map kar ke trace karein.`,
+    analogy: "A dashboard diagnostic tool in a modern car. It displays exactly if the problem is fuel injection (Maker) or the exhaust sensor (Checker).",
+    example: "Checking logs to see why an agent repeated the same shell command, identifying that the state file (Spine) failed to save the current step index.",
+    remember: "Map errors to Loop components: Heartbeat, Maker, Checker, Connector, or Spine.",
+    whyMatters: "Saves developer time and maintains system reliability.",
+    diagramType: "diagnose_loop_flow",
     miniQuestion: {
-      question: "What is the Spine in Loop Engineering?",
+      question: "If a loop repeats the exact same file edit because it forgets what it did in the previous beat, which component is broken?",
       options: [
-        "A physical hardware cable connecting server racks",
-        "A persistent state database/file stored on disk that connects progress between runs",
-        "The instruction template text",
-        "The model's internal neural layer weights"
+        "The Heartbeat Trigger",
+        "The Spine (state saving mechanism)",
+        "The Connector MCP server",
+        "The Prompt template"
       ],
       correct: 1,
-      explanation: "Yes! The Spine is the external state tracker that saves progress across different beats."
-    }
-  },
-  {
-    id: 13,
-    title: "One Complete Loop Lifecycle",
-    shortTitle: "13 — Loop Lifecycle",
-    explanation: "The lifecycle of a single loop run proceeds sequentially: Heartbeat triggers ➔ Discover (scan issues/tasks queue) ➔ Worktree isolation ➔ Skill loading ➔ Maker execution ➔ Checker validation ➔ Human Gate (if risky) ➔ Spine State save ➔ Next beat schedule.",
-    explanationUrdu: "Aik complete loop ka execution lifecycle ye hai: Heartbeat active ➔ Discover (kaam search karna) ➔ Worktree setup ➔ Skill read ➔ Maker run ➔ Checker test ➔ Human Gate (agar approval chahiye) ➔ Spine save ➔ Schedule next run.",
-    analogy: "A mail carrier's day: Clock in (Heartbeat) ➔ Load bag (Discover) ➔ Sort by street (Worktree) ➔ Check guide (Skill) ➔ Deliver (Maker) ➔ Log receipts (Checker) ➔ Return undelivered mail (State/Next beat).",
-    example: "A database auditor: Heartbeat detects a change ➔ Discover scans modified rows ➔ Coder fixes formatting ➔ Compiler tests matches ➔ State saves audited index ➔ Stops.",
-    remember: "Understand the lifecycle to isolate failures in the workflow pipeline.",
-    whyMatters: "Helps you pinpoint exactly where a bottleneck exists in automated processes.",
-    diagramType: "lifecycle_pipeline_c4",
-    miniQuestion: {
-      question: "At which phase of the lifecycle does the loop scan for available tasks or issues?",
-      options: [
-        "Maker execution",
-        "Discover phase",
-        "Human Gate approval",
-        "Heartbeat shutdown"
-      ],
-      correct: 1,
-      explanation: "Exactly! The Discover phase scans and loads tasks into the queue."
-    }
-  },
-  {
-    id: 14,
-    title: "Stopping Conditions & Safety",
-    shortTitle: "14 — Stopping Conditions",
-    explanation: "A Stopping Condition is a testable rule that tells the loop when execution must terminate. Loops must have: 1) Success Condition (all tasks pass checker), 2) Attempt Limits (max 10 beats), and 3) Cost/Token Limits. Without explicit stopping rules, agents will loop infinitely, wasting money on recurring errors.",
-    explanationUrdu: "Stopping Condition aik rule hota hai jo loop ko roakta hai. Loop mein 3 checks zaroori hain: 1. Success condition (checker pass karey), 2. Attempt limit (max 10 attempts), 3. Cost limit. Agar ye safety rules na hoon, to error aane par system infinite calls karta rahega.",
-    analogy: "A washing machine: It stops when the timer runs out (Limit), when the water sensors say it is clean (Success), or when the door is opened (Safety halt).",
-    example: "Setting `max_attempts: 5` in the loop configuration. If the code compiler fails 5 times, the loop stops, saves status as 'manual_review_needed', and alerts the developer.",
-    remember: "Never deploy a loop without max attempt limits and budget caps.",
-    whyMatters: "Prevents massive API bill shocks when agents get stuck in recursive error logic.",
-    diagramType: "stopping_conditions_grid",
-    miniQuestion: {
-      question: "Why should we enforce maximum attempt limits in loops?",
-      options: [
-        "To make the code compile faster",
-        "To prevent infinite execution loops and billing shocks when tools fail repeatedly",
-        "Because models cannot process more than 2 calls",
-        "To format the output as JSON tables"
-      ],
-      correct: 1,
-      explanation: "Yes! Attempt limits act as safety breaks when tools fail repeatedly."
-    }
-  },
-  {
-    id: 15,
-    title: "No-Progress Checks",
-    shortTitle: "15 — No-Progress Checks",
-    explanation: "A loop must evaluate if it is making progress. If Attempt 1, Attempt 2, and Attempt 3 all produce the exact same error, the agent is stuck in a loop. A No-Progress check compares the error state of the current beat with the previous beat. If identical, the loop must STOP and request human intervention.",
-    explanationUrdu: "No-Progress check ye dekhta hai ke kya system koi progress kar raha hai. Agar Attempt 1, 2, aur 3 par same error code ya file text aa raha hai, to system phasa hua hai. Loop ko current aur past error compare karna chahiye; agar same hai to system STOP ho jaye.",
-    analogy: "A driver stuck in a muddy ditch. Spinning the tires faster and faster (Attempts) does not help. They must stop and seek help (No-Progress check).",
-    example: "The compiler reports `SyntaxError: Unexpected token` at line 12. In the next beat, the agent edits the file but compilation returns the exact same line 12 error. The loop halts because the state is unchanged.",
-    remember: "Repeating the same attempt is not progress. Halt and alert.",
-    whyMatters: "Saves tokens and prevents compounding code issues in code automation pipelines.",
-    diagramType: "no_progress_check_flow",
-    miniQuestion: {
-      question: "What does a No-Progress check do in loop execution?",
-      options: [
-        "It speeds up database search indexing",
-        "It checks if attempts are producing the exact same errors or states, and halts the loop to prevent waste",
-        "It writes prompt rules automatically",
-        "It measures internet connection latency"
-      ],
-      correct: 1,
-      explanation: "Exactly! It stops the run if attempts are producing identical errors without improvement."
-    }
-  },
-  {
-    id: 16,
-    title: "Token & Cost Control",
-    shortTitle: "16 — Token Control",
-    explanation: "Autonomous loops can consume massive amounts of tokens, API calls, and compute bandwidth in short periods. FDEs must implement budget meters. Real costs depend on the model provider, the size of files in the context window, and the number of beats. Budget trackers log current cost and halt before thresholds are exceeded.",
-    explanationUrdu: "Autonomous loops boht tezi se API calls, tokens, aur compute resources consume kar sakte hain. FDEs ko hamesha 'budget meters' lagane chahiye. Real cost context window ke size aur model queries par depend karti hai. Budget logging cost cross hote hi process block karti hai.",
-    analogy: "A prepaid electricity meter. You load $20. Once the AC consumes $20 worth of power, the meter shuts down the electricity automatically, preventing an unexpected bill.",
-    example: "A loop tracks token consumption. Beat 1 consumes 15 units. Beat 2 consumes 25 units. Threshold is 50. The loop logs total 40, notices beat 3 would exceed 50, and halts.",
-    remember: "Always track token consumption and place a hard cost cap in your outer loop code.",
-    whyMatters: "Protects your client and yourself from massive credit billing charges.",
-    diagramType: "cost_budget_meter",
-    miniQuestion: {
-      question: "Which factor primarily drives the token cost in an autonomous loop?",
-      options: [
-        "The background grid animation stylesheet size",
-        "The context window density (files size) and the total number of model calls (beats)",
-        "The username string length",
-        "The computer's operating system version"
-      ],
-      correct: 1,
-      explanation: "Yes! Context window size and the frequency of model calls drive the majority of API costs."
-    }
-  },
-  {
-    id: 17,
-    title: "Human Gates & boundary Controls",
-    shortTitle: "17 — Human Gates",
-    explanation: "A Human Gate is a boundary control. It does not mean humans do the work; it means humans approve risky or ambiguous actions. High-risk actions (deploying to production, writing money transactions, editing core master data) must pass a manual gate. Guessing during ambiguous states leads to severe operational errors.",
-    explanationUrdu: "Human Gate boundary control hai. Iska matlab ye nahi ke human sara kaam karega, balkay risky ya high-ambiguity actions ko approve karega. Safe architecture mein automatic code run hota hai par final execution (money transfer, production merge) human approval ke baad hoti hai.",
-    analogy: "A automated bank vault: The system verifies the fingerprint and credentials, but requires the security officer to turn the physical key (Human Gate) before unlocking.",
-    example: "An AI system proposes matching two different invoices to the same client record. The match confidence is 0.51. Instead of guessing, the loop sends a Slack approval form. The run pauses until the user clicks 'Approve'.",
-    remember: "Automation goal = human judgment only where human decisions are needed.",
-    whyMatters: "Protects production environments from destructive agent decisions.",
-    diagramType: "human_gate_boundary",
-    miniQuestion: {
-      question: "What is the primary objective of using Human Gates in loop architectures?",
-      options: [
-        "To make the model run slower",
-        "To keep humans in control of high-risk or ambiguous actions while automating repetitive steps",
-        "To replace the need for writing validation tests",
-        "To enforce developers to use Python only"
-      ],
-      correct: 1,
-      explanation: "Correct! Human Gates balance automation speed with human oversight and safety."
-    }
-  },
-  {
-    id: 18,
-    title: "Claude Code vs OpenCode",
-    shortTitle: "18 — Claude vs OpenCode",
-    explanation: "Different tools implement loops in different ways. Some tools (like Claude Code) have loop execution, context curators, and tool handlers built directly into the packaged product. OpenCode approaches separate the agent worker from an external scheduler (like Node.js or Python). The architecture of loops (heartbeat, checker, spine) is durable across any tool.",
-    explanationUrdu: "Har system loop different tarah se implement karta hai. Kuch systems (e.g. Claude Code) ke andar tool run, context curator, aur loops pehle se built-in hote hain. OpenCode system mein agent worker separate hota hai aur outer scheduler (jaise Python script) usey control karta hai. Core rules sab ke liye same hain.",
-    analogy: "An all-in-one smart home hub (Claude Code) vs. building your own automation using Raspberry Pi, sensors, and custom scripts (OpenCode). Both perform the same task.",
-    example: "Instead of hard-coding Claude Code flags, you write a standard node.js wrapper that monitors database events and calls Claude API, managing the heartbeat outside the model.",
-    remember: "Focus on the loop architecture, not the specific CLI tool version.",
-    whyMatters: "Tools change constantly. Understanding loop patterns ensures your skills remain vendor-neutral.",
-    diagramType: "tool_neutrality_comparison",
-    miniQuestion: {
-      question: "Why should an FDE focus on loop patterns instead of specific tool CLI flags?",
-      options: [
-        "CLI flags are illegal to customize",
-        "Tool specifications change frequently, but the core loop architecture patterns are durable and vendor-neutral",
-        "Models do not understand command line flags",
-        "All cloud hosting systems use the same command script"
-      ],
-      correct: 1,
-      explanation: "Yes! Understanding underlying patterns makes you a flexible and vendor-neutral architect."
-    }
-  },
-  {
-    id: 19,
-    title: "Real Projects Walkthrough",
-    shortTitle: "19 — Real Projects",
-    explanation: "Let's review three real-world loops: 1) ISS Position Tracker: An in-session loop fetching space station coordinates every 10 seconds. 2) Portfolio Builder: A conditional loop that reads CV text, drafts page components, runs validation checks, edits errors, and stops when HTML compile passes. 3) Doorbell reviewer: An event-driven PR scanner posting reviewer logs.",
-    explanationUrdu: "Teen real-world loops dekhein: 1. ISS Tracker: Manual input se start hone wala loop jo space station coordinates har 10 seconds par fetch karta hai. 2. CV Portfolio Builder: Conditional loop jo CV read karta hai, HTML page banata hai, tests run karta hai aur tab stop hota hai jab design check pass ho jaye. 3. PR reviewer doorbell.",
-    analogy: "A student practicing driving: inside an empty lot (ISS tracker), on the highway (Portfolio builder), and delivering package routes autonomously (PR doorbell).",
-    example: "The CV portfolio builder reads a doc, generates `index.html`, runs a browser parser checker, finds a missing CSS import, edits the file, and runs checker again.",
-    remember: "Real projects validate your loop design constraints.",
-    whyMatters: "Shows you how theoretical components (heartbeat, checker, spine) operate in production files.",
-    diagramType: "real_projects_walkthrough",
-    miniQuestion: {
-      question: "Which loop type is demonstrated by an automated GitHub review system that triggers only when a new PR is opened?",
-      options: [
-        "In-Session Loop",
-        "Event-Driven Loop",
-        "Scheduled Loop",
-        "Manual prompt session"
-      ],
-      correct: 1,
-      explanation: "Exactly! Webhook triggers (like PR events) utilize Event-Driven heartbeats."
-    }
-  },
-  {
-    id: 20,
-    title: "Practice Projects & Failure Lab",
-    shortTitle: "20 — Practice & Failures",
-    explanation: "To master loops, practice across 8 levels (file organizers, PR reviewers, customer support triage). Study the Failure Lab to recognize diagnostic signatures: 1) No heartbeat ➔ One run only. 2) No spine ➔ Agent forgets task status on crash. 3) No checker ➔ Silent hallucination. 4) No stops ➔ Infinite billing. 5) Shared worktree ➔ Overwritten files.",
-    explanationUrdu: "Loops seekhney ke liye 8 levels par practice karein (file managers, ticket routers). Failure Lab ko study karein taake problems pehchan sakein: 1. Heartbeat nahi ➔ single run. 2. Spine nahi ➔ crash par data bhool jana. 3. Checker nahi ➔ ghalat code ko pass bolna. 4. Stops nahi ➔ infinite bills. 5. Shared workspace ➔ code conflict.",
-    analogy: "A flight simulator: testing what happens when the engine shuts down, the landing gear jams, or the maps fail, preparing you for real-world flights.",
-    example: "An agent is deployed without a Spine. It completes 99 database matching records. On record 100, the network disconnects. When restarted, the agent processes all 100 records again, wasting API costs.",
-    remember: "Identify loop failures by mapping symptoms back to the missing component.",
-    whyMatters: "Debugging loops requires checking the state logs and safety limits before changing the model configuration.",
-    diagramType: "failure_lab_matrix",
-    miniQuestion: {
-      question: "If an agent completes 50 steps, crashes due to network, and has to restart from step 1, what is missing?",
-      options: [
-        "A stronger model reasoning temperature",
-        "A persistent Spine (saved state) to resume from step 50",
-        "A new formatting prompt",
-        "A faster database query index"
-      ],
-      correct: 1,
-      explanation: "Yes! A persistent Spine lets the loop resume progress after crashes."
+      explanation: "Correct! The Spine is responsible for keeping persistent state history across multiple runs."
     }
   }
 ];
